@@ -13,12 +13,12 @@
   }
 
   function applyTheme(mode) {
-    const next = mode || localStorage.getItem(THEME_KEY) || "system";
+    let next = mode || localStorage.getItem(THEME_KEY);
+    if (next !== "light" && next !== "dark") next = resolvedTheme("system");
     localStorage.setItem(THEME_KEY, next);
-    document.documentElement.dataset.theme = resolvedTheme(next);
-    document.documentElement.dataset.themeMode = next;
-    document.querySelectorAll("[data-theme-option]").forEach((el) => {
-      el.setAttribute("aria-current", el.getAttribute("data-theme-option") === next ? "true" : "false");
+    document.documentElement.dataset.theme = next;
+    document.querySelectorAll("[data-theme-switch]").forEach((el) => {
+      el.setAttribute("aria-checked", next === "dark" ? "true" : "false");
     });
   }
 
@@ -64,20 +64,15 @@
   applyTheme();
   applyLang();
 
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
-    if ((localStorage.getItem(THEME_KEY) || "system") === "system") applyTheme("system");
-  });
-
   document.querySelectorAll("[data-menu]").forEach((menu) => {
     menu.addEventListener("mouseenter", () => menu.classList.add("open"));
     menu.addEventListener("mouseleave", () => menu.classList.remove("open"));
   });
 
   document.addEventListener("click", (ev) => {
-    const themeOpt = ev.target.closest("[data-theme-option]");
-    if (themeOpt) {
-      applyTheme(themeOpt.getAttribute("data-theme-option"));
-      themeOpt.closest("[data-menu]")?.classList.remove("open");
+    const sw = ev.target.closest("[data-theme-switch]");
+    if (sw) {
+      applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
       return;
     }
     const langOpt = ev.target.closest("[data-lang-option]");
