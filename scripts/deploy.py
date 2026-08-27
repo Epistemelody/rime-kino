@@ -248,8 +248,12 @@ def _patch_classicui_theme() -> None:
 
 
 def deploy() -> None:
-    if not VENDOR.is_dir():
-        raise SystemExit(f"missing vendor: {VENDOR}")
+    if not (VENDOR / "rime_mint.schema.yaml").is_file():
+        raise SystemExit(
+            f"missing vendor: {VENDOR}\n"
+            "Runtime submodules are not checked out. Run:\n"
+            "  python3 scripts/init_submodules.py"
+        )
     dest = rime_user_dir()
     dest.mkdir(parents=True, exist_ok=True)
     ignore = shutil.ignore_patterns(".git", "build", "*.userdb", "*.userdb.*")

@@ -86,7 +86,8 @@ Rendered site: [epistemelody.github.io/rime-kino](https://epistemelody.github.io
 
 - **Mint Pinyin Upstream**: [`proj-ref/oh-my-rime`](https://github.com/Mintimate/oh-my-rime) (read-only vendor submodule for baseline Chinese lexicons and the main schema).
 - **Mozc Japanese Model**: [`proj-ref/Insomnia1437-rime`](https://github.com/Insomnia1437/rime) (read-only vendor submodule for dictionaries and bigram connection-cost matrices).
-- **Double-pinyin layout**: [`proj-ref/iamcheyan-rime`](https://github.com/iamcheyan/rime)
-- **Pinyin-Japanese reference**: [`proj-ref/rime-pinyin-jap`](https://github.com/tumuyan/rime-pinyin-jap)
-- **Latin diacritics**: [`proj-ref/rime-spanish`](https://github.com/gkovacs/rime-spanish)
+- **Double-pinyin layout**: [`proj-ref/iamcheyan-rime`](https://github.com/iamcheyan/rime) (research ref; skipped by `--recurse-submodules`)
+- **Pinyin-Japanese reference**: [`proj-ref/rime-pinyin-jap`](https://github.com/tumuyan/rime-pinyin-jap) (research ref; skipped by default)
+- **Latin diacritics**: [`proj-ref/rime-spanish`](https://github.com/gkovacs/rime-spanish) (research ref; skipped by default)
+- **Rime Ice**: [`proj-ref/rime-ice`](https://github.com/iDvel/rime-ice) (research ref; skipped by default)
 - **Historical custom archive**: `proj-arc/cloverplus` (not runtime code). A local snapshot based on [Clover Pinyin](https://github.com/fkxxyz/rime-cloverpinyin) and [rime_latex](https://github.com/shenlebantongying/rime_latex), not a full dependency on either upstream.

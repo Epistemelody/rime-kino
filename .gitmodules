@@ -1,18 +1,28 @@
 [submodule "proj-ref/oh-my-rime"]
 	path = proj-ref/oh-my-rime
 	url = https://github.com/Mintimate/oh-my-rime
+	shallow = true
 [submodule "proj-ref/Insomnia1437-rime"]
 	path = proj-ref/Insomnia1437-rime
 	url = https://github.com/Insomnia1437/rime.git
+	shallow = true
 [submodule "proj-ref/iamcheyan-rime"]
 	path = proj-ref/iamcheyan-rime
 	url = https://github.com/iamcheyan/rime.git
+	update = none
+	shallow = true
 [submodule "proj-ref/rime-pinyin-jap"]
 	path = proj-ref/rime-pinyin-jap
 	url = https://github.com/tumuyan/rime-pinyin-jap
+	update = none
+	shallow = true
 [submodule "proj-ref/rime-spanish"]
 	path = proj-ref/rime-spanish
 	url = https://github.com/gkovacs/rime-spanish.git
+	update = none
+	shallow = true
 [submodule "proj-ref/rime-ice"]
 	path = proj-ref/rime-ice
 	url = https://github.com/iDvel/rime-ice.git
+	update = none
+	shallow = true

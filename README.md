@@ -64,7 +64,7 @@ rime-kino/
 ├── platform/fcitx5/              # Linux Fcitx5 专用配置与 Nord 主题
 ├── docs/                         # 项目技术文档体系 (kino.md, drafts/README.md)
 ├── scripts/                      # 码表编译器 (gen_overlay.py) 与一键部署脚本 (deploy.py)
-├── proj-ref/                     # 子模块依赖 (oh-my-rime, Insomnia1437-rime)
+├── proj-ref/                     # 运行时子模块 + 可选研究参考
 └── tests/                        # 自动化测试套件
 ```
 
@@ -74,9 +74,20 @@ rime-kino/
 
 ### 1. 克隆仓库与子模块
 
+部署只需要两个**运行时**子模块：`oh-my-rime`（拼音底座）与 `Insomnia1437-rime`（日文 Mozc）。其余 `proj-ref/*` 是研究参考，默认不下载。
+
 ```bash
-git clone --recurse-submodules https://github.com/Epistemelody/rime-kino.git
+git clone --recurse-submodules --shallow-submodules https://github.com/Epistemelody/rime-kino.git
 cd rime-kino
+```
+
+`--shallow-submodules` 只取当前 pinned 提交（薄荷拼音完整历史约 400MB）。`.gitmodules` 对研究参考设了 `update = none`，因此 `--recurse-submodules` 不会拉取 `rime-ice` / `iamcheyan-rime` / `rime-pinyin-jap` / `rime-spanish`。
+
+已有仓库、或 clone 时忘了子模块：
+
+```bash
+python3 scripts/init_submodules.py          # 仅运行时，depth 1
+python3 scripts/init_submodules.py --all    # 另含研究参考
 ```
 
 ### 2. 部署到系统
@@ -173,9 +184,10 @@ sudo zypper install -y fcitx5 fcitx5-rime librime-lua fcitx5-config-tool python3
 
 - [oh-my-rime (薄荷拼音)](https://github.com/Mintimate/oh-my-rime)：中文拼音基础方案与多词典生态（`proj-ref/oh-my-rime`）。
 - [Insomnia1437/rime (カギロイ)](https://github.com/Insomnia1437/rime)：Mozc 日文大词库与 Viterbi 转移矩阵事实源（`proj-ref/Insomnia1437-rime`）。
-- [iamcheyan/rime](https://github.com/iamcheyan/rime)：双拼与方案编排参考（`proj-ref/iamcheyan-rime`）。
-- [tumuyan/rime-pinyin-jap](https://github.com/tumuyan/rime-pinyin-jap)：拼音日文方案参考（`proj-ref/rime-pinyin-jap`）。
-- [gkovacs/rime-spanish](https://github.com/gkovacs/rime-spanish)：拉丁重音 `;` 键位参考（`proj-ref/rime-spanish`）。
+- [iamcheyan/rime](https://github.com/iamcheyan/rime)：双拼与方案编排参考（`proj-ref/iamcheyan-rime`，研究参考，默认不克隆）。
+- [tumuyan/rime-pinyin-jap](https://github.com/tumuyan/rime-pinyin-jap)：拼音日文方案参考（`proj-ref/rime-pinyin-jap`，研究参考，默认不克隆）。
+- [gkovacs/rime-spanish](https://github.com/gkovacs/rime-spanish)：拉丁重音 `;` 键位参考（`proj-ref/rime-spanish`，研究参考，默认不克隆）。
+- [iDvel/rime-ice](https://github.com/iDvel/rime-ice)：雾凇拼音参考（`proj-ref/rime-ice`，研究参考，默认不克隆）。
 - [fkxxyz/rime-cloverpinyin (四叶草拼音)](https://github.com/fkxxyz/rime-cloverpinyin)：拼音习惯与成对标点参考。
 - [shenlebantongying/rime_latex](https://github.com/shenlebantongying/rime_latex)：LaTeX 数学符号方案参考。
 - `proj-arc/cloverplus`：基于四叶草拼音与 rime_latex 的本地定制归档（历史参考，非运行时代码）。

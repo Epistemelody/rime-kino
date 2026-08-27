@@ -13,7 +13,7 @@
 Linux（Fcitx5）· Windows（小狼毫）· macOS（鼠须管）
 
 ```bash
-git clone --recurse-submodules https://github.com/Epistemelody/rime-kino.git
+git clone --recurse-submodules --shallow-submodules https://github.com/Epistemelody/rime-kino.git
 cd rime-kino
 ./scripts/deploy.sh   # Windows: .\scripts\deploy.ps1
 ```

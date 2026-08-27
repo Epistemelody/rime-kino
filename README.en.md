@@ -64,7 +64,7 @@ rime-kino/
 ├── platform/fcitx5/              # Linux Fcitx5 configs & Nord themes
 ├── docs/                         # Project technical documentation (kino.en.md, drafts/README.en.md)
 ├── scripts/                      # Table compiler (gen_overlay.py) & deploy engine (deploy.py)
-├── proj-ref/                     # Submodule vendors (oh-my-rime, Insomnia1437-rime)
+├── proj-ref/                     # Runtime submodules + optional research refs
 └── tests/                        # Automated regression test suite
 ```
 
@@ -74,9 +74,20 @@ rime-kino/
 
 ### 1. Clone Repository & Submodules
 
+Deploy needs two **runtime** submodules: `oh-my-rime` (pinyin baseline) and `Insomnia1437-rime` (Japanese Mozc). The other `proj-ref/*` trees are research references and are skipped by default.
+
 ```bash
-git clone --recurse-submodules https://github.com/Epistemelody/rime-kino.git
+git clone --recurse-submodules --shallow-submodules https://github.com/Epistemelody/rime-kino.git
 cd rime-kino
+```
+
+`--shallow-submodules` fetches only the pinned commit (Mint Pinyin's full history is ~400MB). Research refs in `.gitmodules` use `update = none`, so `--recurse-submodules` does not fetch `rime-ice` / `iamcheyan-rime` / `rime-pinyin-jap` / `rime-spanish`.
+
+Existing clone, or clone without submodules:
+
+```bash
+python3 scripts/init_submodules.py          # runtime only, depth 1
+python3 scripts/init_submodules.py --all    # also research refs
 ```
 
 ### 2. Deploy to System
@@ -173,9 +184,10 @@ Then choose **Deploy** from the Squirrel menu-bar icon. The user directory is `~
 
 - [oh-my-rime (Mint Pinyin)](https://github.com/Mintimate/oh-my-rime): Baseline Chinese pinyin dictionary and schema (`proj-ref/oh-my-rime`).
 - [Insomnia1437/rime (Kagiroi)](https://github.com/Insomnia1437/rime): Mozc Japanese dictionaries and Viterbi matrices (`proj-ref/Insomnia1437-rime`).
-- [iamcheyan/rime](https://github.com/iamcheyan/rime): Double-pinyin and schema layout reference (`proj-ref/iamcheyan-rime`).
-- [tumuyan/rime-pinyin-jap](https://github.com/tumuyan/rime-pinyin-jap): Pinyin-Japanese schema reference (`proj-ref/rime-pinyin-jap`).
-- [gkovacs/rime-spanish](https://github.com/gkovacs/rime-spanish): Latin diacritic `;` layout reference (`proj-ref/rime-spanish`).
+- [iamcheyan/rime](https://github.com/iamcheyan/rime): Double-pinyin and schema layout reference (`proj-ref/iamcheyan-rime`, research-only, skipped by default clone).
+- [tumuyan/rime-pinyin-jap](https://github.com/tumuyan/rime-pinyin-jap): Pinyin-Japanese schema reference (`proj-ref/rime-pinyin-jap`, research-only, skipped by default clone).
+- [gkovacs/rime-spanish](https://github.com/gkovacs/rime-spanish): Latin diacritic `;` layout reference (`proj-ref/rime-spanish`, research-only, skipped by default clone).
+- [iDvel/rime-ice](https://github.com/iDvel/rime-ice): Rime Ice reference (`proj-ref/rime-ice`, research-only, skipped by default clone).
 - [fkxxyz/rime-cloverpinyin](https://github.com/fkxxyz/rime-cloverpinyin): Pinyin habits and paired-punctuation reference.
 - [shenlebantongying/rime_latex](https://github.com/shenlebantongying/rime_latex): LaTeX math-symbol schema reference.
 - `proj-arc/cloverplus`: Local customized archive based on Clover Pinyin and rime_latex (historical reference, not runtime code).
