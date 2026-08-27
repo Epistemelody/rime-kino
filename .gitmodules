@@ -13,3 +13,6 @@
 [submodule "proj-ref/rime-spanish"]
 	path = proj-ref/rime-spanish
 	url = https://github.com/gkovacs/rime-spanish.git
+[submodule "proj-ref/rime-ice"]
+	path = proj-ref/rime-ice
+	url = https://github.com/iDvel/rime-ice.git
