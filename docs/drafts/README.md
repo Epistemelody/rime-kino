@@ -195,7 +195,7 @@ python3 -m pytest tests/ -v
 - **[`proj-ref/oh-my-rime`](https://github.com/Mintimate/oh-my-rime)**：上游薄荷拼音主仓库（部署时整树同步为基础底座）。
 - **[`proj-ref/Insomnia1437-rime`](https://github.com/Insomnia1437/rime)**：日文 Mozc 词典与 Viterbi 连接代价矩阵事实源。
 - **[`proj-ref/rime-spanish`](https://github.com/gkovacs/rime-spanish)**：拉丁重音 QWERTY 键盘映射参考源。
-- **`proj-arc/cloverplus`**：历史四叶草方案归档（上游 [fkxxyz/rime-cloverpinyin](https://github.com/fkxxyz/rime-cloverpinyin)），提供标点符号与部分数学符号的历史参考。
+- **`proj-arc/cloverplus`**：基于 [四叶草拼音](https://github.com/fkxxyz/rime-cloverpinyin) 与 [rime_latex](https://github.com/shenlebantongying/rime_latex) 的本地定制归档，提供标点与数学符号的历史参考；不是对任一上游的完整依赖。
 
 ---
 

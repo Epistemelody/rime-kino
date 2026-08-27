@@ -176,7 +176,9 @@ sudo zypper install -y fcitx5 fcitx5-rime librime-lua fcitx5-config-tool python3
 - [iamcheyan/rime](https://github.com/iamcheyan/rime)：双拼与方案编排参考（`proj-ref/iamcheyan-rime`）。
 - [tumuyan/rime-pinyin-jap](https://github.com/tumuyan/rime-pinyin-jap)：拼音日文方案参考（`proj-ref/rime-pinyin-jap`）。
 - [gkovacs/rime-spanish](https://github.com/gkovacs/rime-spanish)：拉丁重音 `;` 键位参考（`proj-ref/rime-spanish`）。
-- [fkxxyz/rime-cloverpinyin (四叶草拼音)](https://github.com/fkxxyz/rime-cloverpinyin)：成对标点与符号历史参考（`proj-arc/cloverplus`）。
+- [fkxxyz/rime-cloverpinyin (四叶草拼音)](https://github.com/fkxxyz/rime-cloverpinyin)：拼音习惯与成对标点参考。
+- [shenlebantongying/rime_latex](https://github.com/shenlebantongying/rime_latex)：LaTeX 数学符号方案参考。
+- `proj-arc/cloverplus`：基于四叶草拼音与 rime_latex 的本地定制归档（历史参考，非运行时代码）。
 - [hchunhui/librime-lua](https://github.com/hchunhui/librime-lua)：Rime Lua 运行时引擎。
 
 ---
@@ -187,7 +189,7 @@ sudo zypper install -y fcitx5 fcitx5-rime librime-lua fcitx5-config-tool python3
 
 ```bibtex
 @software{epistemelody2026kino,
-  author       = {{Epistemelody} and kino contributors},
+  author       = {Felidz and {Epistemelody}},
   title        = {kino: A Modern Table-Driven Multi-Channel Rime Input Overlay Framework},
   year         = {2026},
   publisher    = {GitHub},

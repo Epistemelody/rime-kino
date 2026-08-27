@@ -89,4 +89,4 @@ Rendered site: [epistemelody.github.io/rime-kino](https://epistemelody.github.io
 - **Double-pinyin layout**: [`proj-ref/iamcheyan-rime`](https://github.com/iamcheyan/rime)
 - **Pinyin-Japanese reference**: [`proj-ref/rime-pinyin-jap`](https://github.com/tumuyan/rime-pinyin-jap)
 - **Latin diacritics**: [`proj-ref/rime-spanish`](https://github.com/gkovacs/rime-spanish)
-- **Cloverplus Archive**: `proj-arc/cloverplus` (historical reference, not runtime code; upstream [fkxxyz/rime-cloverpinyin](https://github.com/fkxxyz/rime-cloverpinyin)).
+- **Historical custom archive**: `proj-arc/cloverplus` (not runtime code). A local snapshot based on [Clover Pinyin](https://github.com/fkxxyz/rime-cloverpinyin) and [rime_latex](https://github.com/shenlebantongying/rime_latex), not a full dependency on either upstream.

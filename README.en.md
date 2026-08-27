@@ -176,7 +176,9 @@ Then choose **Deploy** from the Squirrel menu-bar icon. The user directory is `~
 - [iamcheyan/rime](https://github.com/iamcheyan/rime): Double-pinyin and schema layout reference (`proj-ref/iamcheyan-rime`).
 - [tumuyan/rime-pinyin-jap](https://github.com/tumuyan/rime-pinyin-jap): Pinyin-Japanese schema reference (`proj-ref/rime-pinyin-jap`).
 - [gkovacs/rime-spanish](https://github.com/gkovacs/rime-spanish): Latin diacritic `;` layout reference (`proj-ref/rime-spanish`).
-- [fkxxyz/rime-cloverpinyin](https://github.com/fkxxyz/rime-cloverpinyin): Historical punctuation and symbol reference (`proj-arc/cloverplus`).
+- [fkxxyz/rime-cloverpinyin](https://github.com/fkxxyz/rime-cloverpinyin): Pinyin habits and paired-punctuation reference.
+- [shenlebantongying/rime_latex](https://github.com/shenlebantongying/rime_latex): LaTeX math-symbol schema reference.
+- `proj-arc/cloverplus`: Local customized archive based on Clover Pinyin and rime_latex (historical reference, not runtime code).
 - [hchunhui/librime-lua](https://github.com/hchunhui/librime-lua): Rime Lua runtime.
 
 ---
@@ -187,7 +189,7 @@ This project is licensed under the **[GPL-3.0](https://www.gnu.org/licenses/gpl-
 
 ```bibtex
 @software{epistemelody2026kino,
-  author       = {{Epistemelody} and kino contributors},
+  author       = {Felidz and {Epistemelody}},
   title        = {kino: A Modern Table-Driven Multi-Channel Rime Input Overlay Framework},
   year         = {2026},
   publisher    = {GitHub},

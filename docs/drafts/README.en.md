@@ -195,7 +195,7 @@ Large Japanese datasets are supplied by `proj-ref/Insomnia1437-rime` and bypass 
 - **[`proj-ref/oh-my-rime`](https://github.com/Mintimate/oh-my-rime)**: Upstream Mint Pinyin repository (synchronized as runtime baseline).
 - **[`proj-ref/Insomnia1437-rime`](https://github.com/Insomnia1437/rime)**: Japanese Mozc dictionary and Viterbi connection matrix repository.
 - **[`proj-ref/rime-spanish`](https://github.com/gkovacs/rime-spanish)**: Latin diacritics QWERTY layout reference.
-- **`proj-arc/cloverplus`**: Historical Cloverplus archive (upstream [fkxxyz/rime-cloverpinyin](https://github.com/fkxxyz/rime-cloverpinyin)) for punctuation and mathematical symbol reference.
+- **`proj-arc/cloverplus`**: Local customized archive based on [Clover Pinyin](https://github.com/fkxxyz/rime-cloverpinyin) and [rime_latex](https://github.com/shenlebantongying/rime_latex); punctuation and math-symbol history. Not a full dependency on either upstream.
 
 ---
 

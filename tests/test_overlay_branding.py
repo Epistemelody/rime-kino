@@ -77,18 +77,27 @@ def test_repository_name_is_rime_kino():
     assert "https://github.com/iamcheyan/rime" in readme
     assert "https://github.com/tumuyan/rime-pinyin-jap" in readme
     assert "https://github.com/fkxxyz/rime-cloverpinyin" in readme
+    assert "https://github.com/shenlebantongying/rime_latex" in readme
+    assert "proj-arc/cloverplus" in readme
+    assert "本地定制归档" in readme
+    assert "不是对其中任一上游的完整依赖" in (ROOT / "docs" / "README.md").read_text(
+        encoding="utf-8"
+    )
     assert "Linux%20%7C%20Windows%20%7C%20macOS" in readme
-    assert "felidz" not in readme.lower()
-    assert "cofelid" not in readme.lower()
+    assert "author       = {Felidz and {Epistemelody}}" in readme
+    assert "github.com/felidz/rime-kino" not in readme
+    assert "cofelid@" not in readme
     en = (ROOT / "README.en.md").read_text(encoding="utf-8")
     assert "https://github.com/gkovacs/rime-spanish" in en
     assert "fvalle1/rime-spanish" not in en
+    assert "https://github.com/shenlebantongying/rime_latex" in en
     assert "Linux%20%7C%20Windows%20%7C%20macOS" in en
-    assert "felidz" not in en.lower()
-    assert "cofelid" not in en.lower()
+    assert "author       = {Felidz and {Epistemelody}}" in en
+    assert "github.com/felidz/rime-kino" not in en
+    assert "cofelid@" not in en
 
 
-def test_no_personal_author_in_tracked_files():
+def test_no_personal_repo_or_email_in_tracked_files():
     import subprocess
 
     listed = subprocess.check_output(
@@ -105,8 +114,7 @@ def test_no_personal_author_in_tracked_files():
             text = path.read_text(encoding="utf-8")
         except (UnicodeDecodeError, OSError):
             continue
-        lower = text.lower()
-        if "felidz" in lower or "cofelid" in lower:
+        if "github.com/felidz/rime-kino" in text or "cofelid@" in text.lower():
             hits.append(rel)
     assert hits == []
 

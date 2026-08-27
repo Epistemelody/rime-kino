@@ -44,7 +44,7 @@
 | **Schema ID** | `rime_mint` | Unchanged. Preserves the upstream Mint Pinyin ID to maintain dictionary format and user dictionary compatibility. |
 | **Upstream Core** | `proj-ref/oh-my-rime` | Read-only vendor submodule synchronized directly into the user runtime directory during deployment. |
 | **Custom Overlay** | `overlay/` | The single base for kino customization, containing patch YAMLs, Lua scripts, and schema wrappers. |
-| **Historical Archive**| `proj-arc/cloverplus` | Retained purely for historical punctuation reference; not active runtime code. |
+| **Historical Archive**| `proj-arc/cloverplus` | Custom snapshot based on Clover Pinyin and rime_latex; punctuation and symbol history only, not runtime code. |
 
 ### 1.2 Explicit Non-Goals
 

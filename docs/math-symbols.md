@@ -64,7 +64,7 @@ feature_gate kinds_by_code[glyph][query] -> [kind]
 | Import | No network. Lean JSON + `mma-named.json` live under `docs/drafts/import/`. `gen_overlay.py` does not read them. |
 | MMA scope | NamedCharacter ∩ table glyphs only. No Wolf / currency zoo. |
 | `COMMAND_EXTRA` | Must equal punct in `iter_source_command_codes` (except space / `\`). Same set in `command_keys` extras for `\` and `recognizer/patterns/command_draft`. |
-| Comment | Winning **code** + all enabled dialects that share that exact code: `alpha [latex katex typst lean mma]`. Order: latex, latex*, katex, typst, lean, mma, unicode. `latex*` is `latex-alias` (cloverplus / `^2`). Do not merge different codes (`a` vs `alpha`) into one bracket. |
+| Comment | Winning **code** + all enabled dialects that share that exact code: `alpha [latex katex typst lean mma]`. Order: latex, latex*, katex, typst, lean, mma, unicode. `latex*` is `latex-alias` (`proj-arc` custom latex / `^2`). Do not merge different codes (`a` vs `alpha`) into one bracket. |
 | latex vs latex_alias | Native = unicode-math-table (+ mup/up strip) ∪ LATEX_CLASSIC_EXTRA, minus LATEX_FORCE_ALIAS and any code with `^_()[]`. Re-run `--split-latex`. |
 | Fallback gate | `feature_gate` on `command_draft` + non-`cmd` cand: keep iff some kind of `(glyph, lower(query))` is on. Not “any kind on this glyph”. |
 | Switches | `kino_lean` / `kino_mma` in mint (`reset: 1`) and `switcher/save_options`. |

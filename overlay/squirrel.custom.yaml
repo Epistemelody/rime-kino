@@ -12,7 +12,7 @@ patch:
   preset_color_schemes:
     kino:
       name: kino
-      author: "kino"
+      author: "felidz"
       text_color: 0x2E3440
       back_color: 0xECEFF4
       label_color: 0x4C566A
@@ -23,7 +23,7 @@ patch:
       hilited_candidate_back_color: 0x8FBCBB
     kino_dark:
       name: kino-dark
-      author: "kino"
+      author: "felidz"
       text_color: 0xECEFF4
       back_color: 0x2E3440
       label_color: 0x88C0D0

@@ -44,7 +44,7 @@
 | **方案标识符** | `rime_mint` | 保持不变。沿用薄荷拼音主方案 ID，确保词库结构与用户词典无缝兼容。 |
 | **上游内核** | `proj-ref/oh-my-rime` | 只读 Vendor 子模块。部署时作为基础文件同步至用户目录。 |
 | **定制叠加层** | `overlay/` | kino 的唯一个性化代码基准，包含补丁 YAML、Lua 脚本与方案包装。 |
-| **历史归档** | `proj-arc/cloverplus` | 仅作历史符号库与标点规则考据，不属于活动运行代码。 |
+| **历史归档** | `proj-arc/cloverplus` | 基于四叶草拼音与 rime_latex 的定制快照，仅作标点与符号考据，不是活动运行代码。 |
 
 ### 1.2 显式非目标（Explicit Non-Goals）
 

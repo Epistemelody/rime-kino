@@ -38,7 +38,7 @@ patch:
   preset_color_schemes:
     kino:
       name: kino
-      author: "kino"
+      author: "felidz"
       alpha: 1.0
       color_format: rgba
       text_color: 0x2E3440
@@ -57,7 +57,7 @@ patch:
       prevpage_color: 0x000000
     kino_dark:
       name: kino-dark
-      author: "kino"
+      author: "felidz"
       alpha: 1.0
       color_format: rgba
       text_color: 0xECEFF4

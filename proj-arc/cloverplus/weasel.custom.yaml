@@ -49,7 +49,7 @@ patch:
   preset_color_schemes:
     custom1:   # 这里的名字可以随意定义，但一定不要忘了跟上面的 color_schema 对应  
       name: custom1 / 自定义1
-      author: "kino" 
+      author: "felidz" 
       alpha: 1.0                               # 候选窗口透明度 
       color_format: rgba                       # 颜色格式：argb（0xaarrggbb）；rgba（0xrrggbbaa）；abgr（0xaabbggrr 默认）
       # 默认配色

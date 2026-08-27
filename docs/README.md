@@ -89,4 +89,4 @@ kino 项目采用严格的**单一事实源（Single Source of Truth, SSOT）**�
 - **双拼编排参考**：[`proj-ref/iamcheyan-rime`](https://github.com/iamcheyan/rime)
 - **拼音日文参考**：[`proj-ref/rime-pinyin-jap`](https://github.com/tumuyan/rime-pinyin-jap)
 - **拉丁重音参考**：[`proj-ref/rime-spanish`](https://github.com/gkovacs/rime-spanish)
-- **四叶草配置归档**：`proj-arc/cloverplus`（历史归档参考，非运行代码；上游为 [fkxxyz/rime-cloverpinyin](https://github.com/fkxxyz/rime-cloverpinyin)）。
+- **历史定制归档**：`proj-arc/cloverplus`（非运行代码）。基于 [四叶草拼音](https://github.com/fkxxyz/rime-cloverpinyin) 与 [rime_latex](https://github.com/shenlebantongying/rime_latex) 的本地定制快照，不是对其中任一上游的完整依赖。
