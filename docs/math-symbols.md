@@ -66,7 +66,7 @@ feature_gate kinds_by_code[glyph][query] -> [kind]
 | `COMMAND_EXTRA` | Must equal punct in `iter_source_command_codes` (except space / `\`). Same set in `command_keys` extras for `\` and `recognizer/patterns/command_draft`. |
 | Comment | Winning **code** + all enabled dialects that share that exact code: `alpha [latex katex typst lean mma]`. Order: latex, latex*, katex, typst, lean, mma, unicode. `latex*` is `latex-alias` (`proj-arc` custom latex / `^2`). Do not merge different codes (`a` vs `alpha`) into one bracket. |
 | latex vs latex_alias | Native = unicode-math-table (+ mup/up strip) ∪ LATEX_CLASSIC_EXTRA, minus LATEX_FORCE_ALIAS and any code with `^_()[]`. Re-run `--split-latex`. |
-| Fallback gate | `feature_gate` on `command_draft` + non-`cmd` cand: keep iff some kind of `(glyph, lower(query))` is on. Not “any kind on this glyph”. |
+| Fallback gate | `feature_gate` `tags: [latin, kana]` so pinyin `abc` is skipped in C++ `AppliesToSegment`. Command hits come from `lua_filter@*command_draft` (kind_on in the index), not `table_translator@commands`. Latin/kana table output is dropped when the matching switch is off. |
 | Switches | `kino_lean` / `kino_mma` in mint (`reset: 1`) and `switcher/save_options`. |
 
 ### 4. Validation & Error Matrix

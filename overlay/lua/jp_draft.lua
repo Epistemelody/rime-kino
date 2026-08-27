@@ -127,8 +127,21 @@ local function tagged_kana(seg)
   return ok and v
 end
 
+local function current_seg(env)
+  local ok, seg = pcall(function()
+    local comp = env.engine.context.composition
+    if not comp or comp:empty() then
+      return nil
+    end
+    return comp:back()
+  end)
+  if ok then
+    return seg
+  end
+  return nil
+end
+
 function M.init(env)
-  load_jp(env)
 end
 
 function M.fini(env)
@@ -221,14 +234,16 @@ local function yield_sentences(vit, hira, seg, skip)
   end
 end
 
-function M.func(input, seg, env)
-  if not input then
+function M.func(input, env)
+  local ctx = env.engine.context
+  if not feat.on(ctx, feat.JAPANESE) then
     return
   end
-  if not feat.on(env.engine.context, feat.JAPANESE) then
+  local seg = current_seg(env)
+  if not seg then
     return
   end
-  local q = input
+  local q = ctx.input or ""
   if q:sub(1, 1) == "~" then
     q = q:sub(2)
   elseif not tagged_kana(seg) then
@@ -264,6 +279,11 @@ function M.func(input, seg, env)
   end
   if rest ~= "" and hira == "" and kata == "" then
     yield(Candidate("jp", seg.start, seg._end, rest, "…"))
+  end
+  if input and input.iter then
+    for cand in input:iter() do
+      yield(cand)
+    end
   end
 end
 

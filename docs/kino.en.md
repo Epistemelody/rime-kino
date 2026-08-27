@@ -129,7 +129,7 @@ All feature switches are **enabled by default** (`reset: 1`). Users can independ
 | `kino_latin` | Switcher / Status Bar | 无latin / latin | Controls Latin diacritic accent channel (`;`) |
 | `kino_japanese` | Switcher / Status Bar | 无日语 / 日语 | Controls Japanese kana and Viterbi kanji channel (`~`) (does not affect standalone Kana scheme) |
 
-**Underlying Implementation**: `overlay/lua/kino_features.lua` reads context options; `command_draft.lua` and `jp_draft.lua` dynamically suppress candidate emission; `lua_filter@*feature_gate` serves as a fallback barrier for table translators.
+**Underlying Implementation**: `overlay/lua/kino_features.lua` reads context options. `command_draft` / `jp_draft` / `feature_gate` are Lua filters with C++ `tags` (`lua_filter@*module@namespace`); pinyin `abc` is skipped in `AppliesToSegment`. The command index and Viterbi load on first use of that channel. `feature_gate` is tagged `latin` / `kana` only, so it drops table output when those switches are off.
 
 ---
 
@@ -272,7 +272,7 @@ Queries perform ASCII `lower()` matching and rank candidates in ascending score 
 - **Trigger Pattern**: Regex `^~[A-Za-z~-]+$`
 - **Status Bar Tip**: `[かな]`
 - **Dual Pipeline Engine**:
-  1. `lua_translator@*jp_draft`: Romaji longest-match state machine + Mozc Viterbi sentence segmentation.
+  1. `lua_filter@*jp_draft`: Romaji longest-match state machine + Mozc Viterbi sentence segmentation (C++ `tags: [kana]`; pinyin segments never enter).
   2. `table_translator@kana`: Fallback syllable dictionary translator (`enable_sentence: false`).
 
 #### A. Romaji State Machine Core Contracts

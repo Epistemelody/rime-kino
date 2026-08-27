@@ -116,25 +116,43 @@ local function add_hit(hits, seen, score, i, commit)
   hits[#hits + 1] = { score, i, commit }
 end
 
-function M.init(env)
-  load_idx(env)
+local function has_tag(seg, tag)
+  if not seg then
+    return false
+  end
+  local ok, v = pcall(function()
+    return seg:has_tag(tag)
+  end)
+  return ok and v
 end
 
-function M.func(input, seg, env)
-  if not input then
+local function current_seg(env)
+  local ok, seg = pcall(function()
+    local comp = env.engine.context.composition
+    if not comp or comp:empty() then
+      return nil
+    end
+    return comp:back()
+  end)
+  if ok then
+    return seg
+  end
+  return nil
+end
+
+function M.init(env)
+end
+
+function M.func(input, env)
+  local ctx = env.engine.context
+  local seg = current_seg(env)
+  if not seg then
     return
   end
-  local tagged = false
-  if seg then
-    local ok, v = pcall(function()
-      return seg:has_tag("command_draft")
-    end)
-    tagged = ok and v
-  end
-  local q = input
+  local q = ctx.input or ""
   if q:sub(1, 1) == "\\" then
     q = q:sub(2)
-  elseif not tagged then
+  elseif not has_tag(seg, "command_draft") then
     return
   end
   q = q:lower()

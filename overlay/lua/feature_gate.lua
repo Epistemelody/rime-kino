@@ -71,7 +71,6 @@ local function command_query(ctx)
 end
 
 function M.init(env)
-  load_kinds(env)
 end
 
 function M.func(input, env)

@@ -38,13 +38,21 @@ def test_kino_feature_switches_default_on():
         assert name in default
         assert name in feat
     assert "emoji_suggestion" in mint
-    assert "lua_filter@*feature_gate" in mint
+    assert "lua_filter@*feature_gate@feature_gate" in mint
+    assert "lua_filter@*command_draft@command_draft" in mint
+    assert "lua_filter@*jp_draft@jp_draft" in mint
+    assert "lua_translator@*command_draft" not in mint
+    assert "lua_translator@*jp_draft" not in mint
+    assert "table_translator@commands" not in mint
     assert "feat.kind_on" in cmd
     assert 'pcall(require, "kino_features")' in cmd
     assert "feat.JAPANESE" in jp
     assert "feat.LATIN" in gate
     assert "kinds_by_code" in gate
     assert "command_query" in gate
+    assert "tags: [command_draft]" in mint
+    assert "tags: [kana]" in mint
+    assert "tags: [latin, kana]" in mint
     assert 'kind:sub(1, 5) == "typst"' in feat
     assert 'kind:sub(1, 5) == "latex"' in feat
     assert 'kind == "katex"' in feat
@@ -215,7 +223,7 @@ def test_backslash_offers_ideographic_comma_not_slash():
 
 def test_command_and_jp_lua_accept_stripped_prefix():
     cmd = (OVERLAY / "lua" / "command_draft.lua").read_text(encoding="utf-8")
-    assert 'has_tag("command_draft")' in cmd
+    assert 'has_tag(seg, "command_draft")' in cmd
     jp = (OVERLAY / "lua" / "jp_draft.lua").read_text(encoding="utf-8")
     assert 'has_tag("kana")' in jp
     # Kanji: lazy Memory(jp) + ReverseLookup(kagiroi_matrix) + kagiroi Viterbi.
@@ -229,6 +237,11 @@ def test_command_and_jp_lua_accept_stripped_prefix():
     assert 'require("kagiroi/kagiroi_kana_speller")' not in jp
     init_fn = jp.split("function M.init", 1)[1].split("function M.fini", 1)[0]
     assert "Memory(" not in init_fn
+    cmd_init = cmd.split("function M.init", 1)[1].split("function M.func", 1)[0]
+    assert "load_idx" not in cmd_init
+    gate = (OVERLAY / "lua" / "feature_gate.lua").read_text(encoding="utf-8")
+    gate_init = gate.split("function M.init", 1)[1].split("function M.func", 1)[0]
+    assert "load_kinds" not in gate_init
     assert "ReverseLookup" not in init_fn
     assert 'require("kagiroi/kagiroi_viterbi")' not in init_fn
     assert "lex.candidate" in jp
@@ -237,7 +250,8 @@ def test_command_and_jp_lua_accept_stripped_prefix():
 
 def test_kana_is_hung_on_mint_with_tilde_prefix():
     text = (OVERLAY / "rime_mint.custom.yaml").read_text(encoding="utf-8")
-    assert "lua_translator@*jp_draft" in text
+    assert "lua_filter@*jp_draft@jp_draft" in text
+    assert "lua_translator@*jp_draft" not in text
     assert "table_translator@kana" in text
     assert "affix_segmentor@kana" in text
     assert 'prefix: "~"' in text

@@ -42,7 +42,23 @@ patch:
     - name: kino_japanese
       reset: 1
       states: [ "无日语", "日语" ]
-  "engine/filters/@before 0": lua_filter@*feature_gate
+  engine/filters:
+    - lua_filter@*command_draft@command_draft
+    - lua_filter@*jp_draft@jp_draft
+    - lua_filter@*feature_gate@feature_gate
+    - lua_filter@*corrector_filter
+    - lua_filter@*super_preedit
+    - lua_filter@*autocap_filter
+    - simplifier@emoji_suggestion
+    - simplifier@transcription_cc
+    - lua_filter@*reduce_english_filter
+    - uniquifier
+  command_draft:
+    tags: [command_draft]
+  jp_draft:
+    tags: [kana]
+  feature_gate:
+    tags: [latin, kana]
   schema/dependencies/+:
     - kana
     - latin
@@ -88,9 +104,6 @@ patch:
     - punct_segmentor
     - fallback_segmentor
   engine/translators/+:
-    - lua_translator@*command_draft
-    - lua_translator@*jp_draft
-    - table_translator@commands
     - table_translator@latin
     - table_translator@kana
   recognizer/patterns/command_draft: "^\\\\[A-Za-z0-9.\\-=><!*~:|\\[\\]^_+(){}'?/#&`\"$%]*$"

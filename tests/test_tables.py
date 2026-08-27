@@ -134,7 +134,8 @@ def test_mint_custom_wires_command_and_latin():
     text = (root / "overlay" / "rime_mint.custom.yaml").read_text(encoding="utf-8")
     assert "command_draft" in text
     assert "table_translator@latin" in text
-    assert "lua_translator@*jp_draft" in text
+    assert "lua_filter@*jp_draft@jp_draft" in text
+    assert "lua_translator@*jp_draft" not in text
     assert "「" in text
     assert 'pair: ["「", "」"]' in text
     assert 'pair: ["[", "]"]' not in text

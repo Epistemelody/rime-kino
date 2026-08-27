@@ -129,7 +129,7 @@ macOS 部署完成后，点击菜单栏鼠须管图标并选择「重新部署�
 | `kino_latin` | 方案选单 / 状态栏 | 无latin / latin | 控制 `;` 前缀拉丁重音字符通道 |
 | `kino_japanese` | 方案选单 / 状态栏 | 无日语 / 日语 | 控制 `~` 前缀日文假名及 Viterbi 汉字通道（不影响独立「假名」方案） |
 
-**底层实现机制**：由 `overlay/lua/kino_features.lua` 读取上下文选项；`command_draft.lua` 与 `jp_draft.lua` 依据开关动态拦截候选；`lua_filter@*feature_gate` 作为兜底屏障过滤退化码表输出。
+**底层实现机制**：由 `overlay/lua/kino_features.lua` 读取上下文选项；`command_draft` / `jp_draft` / `feature_gate` 是带 C++ `tags` 的 Lua filter（`lua_filter@*module@namespace`），拼音 `abc` 在 `AppliesToSegment` 处跳过。索引与 Viterbi 在第一次进入对应频道时才加载。`feature_gate` 只挂 `latin` / `kana`，用于开关关闭时丢掉码表输出。
 
 ---
 
@@ -272,7 +272,7 @@ speller/algebra:
 - **触发规则**：正则表达式 `^~[A-Za-z~-]+$`
 - **状态栏提示**：`[かな]`
 - **双路处理机制**：
-  1. `lua_translator@*jp_draft`：罗马音最长匹配状态机 + Mozc Viterbi 句级分词。
+  1. `lua_filter@*jp_draft`：罗马音最长匹配状态机 + Mozc Viterbi 句级分词（C++ `tags: [kana]`，拼音段不进入）。
   2. `table_translator@kana`：音节表兜底翻译器（`enable_sentence: false`）。
 
 #### A. 罗马音转换状态机核心规则
