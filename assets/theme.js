@@ -23,16 +23,39 @@
   }
 
   function applyLang(lang) {
-    const next = lang || localStorage.getItem(LANG_KEY) || "zh";
+    const prev = localStorage.getItem(LANG_KEY) || "zh";
+    const next = lang || prev || "zh";
     localStorage.setItem(LANG_KEY, next);
     document.documentElement.lang = next === "en" ? "en" : "zh-CN";
     document.documentElement.dataset.lang = next;
+    document.title = next === "en" ? "kino" : "kino";
     document.querySelectorAll("[data-lang-option]").forEach((el) => {
       el.setAttribute("aria-current", el.getAttribute("data-lang-option") === next ? "true" : "false");
     });
-    document.querySelectorAll("[data-lang-label]").forEach((el) => {
-      el.textContent = next === "en" ? "English" : "简体中文";
-    });
+    if (lang && prev !== next && /docs\.html/.test(location.pathname)) {
+      remapDocsHash(next);
+    }
+  }
+
+  function remapDocsHash(next) {
+    const pairs = [
+      ["README.en", "README"],
+      ["docs/kino.en", "docs/kino"],
+      ["docs/README.en", "docs/README"],
+      ["docs/drafts/README.en", "docs/drafts/README"],
+    ];
+    let hash = (location.hash || "#/").replace(/^#\/?/, "").replace(/\.md$/, "");
+    if (!hash || hash === "/") hash = next === "en" ? "README.en" : "README";
+    for (const [en, zh] of pairs) {
+      if (next === "en" && (hash === zh || hash === zh + ".md")) {
+        location.hash = "#/" + en;
+        return;
+      }
+      if (next === "zh" && (hash === en || hash === en + ".md")) {
+        location.hash = "#/" + zh;
+        return;
+      }
+    }
   }
 
   window.kinoApplyTheme = applyTheme;

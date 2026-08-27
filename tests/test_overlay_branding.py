@@ -126,10 +126,12 @@ def test_web_docs_site_files_and_sidebar_targets():
     html = (ROOT / "index.html").read_text(encoding="utf-8")
     css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
     assert "#008080" in css
-    assert "border-radius" not in css
-    assert "kino-preview.png" in html
+    assert "border-radius: 0" in css
+    assert "kino-preview.svg" in html
     assert "docs.html" in html
     assert "hero-name" in html
+    assert "一次部署" not in html
+    assert "一键" not in html
     assert "class=\"features\"" not in html
     assert "多平台支持" not in html
     assert 'aria-label="Change language"' in html

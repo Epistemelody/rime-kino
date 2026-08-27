@@ -28,7 +28,6 @@
         <a class="i18n-en" href="docs.html#/README.en">Install</a>
         <a class="i18n-zh" href="docs.html#/docs/kino">交互契约</a>
         <a class="i18n-en" href="docs.html#/docs/kino.en">Interaction</a>
-        <a href="https://github.com/Epistemelody/rime-kino">GitHub</a>
       </nav>
       <div class="extra">
         <div class="flyout" data-menu>
@@ -66,12 +65,12 @@
       name: "kino",
       nameLink: "./",
       repo: "https://github.com/Epistemelody/rime-kino",
-      homepage: "README.md",
+      homepage: (localStorage.getItem("kino-lang") || "zh") === "en" ? "README.en.md" : "README.md",
       loadSidebar: true,
       loadNavbar: false,
       subMaxLevel: 3,
       auto2top: true,
-      relativePath: true,
+      relativePath: false,
       alias: { "/.*/_sidebar.md": "/_sidebar.md" },
       search: { placeholder: "Search", noData: "No results", depth: 4 }
     };

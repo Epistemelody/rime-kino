@@ -169,20 +169,12 @@ html[data-theme="light"] .icon-moon { display: none; }
 .btn-alt { background: var(--bg-alt); color: var(--text-1); }
 .btn-alt:hover { filter: brightness(0.96); color: var(--text-1); }
 
-.hero-visual { position: relative; width: 100%; }
-.hero-blob {
-  position: absolute;
-  inset: 8% 6%;
-  background: linear-gradient(-45deg, #bd34fe 50%, #47caff 50%);
-  filter: blur(52px);
-  opacity: 0.4;
-}
+.hero-visual { width: 100%; }
 .hero-visual img {
-  position: relative;
   display: block;
   width: 100%;
   height: auto;
-  box-shadow: 0 20px 48px #21354728;
+  border-radius: 0;
 }
 
 .install { max-width: 1280px; margin: 0 auto 72px; padding: 0 24px; }

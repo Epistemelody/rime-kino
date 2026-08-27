@@ -28,7 +28,7 @@ svg_content = r"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 540"
   </style>
 
   <!-- Background Base -->
-  <rect width="1120" height="540" rx="16" fill="url(#bgGrad)" />
+  <rect width="1120" height="540" fill="url(#bgGrad)" />
 
   <!-- Ambient Glow Circles -->
   <circle cx="260" cy="240" r="180" fill="#88C0D0" opacity="0.07" filter="url(#subtleGlow)" />
@@ -39,27 +39,27 @@ svg_content = r"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 540"
   <g transform="translate(48, 44)">
     <text x="0" y="0" class="ui-text" font-size="22" font-weight="700" fill="#ECEFF4" letter-spacing="0.5">kino</text>
     <text x="60" y="-1" class="ui-text" font-size="14" font-weight="400" fill="#81A1C1">Kinetic Input Normalized Overlay - Multi-Channel Input Architecture</text>
-    <rect x="880" y="-18" width="144" height="24" rx="4" fill="#3B4252" stroke="#4C566A" stroke-width="1" />
+    <rect x="880" y="-18" width="144" height="24" fill="#3B4252" stroke="#4C566A" stroke-width="1" />
     <text x="952" y="-2" class="badge-text" fill="#8FBCBB" text-anchor="middle">FCITX5 / WEASEL</text>
   </g>
 
   <!-- ==================== PANEL 1: Math & Multi-Ecosystem Commands (\) ==================== -->
   <g transform="translate(48, 90)" filter="url(#shadow)">
     <!-- Panel Outer Container -->
-    <rect width="316" height="400" rx="8" fill="#2E3440" stroke="#8FBCBB" stroke-width="1.5" />
+    <rect width="316" height="400" fill="#2E3440" stroke="#8FBCBB" stroke-width="1.5" />
     
     <!-- Header Tag -->
-    <rect x="14" y="14" width="288" height="28" rx="4" fill="#3B4252" />
+    <rect x="14" y="14" width="288" height="28" fill="#3B4252" />
     <circle cx="28" cy="28" r="4" fill="#88C0D0" />
     <text x="40" y="32" class="code-text" font-size="12" font-weight="600" fill="#88C0D0">Math &amp; Commands (\)</text>
 
     <!-- Preedit Display -->
-    <rect x="14" y="50" width="288" height="32" rx="4" fill="#242933" stroke="#434C5E" stroke-width="1" />
+    <rect x="14" y="50" width="288" height="32" fill="#242933" stroke="#434C5E" stroke-width="1" />
     <text x="24" y="71" class="code-text" font-size="13" font-weight="600" fill="#8FBCBB">\arrow.l</text>
     <rect x="94" y="58" width="2" height="16" fill="#8FBCBB" />
 
     <!-- Candidate 1 (Highlighted) -->
-    <rect x="14" y="90" width="288" height="30" rx="4" fill="#8FBCBB" />
+    <rect x="14" y="90" width="288" height="30" fill="#8FBCBB" />
     <text x="24" y="110" class="code-text" font-size="12" font-weight="700" fill="#2E3440">1. ←</text>
     <text x="68" y="110" class="code-text" font-size="11" font-weight="500" fill="#2E3440">[typst unicode]</text>
 
@@ -102,20 +102,20 @@ svg_content = r"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 540"
   <!-- ==================== PANEL 2: Japanese Kana & Viterbi (~) ==================== -->
   <g transform="translate(402, 90)" filter="url(#shadow)">
     <!-- Panel Outer Container -->
-    <rect width="316" height="400" rx="8" fill="#2E3440" stroke="#88C0D0" stroke-width="1.5" />
+    <rect width="316" height="400" fill="#2E3440" stroke="#88C0D0" stroke-width="1.5" />
     
     <!-- Header Tag -->
-    <rect x="14" y="14" width="288" height="28" rx="4" fill="#3B4252" />
+    <rect x="14" y="14" width="288" height="28" fill="#3B4252" />
     <circle cx="28" cy="28" r="4" fill="#A3BE8C" />
     <text x="40" y="32" class="code-text" font-size="12" font-weight="600" fill="#A3BE8C">Mozc Viterbi Japanese (~)</text>
 
     <!-- Preedit Display -->
-    <rect x="14" y="50" width="288" height="32" rx="4" fill="#242933" stroke="#434C5E" stroke-width="1" />
+    <rect x="14" y="50" width="288" height="32" fill="#242933" stroke="#434C5E" stroke-width="1" />
     <text x="24" y="71" class="code-text" font-size="13" font-weight="600" fill="#88C0D0">~watashinonamae</text>
     <rect x="175" y="58" width="2" height="16" fill="#88C0D0" />
 
     <!-- Candidate 1 (Highlighted) -->
-    <rect x="14" y="90" width="288" height="30" rx="4" fill="#88C0D0" />
+    <rect x="14" y="90" width="288" height="30" fill="#88C0D0" />
     <text x="24" y="110" class="jp-text" font-size="13" font-weight="700" fill="#2E3440">1. 私の名前</text>
     <text x="135" y="110" class="code-text" font-size="11" font-weight="600" fill="#2E3440">[Mozc Viterbi]</text>
 
@@ -152,19 +152,19 @@ svg_content = r"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 540"
   <!-- ==================== PANEL 3: Pinyin, Latin & Paired Punctuation ==================== -->
   <g transform="translate(756, 90)" filter="url(#shadow)">
     <!-- Panel Outer Container -->
-    <rect width="316" height="400" rx="8" fill="#2E3440" stroke="#81A1C1" stroke-width="1.5" />
+    <rect width="316" height="400" fill="#2E3440" stroke="#81A1C1" stroke-width="1.5" />
     
     <!-- Sub-Section 1: Strict Pinyin -->
     <g transform="translate(14, 14)">
-      <rect width="288" height="114" rx="6" fill="#242933" stroke="#434C5E" stroke-width="1" />
+      <rect width="288" height="114" fill="#242933" stroke="#434C5E" stroke-width="1" />
       <text x="12" y="20" class="code-text" font-size="11" font-weight="600" fill="#81A1C1">Strict Pinyin (Raw Commit)</text>
       
       <!-- Preedit -->
-      <rect x="12" y="30" width="264" height="24" rx="3" fill="#2E3440" />
+      <rect x="12" y="30" width="264" height="24" fill="#2E3440" />
       <text x="20" y="46" class="code-text" font-size="12" font-weight="600" fill="#ECEFF4">nihaoshijie</text>
       
       <!-- Highlighted item -->
-      <rect x="12" y="60" width="264" height="25" rx="3" fill="#81A1C1" />
+      <rect x="12" y="60" width="264" height="25" fill="#81A1C1" />
       <text x="20" y="77" class="ui-text" font-size="12" font-weight="700" fill="#2E3440">1. 你好世界</text>
       <text x="164" y="77" class="code-text" font-size="10" fill="#2E3440">[Shift_L - raw]</text>
 
@@ -173,33 +173,33 @@ svg_content = r"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 540"
 
     <!-- Sub-Section 2: Latin Accents (;) -->
     <g transform="translate(14, 142)">
-      <rect width="288" height="114" rx="6" fill="#242933" stroke="#434C5E" stroke-width="1" />
+      <rect width="288" height="114" fill="#242933" stroke="#434C5E" stroke-width="1" />
       <text x="12" y="20" class="code-text" font-size="11" font-weight="600" fill="#B48EAD">Latin Diacritics Direct (;)</text>
       
       <!-- Row 1 -->
-      <rect x="12" y="30" width="126" height="32" rx="3" fill="#2E3440" />
+      <rect x="12" y="30" width="126" height="32" fill="#2E3440" />
       <text x="20" y="51" class="code-text" font-size="12" fill="#ECEFF4">;n  <tspan fill="#8FBCBB" font-weight="700">→ ñ</tspan></text>
 
-      <rect x="150" y="30" width="126" height="32" rx="3" fill="#2E3440" />
+      <rect x="150" y="30" width="126" height="32" fill="#2E3440" />
       <text x="158" y="51" class="code-text" font-size="12" fill="#ECEFF4">;a  <tspan fill="#8FBCBB" font-weight="700">→ á</tspan></text>
 
       <!-- Row 2 -->
-      <rect x="12" y="70" width="126" height="32" rx="3" fill="#2E3440" />
+      <rect x="12" y="70" width="126" height="32" fill="#2E3440" />
       <text x="20" y="91" class="code-text" font-size="12" fill="#ECEFF4">;?  <tspan fill="#8FBCBB" font-weight="700">→ ¿</tspan></text>
 
-      <rect x="150" y="70" width="126" height="32" rx="3" fill="#2E3440" />
+      <rect x="150" y="70" width="126" height="32" fill="#2E3440" />
       <text x="158" y="91" class="code-text" font-size="12" fill="#ECEFF4">;;  <tspan fill="#8FBCBB" font-weight="700">→ ；</tspan></text>
     </g>
 
     <!-- Sub-Section 3: Paired Punctuation -->
     <g transform="translate(14, 270)">
-      <rect width="288" height="114" rx="6" fill="#242933" stroke="#434C5E" stroke-width="1" />
+      <rect width="288" height="114" fill="#242933" stroke="#434C5E" stroke-width="1" />
       <text x="12" y="20" class="code-text" font-size="11" font-weight="600" fill="#EBCB8B">Paired Punctuation &amp; Brackets</text>
       
-      <rect x="12" y="30" width="264" height="32" rx="3" fill="#2E3440" />
+      <rect x="12" y="30" width="264" height="32" fill="#2E3440" />
       <text x="20" y="51" class="code-text" font-size="12" fill="#ECEFF4">&apos; &apos;  <tspan fill="#88C0D0" font-weight="700">→ 「」</tspan>   |   &quot; &quot;  <tspan fill="#88C0D0" font-weight="700">→ “”</tspan></text>
 
-      <rect x="12" y="70" width="264" height="32" rx="3" fill="#2E3440" />
+      <rect x="12" y="70" width="264" height="32" fill="#2E3440" />
       <text x="20" y="91" class="code-text" font-size="12" fill="#ECEFF4">[  <tspan fill="#88C0D0" font-weight="700">→ 1.【】 2.〔〕 3.《》</tspan></text>
     </g>
   </g>
