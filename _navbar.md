@@ -1,4 +1,5 @@
-- [网页文档](/)
+- [主页](/index.html)
+- [文档](docs.html)
 - [GitHub](https://github.com/Epistemelody/rime-kino)
 - [中文](README.md)
 - [English](README.en.md)

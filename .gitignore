@@ -27,6 +27,7 @@ docs/drafts/commands.csv
 .grok/
 .opencode/
 .playwright-mcp/
+kino-home-*.png
 AGENTS.md
 CLAUDE.md
 GEMINI.md

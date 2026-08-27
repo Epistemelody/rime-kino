@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <title>kino docs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/logo.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/docs.css">
+  <script>
+    (function () {
+      var t = localStorage.getItem("kino-theme") || "system";
+      var dark = t === "dark" || (t === "system" && matchMedia("(prefers-color-scheme: dark)").matches);
+      document.documentElement.dataset.theme = dark ? "dark" : "light";
+      document.documentElement.dataset.lang = localStorage.getItem("kino-lang") || "zh";
+    })();
+  </script>
+</head>
+<body class="docs-body">
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="./"><img src="assets/logo.svg" alt="">kino</a>
+      <nav class="nav-links">
+        <a class="i18n-zh" href="docs.html#/README">安装</a>
+        <a class="i18n-en" href="docs.html#/README.en">Install</a>
+        <a class="i18n-zh" href="docs.html#/docs/kino">交互契约</a>
+        <a class="i18n-en" href="docs.html#/docs/kino.en">Interaction</a>
+        <a href="https://github.com/Epistemelody/rime-kino">GitHub</a>
+      </nav>
+      <div class="extra">
+        <div class="menu" data-menu>
+          <button type="button" data-menu-toggle class="i18n-zh">外观</button>
+          <button type="button" data-menu-toggle class="i18n-en">Appearance</button>
+          <div class="panel">
+            <button type="button" data-theme-option="light"><span class="i18n-zh">浅色</span><span class="i18n-en">Light</span></button>
+            <button type="button" data-theme-option="dark"><span class="i18n-zh">深色</span><span class="i18n-en">Dark</span></button>
+            <button type="button" data-theme-option="system"><span class="i18n-zh">系统</span><span class="i18n-en">System</span></button>
+          </div>
+        </div>
+        <div class="menu" data-menu>
+          <button type="button" data-menu-toggle data-lang-label>简体中文</button>
+          <div class="panel">
+            <button type="button" data-lang-option="zh">简体中文</button>
+            <button type="button" data-lang-option="en">English</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div id="app">Loading…</div>
+  <script>
+    window.$docsify = {
+      name: "kino",
+      nameLink: "./",
+      repo: "https://github.com/Epistemelody/rime-kino",
+      homepage: "README.md",
+      loadSidebar: true,
+      loadNavbar: false,
+      subMaxLevel: 3,
+      auto2top: true,
+      relativePath: true,
+      alias: { "/.*/_sidebar.md": "/_sidebar.md" },
+      search: { placeholder: "Search", noData: "No results", depth: 4 }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-katex@1.4.4/dist/docsify-katex.js"></script>
+  <script src="assets/theme.js"></script>
+</body>
+</html>

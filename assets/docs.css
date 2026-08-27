@@ -1,0 +1,24 @@
+.docs-body { padding-top: 0; }
+.docs-body .sidebar { top: 64px; }
+.docs-body .sidebar-toggle { top: 72px; }
+.docs-body .content { padding-top: 24px; }
+.markdown-section a { color: var(--brand, #008080); }
+.markdown-section h1 a, .markdown-section h2 a { color: inherit; }
+
+html[data-theme="dark"] .sidebar,
+html[data-theme="dark"] .sidebar-toggle,
+html[data-theme="dark"] body {
+  background: #1b1b1f;
+}
+html[data-theme="dark"] .sidebar ul li a,
+html[data-theme="dark"] .app-name-link { color: #dfdfd6; }
+html[data-theme="dark"] .markdown-section { color: #dfdfd6; }
+html[data-theme="dark"] .markdown-section h1,
+html[data-theme="dark"] .markdown-section h2 { color: #dfdfd6; }
+html[data-theme="dark"] .markdown-section code { background: #202127; }
+html[data-theme="dark"] .markdown-section pre { background: #161618; }
+html[data-theme="dark"] .search input {
+  background: #202127;
+  color: #dfdfd6;
+  border-color: #2e2e32;
+}

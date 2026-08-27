@@ -121,11 +121,25 @@ def test_no_personal_repo_or_email_in_tracked_files():
 
 def test_web_docs_site_files_and_sidebar_targets():
     assert (ROOT / "index.html").is_file()
+    assert (ROOT / "docs.html").is_file()
     assert (ROOT / ".nojekyll").is_file()
     html = (ROOT / "index.html").read_text(encoding="utf-8")
-    assert "docsify" in html
-    assert 'homepage: "docs/home.md"' in html
-    assert (ROOT / "docs" / "home.md").is_file()
+    css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
+    assert "#008080" in css
+    assert "border-radius" not in css
+    assert "kino-preview.png" in html
+    assert "docs.html" in html
+    assert "hero-name" in html
+    assert 'data-theme-option="dark"' in html
+    assert 'data-lang-option="en"' in html
+    assert "assets/logo.svg" in html
+    assert "💻" not in html
+    docs = (ROOT / "docs.html").read_text(encoding="utf-8")
+    assert "docsify" in docs
+    assert (ROOT / "assets" / "theme.js").is_file()
+    assert (ROOT / "assets" / "logo.svg").is_file()
+    assert (ROOT / "assets" / "logo.png").is_file()
+    assert (ROOT / "assets" / "og.png").is_file()
     assert (OVERLAY / "squirrel.custom.yaml").is_file()
     sidebar = (ROOT / "_sidebar.md").read_text(encoding="utf-8")
     targets = []

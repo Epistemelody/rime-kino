@@ -1,43 +1,119 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-lang="zh" data-theme="light">
 <head>
   <meta charset="UTF-8">
-  <title>kino 文档</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="kino — 多通道 Rime 叠层：拼音、日文 Viterbi、拉丁重音、多生态数学符号">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-  <style>
-    :root { --theme-color: #5E81AC; }
-    .sidebar { padding-top: 0.5rem; }
-  </style>
+  <title>kino</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="kino：叠在薄荷拼音上的多通道 Rime 输入层。拼音、日文 Viterbi、拉丁重音、多生态数学符号。Linux / Windows / macOS。">
+  <meta property="og:title" content="kino">
+  <meta property="og:description" content="多通道 Rime 叠层：拼音、日文 Viterbi、拉丁重音、数学符号。">
+  <meta property="og:image" content="https://epistemelody.github.io/rime-kino/assets/og.png">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/logo.png">
+  <link rel="stylesheet" href="assets/site.css">
+  <script>
+    (function () {
+      var t = localStorage.getItem("kino-theme") || "system";
+      var dark = t === "dark" || (t === "system" && matchMedia("(prefers-color-scheme: dark)").matches);
+      document.documentElement.dataset.theme = dark ? "dark" : "light";
+      document.documentElement.dataset.lang = localStorage.getItem("kino-lang") || "zh";
+    })();
+  </script>
 </head>
 <body>
-  <div id="app">加载文档…</div>
-  <script>
-    window.$docsify = {
-      name: "kino",
-      repo: "https://github.com/Epistemelody/rime-kino",
-      homepage: "docs/home.md",
-      loadSidebar: true,
-      loadNavbar: true,
-      subMaxLevel: 3,
-      auto2top: true,
-      relativePath: true,
-      alias: {
-        "/.*/_sidebar.md": "/_sidebar.md",
-        "/.*/_navbar.md": "/_navbar.md"
-      },
-      search: {
-        placeholder: "搜索文档",
-        noData: "没有结果",
-        depth: 4
-      }
-    };
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-katex@1.4.4/dist/docsify-katex.js"></script>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="./"><img src="assets/logo.svg" alt="">kino</a>
+      <nav class="nav-links">
+        <a class="i18n-zh" href="docs.html#/README">安装</a>
+        <a class="i18n-en" href="docs.html#/README.en">Install</a>
+        <a class="i18n-zh" href="docs.html#/docs/kino">交互契约</a>
+        <a class="i18n-en" href="docs.html#/docs/kino.en">Interaction</a>
+        <a class="i18n-zh" href="docs.html#/docs/math-symbols">数学符号</a>
+        <a class="i18n-en" href="docs.html#/docs/math-symbols">Math</a>
+        <a href="https://github.com/Epistemelody/rime-kino">GitHub</a>
+      </nav>
+      <div class="extra">
+        <div class="menu" data-menu>
+          <button type="button" data-menu-toggle class="i18n-zh">外观</button>
+          <button type="button" data-menu-toggle class="i18n-en">Appearance</button>
+          <div class="panel">
+            <button type="button" data-theme-option="light"><span class="i18n-zh">浅色</span><span class="i18n-en">Light</span></button>
+            <button type="button" data-theme-option="dark"><span class="i18n-zh">深色</span><span class="i18n-en">Dark</span></button>
+            <button type="button" data-theme-option="system"><span class="i18n-zh">系统</span><span class="i18n-en">System</span></button>
+          </div>
+        </div>
+        <div class="menu" data-menu>
+          <button type="button" data-menu-toggle data-lang-label>简体中文</button>
+          <div class="panel">
+            <button type="button" data-lang-option="zh">简体中文</button>
+            <button type="button" data-lang-option="en">English</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <p class="hero-name">kino</p>
+      <p class="hero-text i18n-zh">多通道 Rime 叠层，一次部署三个平台</p>
+      <p class="hero-text i18n-en">A multi-channel Rime overlay for three platforms</p>
+      <p class="hero-tag i18n-zh">叠在薄荷拼音之上：严格拼音热路径、数学检索、拉丁重音、Mozc Viterbi 日文。</p>
+      <p class="hero-tag i18n-en">On top of Mint Pinyin: strict pinyin, math search, Latin diacritics, Mozc Viterbi Japanese.</p>
+      <div class="actions">
+        <a class="btn btn-brand i18n-zh" href="docs.html#/README">配置教程</a>
+        <a class="btn btn-brand i18n-en" href="docs.html#/README.en">Guide</a>
+        <a class="btn btn-alt" href="https://github.com/Epistemelody/rime-kino">GitHub</a>
+        <a class="btn btn-alt i18n-zh" href="docs.html#/docs/kino">交互说明</a>
+        <a class="btn btn-alt i18n-en" href="docs.html#/docs/kino.en">Spec</a>
+        <a class="btn btn-alt i18n-zh" href="#install">一键安装</a>
+        <a class="btn btn-alt i18n-en" href="#install">Install</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-blob" aria-hidden="true"></div>
+      <img src="assets/kino-preview.png" alt="kino candidate windows">
+    </div>
+  </section>
+
+  <section class="features">
+    <article class="feature">
+      <h2 class="i18n-zh">多平台支持</h2>
+      <h2 class="i18n-en">Multi-platform</h2>
+      <p class="i18n-zh">基于 Rime，适配 Linux（Fcitx5）、Windows（小狼毫）与 macOS（鼠须管）。一条 deploy.sh / deploy.ps1 完成叠层部署。</p>
+      <p class="i18n-en">Rime overlay for Linux (Fcitx5), Windows (Weasel), and macOS (Squirrel). One deploy script installs the stack.</p>
+    </article>
+    <article class="feature">
+      <h2 class="i18n-zh">多通道输入</h2>
+      <h2 class="i18n-en">Multi-channel input</h2>
+      <p class="i18n-zh">反斜杠数学与命令（LaTeX / Typst / Lean / MMA），分号拉丁重音，波浪号日文 Viterbi；拼音热路径保持严格、低干扰。</p>
+      <p class="i18n-en">Backslash math (LaTeX / Typst / Lean / MMA), semicolon Latin diacritics, tilde Japanese Viterbi; strict low-noise pinyin.</p>
+    </article>
+    <article class="feature">
+      <h2 class="i18n-zh">叠层而非重造</h2>
+      <h2 class="i18n-en">Overlay, not a fork</h2>
+      <p class="i18n-zh">以 oh-my-rime 为底座，kino 只提供 overlay、主题与 Lua 通道。词库与主方案 ID 保持兼容。</p>
+      <p class="i18n-en">Built on oh-my-rime. kino ships overlay, theme, and Lua channels only. Schema ID and dictionaries stay compatible.</p>
+    </article>
+    <article class="feature">
+      <h2 class="i18n-zh">完全开源</h2>
+      <h2 class="i18n-en">Open source</h2>
+      <p class="i18n-zh">源码在 GitHub 以 GPL-3.0 发布。</p>
+      <p class="i18n-en">Released on GitHub under GPL-3.0.</p>
+    </article>
+  </section>
+
+  <section class="install" id="install">
+    <pre>git clone --recurse-submodules https://github.com/Epistemelody/rime-kino.git
+cd rime-kino
+./scripts/deploy.sh    # Windows: .\scripts\deploy.ps1</pre>
+  </section>
+
+  <footer class="foot">
+    <p>GPL-3.0 · <a href="https://github.com/Epistemelody/rime-kino">Epistemelody/rime-kino</a> · Felidz</p>
+  </footer>
+  <script src="assets/theme.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 - **中文**
-  - [项目主页](/)
+  - [项目主页](/index.html)
   - [项目概览与安装](/README.md)
   - [交互契约](/docs/kino.md)
   - [文档治理](/docs/README.md)
