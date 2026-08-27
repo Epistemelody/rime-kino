@@ -125,9 +125,9 @@ def test_web_docs_site_files_and_sidebar_targets():
         if "](" not in line:
             continue
         path = line.split("](", 1)[1].rsplit(")", 1)[0].strip()
-        if path.startswith("http"):
+        if path.startswith("http") or path == "/":
             continue
-        targets.append(path)
+        targets.append(path.lstrip("/"))
     assert targets, sidebar
     for path in targets:
         assert (ROOT / path).is_file(), path
