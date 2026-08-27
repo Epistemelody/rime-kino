@@ -56,6 +56,10 @@ def test_gen_writes_kana_commands_emoji(tmp_path):
     emoji = (out / "opencc" / "emoji.txt").read_text(encoding="utf-8")
     assert "嘿嘿" in emoji
     idx = (out / "lua" / "commands_idx.lua").read_text(encoding="utf-8")
-    assert "alpha" in idx
-    assert "pha" in idx or "[\"ph\"]" in idx or "['ph']" in idx
+    assert "pre2" in idx
+    assert "gblob" in idx
+    assert "local rows =" not in idx
+    assert "latex" in idx
+    assert '["ph"]' in idx or "['ph']" in idx
+    assert r"\x61\x6c\x70\x68\x61" in idx  # "alpha" in cblob
     assert not (ROOT / "docs" / "drafts" / "commands.csv").exists()

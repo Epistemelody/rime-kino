@@ -81,6 +81,7 @@ patch:
     - lua_processor@*kp_number_processor
     - lua_processor@*select_character
     - lua_processor@*codeLengthLimit_processor
+    - lua_processor@*channel_len
     - ascii_composer
     - recognizer
     - lua_processor@*command_keys

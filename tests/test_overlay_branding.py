@@ -200,11 +200,22 @@ def test_mint_disables_fuzzy_pinyin_and_typo_algebra():
 def test_mint_input_length_is_not_capped_at_25():
     text = (OVERLAY / "rime_mint.custom.yaml").read_text(encoding="utf-8")
     assert "codeLengthLimit_processor: 256" in text
+    assert "lua_processor@*channel_len" in text
+    assert text.find("lua_processor@*channel_len") > text.find(
+        "lua_processor@*codeLengthLimit_processor"
+    )
+    cap = (OVERLAY / "lua" / "channel_len.lua").read_text(encoding="utf-8")
+    assert "PINYIN_CAP = 25" in cap
+    assert "PREFIX_CAP = 256" in cap
+    cmd = (OVERLAY / "lua" / "command_draft.lua").read_text(encoding="utf-8")
+    assert "ipairs(rows)" not in cmd
+    assert "idx.pre2" in cmd
+    assert "string.unpack" in cmd
 
 
 def test_command_candidate_comment_is_code_and_dialect():
     cmd = (OVERLAY / "lua" / "command_draft.lua").read_text(encoding="utf-8")
-    assert "comment_for(idx, ctx, row[1], row[2])" in cmd
+    assert "comment_for(idx, ctx, commit, code)" in cmd
     assert 'table.concat(dialects, " ")' in cmd
     assert 'Candidate("cmd", seg.start, seg._end, row[1], row[2])' not in cmd
     assert 'Candidate("cmd", seg.start, seg._end, row[1], row[3])' not in cmd

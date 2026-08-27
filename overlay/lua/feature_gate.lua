@@ -74,7 +74,6 @@ function M.init(env)
 end
 
 function M.func(input, env)
-  load_kinds(env)
   local ctx = env.engine.context
   local seg = current_seg(env)
   local latin_on = feat.on(ctx, feat.LATIN)

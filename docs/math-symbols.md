@@ -25,6 +25,7 @@ You can implement or review the `\` command pipeline from this file. Product exa
 iter_source_command_codes(draft: Path) -> iter[str]
 collect_command_rows(draft: Path) -> list[{commit, code, kind, glyph}]
 pack_command_index(rows) -> (packed[(commit, code.lower(), kind)], g2)
+prefix_postings(packed) -> {pre1, pre2, last1, last2}
 command_code(code: str) -> bool          # alnum or COMMAND_EXTRA
 split_codes(cell: str) -> list[str]      # split on " | "
 

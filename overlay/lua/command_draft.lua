@@ -24,30 +24,41 @@ local function load_idx(env)
   local dir = rime_api.get_user_data_dir()
   local chunk = loadfile(dir .. "/lua/commands_idx.lua")
   if not chunk then
-    env.idx = { rows = {}, g2 = {}, kinds_by_code = {} }
+    env.idx = { n = 0, pre1 = {}, pre2 = {}, last1 = {}, last2 = {}, g2 = {}, kinds = {} }
     return env.idx
   end
-  local idx = chunk()
-  idx.rows = idx.rows or {}
-  idx.g2 = idx.g2 or {}
-  local kinds_by_code = {}
-  for _, row in ipairs(idx.rows) do
-    local commit, code, kind = row[1], row[2], row[3]
-    local by_code = kinds_by_code[commit]
-    if not by_code then
-      by_code = {}
-      kinds_by_code[commit] = by_code
-    end
-    local list = by_code[code]
-    if not list then
-      list = {}
-      by_code[code] = list
-    end
-    list[#list + 1] = kind
-  end
-  idx.kinds_by_code = kinds_by_code
-  env.idx = idx
+  env.idx = chunk()
   return env.idx
+end
+
+local function row_at(idx, i)
+  local g0 = string.unpack("<I4", idx.goff, (i - 1) * 4 + 1)
+  local g1 = string.unpack("<I4", idx.goff, i * 4 + 1)
+  local c0 = string.unpack("<I4", idx.coff, (i - 1) * 4 + 1)
+  local c1 = string.unpack("<I4", idx.coff, i * 4 + 1)
+  local glyph = idx.gblob:sub(g0, g1 - 1)
+  local code = idx.cblob:sub(c0, c1 - 1)
+  local kind = idx.kinds[idx.kid:byte(i)]
+  return glyph, code, kind
+end
+
+local function each_idx(pack, fn)
+  if not pack or pack == "" then
+    return
+  end
+  for p = 1, #pack, 4 do
+    fn((string.unpack("<I4", pack, p)))
+  end
+end
+
+local function posting(idx, map2, map1, q)
+  if q == "" then
+    return nil
+  end
+  if #q >= 2 then
+    return map2[q:sub(1, 2)]
+  end
+  return map1[q:sub(1, 1)]
 end
 
 local function dialect(kind)
@@ -79,9 +90,15 @@ local function dialect(kind)
 end
 
 local function comment_for(idx, ctx, commit, code)
-  local by_code = idx.kinds_by_code and idx.kinds_by_code[commit]
-  local kinds = by_code and by_code[code]
-  if not kinds then
+  local kinds = {}
+  local pack = posting(idx, idx.pre2, idx.pre1, code)
+  each_idx(pack, function(i)
+    local g, c, k = row_at(idx, i)
+    if g == commit and c == code then
+      kinds[#kinds + 1] = k
+    end
+  end)
+  if #kinds == 0 then
     return code
   end
   local seen, dialects = {}, {}
@@ -162,43 +179,41 @@ function M.func(input, env)
     yield(Candidate("cmd", seg.start, seg._end, "＼", "fullwidth"))
     return
   end
-  local ctx = env.engine.context
   local idx = load_idx(env)
-  local rows, g2 = idx.rows or {}, idx.g2 or {}
   local hits, seen = {}, {}
 
-  for i, row in ipairs(rows) do
-    local code, kind = row[2], row[3]
-    if feat.kind_on(ctx, kind) then
-      if code == q then
-        add_hit(hits, seen, 0, i, row[1])
-      elseif code:sub(1, #q) == q then
-        add_hit(hits, seen, 1, i, row[1])
-      else
-        local last = code:match("%.([^%.]+)$")
-        if last and last:sub(1, #q) == q then
-          add_hit(hits, seen, 2, i, row[1])
-        end
-      end
+  each_idx(posting(idx, idx.pre2, idx.pre1, q), function(i)
+    local commit, code, kind = row_at(idx, i)
+    if not feat.kind_on(ctx, kind) then
+      return
     end
-  end
+    if code == q then
+      add_hit(hits, seen, 0, i, commit)
+    elseif code:sub(1, #q) == q then
+      add_hit(hits, seen, 1, i, commit)
+    end
+  end)
+
+  each_idx(posting(idx, idx.last2, idx.last1, q), function(i)
+    local commit, code, kind = row_at(idx, i)
+    if not feat.kind_on(ctx, kind) then
+      return
+    end
+    local last = code:match("%.([^%.]+)$")
+    if last and last:sub(1, #q) == q then
+      add_hit(hits, seen, 2, i, commit)
+    end
+  end)
 
   if #q >= 2 then
-    local gram = q:sub(1, 2)
-    local posting = g2[gram]
-    if posting then
-      for _, i in ipairs(posting) do
-        local row = rows[i]
-        if row then
-          local code, kind = row[2], row[3]
-          if feat.kind_on(ctx, kind) and not (kind == "unicode" and #q < 4) then
-            if code:find(q, 1, true) then
-              add_hit(hits, seen, 3, i, row[1])
-            end
-          end
+    each_idx(idx.g2[q:sub(1, 2)], function(i)
+      local commit, code, kind = row_at(idx, i)
+      if feat.kind_on(ctx, kind) and not (kind == "unicode" and #q < 4) then
+        if code:find(q, 1, true) then
+          add_hit(hits, seen, 3, i, commit)
         end
       end
-    end
+    end)
   end
 
   table.sort(hits, function(a, b)
@@ -211,10 +226,10 @@ function M.func(input, env)
   local n = 0
   local yielded = {}
   for _, h in ipairs(hits) do
-    local row = rows[h[2]]
-    if row and not yielded[row[1]] then
-      yielded[row[1]] = true
-      yield(Candidate("cmd", seg.start, seg._end, row[1], comment_for(idx, ctx, row[1], row[2])))
+    local commit, code = row_at(idx, h[2])
+    if commit and not yielded[commit] then
+      yielded[commit] = true
+      yield(Candidate("cmd", seg.start, seg._end, commit, comment_for(idx, ctx, commit, code)))
       n = n + 1
       if n >= 20 then
         break

@@ -13,6 +13,7 @@ from gen_overlay import (  # noqa: E402
     command_code,
     iter_source_command_codes,
     pack_command_index,
+    prefix_postings,
     split_codes,
     unicode_gram_source,
 )
@@ -37,8 +38,8 @@ def _lua_lookup(packed, g2, q: str, *, kind_on=lambda k: True):
     return hits
 
 
-def _command_hits(packed, g2, q: str, *, kind_on=lambda k: True, limit=20):
-    """Mirror command_draft.lua four layers; dedup by glyph."""
+def _scan_hits(packed, g2, q: str, *, kind_on=lambda k: True, limit=20):
+    """Full-table scan; oracle for prefix-posting equality."""
     q = q.lower()
     scored: list[tuple[int, int, str]] = []
     seen: dict[str, int] = {}
@@ -60,6 +61,64 @@ def _command_hits(packed, g2, q: str, *, kind_on=lambda k: True, limit=20):
             last = code.rsplit(".", 1)[-1]
             if last.startswith(q):
                 add(2, i, commit)
+
+    if len(q) >= 2:
+        for i in g2.get(q[:GRAM_N], []):
+            commit, code, kind = packed[i]
+            if not kind_on(kind):
+                continue
+            if kind == "unicode" and len(q) < 4:
+                continue
+            if q in code:
+                add(3, i, commit)
+
+    scored.sort(key=lambda h: (h[0], h[2]))
+    out = []
+    yielded: set[str] = set()
+    for _score, i, _commit in scored:
+        row = packed[i]
+        if row[0] in yielded:
+            continue
+        yielded.add(row[0])
+        out.append(row)
+        if len(out) >= limit:
+            break
+    return out
+
+
+def _command_hits(packed, g2, q: str, *, kind_on=lambda k: True, limit=20):
+    """Mirror command_draft.lua four layers via prefix/last/g2 postings."""
+    q = q.lower()
+    maps = prefix_postings(packed)
+    scored: list[tuple[int, int, str]] = []
+    seen: dict[str, int] = {}
+
+    def add(score: int, i: int, commit: str) -> None:
+        if commit in seen and seen[commit] <= score:
+            return
+        seen[commit] = score
+        scored.append((score, i, commit))
+
+    if q:
+        key = q[:2] if len(q) >= 2 else q[:1]
+        bucket = maps["pre2" if len(q) >= 2 else "pre1"].get(key, [])
+        for i in bucket:
+            commit, code, kind = packed[i]
+            if not kind_on(kind):
+                continue
+            if code == q:
+                add(0, i, commit)
+            elif code.startswith(q):
+                add(1, i, commit)
+        last_bucket = maps["last2" if len(q) >= 2 else "last1"].get(key, [])
+        for i in last_bucket:
+            commit, code, kind = packed[i]
+            if not kind_on(kind):
+                continue
+            if "." in code:
+                last = code.rsplit(".", 1)[-1]
+                if last.startswith(q):
+                    add(2, i, commit)
 
     if len(q) >= 2:
         for i in g2.get(q[:GRAM_N], []):
@@ -116,6 +175,14 @@ def test_unicode_infix_finds_kept_name_words_not_filler():
 def test_skip_words_are_the_unicode_filler_inventory():
     for w in ("of", "small", "letter", "capital"):
         assert w in SKIP_UNICODE_WORDS
+
+
+def test_prefix_postings_match_full_scan():
+    packed, g2 = _packed()
+    for q in ("a", "al", "alpha", "l", "arrow", "pha", "sin", "frac", "rightarrow"):
+        scan = [h[0] for h in _scan_hits(packed, g2, q)]
+        pref = [h[0] for h in _command_hits(packed, g2, q)]
+        assert scan == pref, q
 
 
 def test_infix_postings_are_not_capped():

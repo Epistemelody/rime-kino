@@ -171,7 +171,7 @@ python3 -m pytest tests/ -v
 | 监控指标 | 性能预算上限 | 违规设计与禁止操作 (Anti-Patterns) |
 | :--- | :--- | :--- |
 | **拼音热路径延迟** | $\le 1.0\text{ ms}$ | 严禁在拼音热路径上挂载全局 Lua Filter；严禁在拼音流中执行编辑距离纠错。 |
-| **`\` 命令检索耗时** | $\le 5.0\text{ ms}$ | 严禁在 Lua 运行时中动态扫盘解析 CSV 文件；所有查询必须直接命中 `commands_idx.lua` 内存表。 |
+| **`\` 命令检索耗时** | $\le 5.0\text{ ms}$ | 严禁在 Lua 运行时中动态扫盘解析 CSV 文件；严禁每键 `ipairs` 全表。查询必须走 `commands_idx` 前缀/尾段/2-gram 拉链。 |
 | **内存占用预算** | $\le 30\text{ MB}$ (基础态) | 严禁在 `commands.dict.yaml` 中暴力枚举展开所有 Infix 变体；严禁给上万条目的命令码表开启拼读补全（`enable_completion`）。 |
 
 ---
