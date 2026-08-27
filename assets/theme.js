@@ -45,6 +45,11 @@
     if ((localStorage.getItem(THEME_KEY) || "system") === "system") applyTheme("system");
   });
 
+  document.querySelectorAll("[data-menu]").forEach((menu) => {
+    menu.addEventListener("mouseenter", () => menu.classList.add("open"));
+    menu.addEventListener("mouseleave", () => menu.classList.remove("open"));
+  });
+
   document.addEventListener("click", (ev) => {
     const themeOpt = ev.target.closest("[data-theme-option]");
     if (themeOpt) {

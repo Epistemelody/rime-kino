@@ -130,6 +130,10 @@ def test_web_docs_site_files_and_sidebar_targets():
     assert "kino-preview.png" in html
     assert "docs.html" in html
     assert "hero-name" in html
+    assert "class=\"features\"" not in html
+    assert "多平台支持" not in html
+    assert 'aria-label="Change language"' in html
+    assert 'aria-label="Appearance"' in html
     assert 'data-theme-option="dark"' in html
     assert 'data-lang-option="en"' in html
     assert "assets/logo.svg" in html
