@@ -124,6 +124,7 @@ def test_web_docs_site_files_and_sidebar_targets():
     assert (ROOT / "docs.html").is_file()
     assert (ROOT / ".nojekyll").is_file()
     html = (ROOT / "index.html").read_text(encoding="utf-8")
+    docs = (ROOT / "docs.html").read_text(encoding="utf-8")
     css = (ROOT / "assets" / "site.css").read_text(encoding="utf-8")
     assert "#008080" in css
     assert "border-radius: 0" in css
@@ -138,9 +139,12 @@ def test_web_docs_site_files_and_sidebar_targets():
     assert 'data-theme-switch' in html
     assert 'role="switch"' in html
     assert 'data-lang-option="en"' in html
+    assert "<nav class=\"nav-links\"" not in html
+    assert "<nav class=\"nav-links\"" not in docs
+    assert 'role="navigation"' in html
+    assert 'role="navigation"' in docs
     assert "assets/logo.svg" in html
     assert "💻" not in html
-    docs = (ROOT / "docs.html").read_text(encoding="utf-8")
     assert "docsify" in docs
     assert (ROOT / "assets" / "theme.js").is_file()
     assert (ROOT / "assets" / "logo.svg").is_file()

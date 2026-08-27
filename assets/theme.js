@@ -6,19 +6,24 @@
     return window.matchMedia("(prefers-color-scheme: dark)").matches;
   }
 
-  function resolvedTheme(mode) {
-    if (mode === "dark") return "dark";
-    if (mode === "light") return "light";
-    return systemDark() ? "dark" : "light";
-  }
-
   function applyTheme(mode) {
-    let next = mode || localStorage.getItem(THEME_KEY);
-    if (next !== "light" && next !== "dark") next = resolvedTheme("system");
-    localStorage.setItem(THEME_KEY, next);
+    let next = mode;
+    if (next !== "light" && next !== "dark") {
+      const stored = localStorage.getItem(THEME_KEY);
+      next = stored === "dark" || stored === "light"
+        ? stored
+        : (systemDark() ? "dark" : "light");
+    } else {
+      localStorage.setItem(THEME_KEY, next);
+    }
     document.documentElement.dataset.theme = next;
+    document.documentElement.style.colorScheme = next;
     document.querySelectorAll("[data-theme-switch]").forEach((el) => {
       el.setAttribute("aria-checked", next === "dark" ? "true" : "false");
+      el.setAttribute(
+        "aria-label",
+        next === "dark" ? "Switch to light theme" : "Switch to dark theme"
+      );
     });
   }
 
@@ -28,9 +33,11 @@
     localStorage.setItem(LANG_KEY, next);
     document.documentElement.lang = next === "en" ? "en" : "zh-CN";
     document.documentElement.dataset.lang = next;
-    document.title = next === "en" ? "kino" : "kino";
     document.querySelectorAll("[data-lang-option]").forEach((el) => {
-      el.setAttribute("aria-current", el.getAttribute("data-lang-option") === next ? "true" : "false");
+      el.setAttribute(
+        "aria-current",
+        el.getAttribute("data-lang-option") === next ? "true" : "false"
+      );
     });
     if (lang && prev !== next && /docs\.html/.test(location.pathname)) {
       remapDocsHash(next);
@@ -58,6 +65,16 @@
     }
   }
 
+  function setMenuOpen(menu, open) {
+    menu.classList.toggle("open", open);
+    const toggle = menu.querySelector("[data-menu-toggle]");
+    toggle?.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
+  function closeMenus() {
+    document.querySelectorAll("[data-menu]").forEach((menu) => setMenuOpen(menu, false));
+  }
+
   window.kinoApplyTheme = applyTheme;
   window.kinoApplyLang = applyLang;
 
@@ -65,8 +82,14 @@
   applyLang();
 
   document.querySelectorAll("[data-menu]").forEach((menu) => {
-    menu.addEventListener("mouseenter", () => menu.classList.add("open"));
-    menu.addEventListener("mouseleave", () => menu.classList.remove("open"));
+    const toggle = menu.querySelector("[data-menu-toggle]");
+    menu.addEventListener("mouseenter", () => setMenuOpen(menu, true));
+    menu.addEventListener("mouseleave", () => setMenuOpen(menu, false));
+    toggle?.addEventListener("click", (ev) => {
+      ev.preventDefault();
+      ev.stopPropagation();
+      setMenuOpen(menu, !menu.classList.contains("open"));
+    });
   });
 
   document.addEventListener("click", (ev) => {
@@ -78,16 +101,13 @@
     const langOpt = ev.target.closest("[data-lang-option]");
     if (langOpt) {
       applyLang(langOpt.getAttribute("data-lang-option"));
-      langOpt.closest("[data-menu]")?.classList.remove("open");
+      closeMenus();
       return;
     }
-    const toggle = ev.target.closest("[data-menu-toggle]");
-    document.querySelectorAll("[data-menu]").forEach((menu) => {
-      if (toggle && menu.contains(toggle)) {
-        menu.classList.toggle("open");
-      } else {
-        menu.classList.remove("open");
-      }
-    });
+    if (!ev.target.closest("[data-menu]")) closeMenus();
+  });
+
+  document.addEventListener("keydown", (ev) => {
+    if (ev.key === "Escape") closeMenus();
   });
 })();
