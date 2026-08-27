@@ -1,0 +1,2667 @@
+[
+  {
+    "glyph": "#",
+    "code": "#",
+    "mode": "math"
+  },
+  {
+    "glyph": "$",
+    "code": "$",
+    "mode": "math"
+  },
+  {
+    "glyph": "$",
+    "code": "textdollar",
+    "mode": "text"
+  },
+  {
+    "glyph": "%",
+    "code": "%",
+    "mode": "math"
+  },
+  {
+    "glyph": "&",
+    "code": "&",
+    "mode": "math"
+  },
+  {
+    "glyph": "&",
+    "code": "And",
+    "mode": "math"
+  },
+  {
+    "glyph": "(",
+    "code": "lparen",
+    "mode": "math"
+  },
+  {
+    "glyph": ")",
+    "code": "rparen",
+    "mode": "math"
+  },
+  {
+    "glyph": ".",
+    "code": "ldotp",
+    "mode": "math"
+  },
+  {
+    "glyph": "<",
+    "code": "lt",
+    "mode": "math"
+  },
+  {
+    "glyph": "<",
+    "code": "textless",
+    "mode": "text"
+  },
+  {
+    "glyph": ">",
+    "code": "gt",
+    "mode": "math"
+  },
+  {
+    "glyph": ">",
+    "code": "textgreater",
+    "mode": "text"
+  },
+  {
+    "glyph": "A",
+    "code": "u0391",
+    "mode": "math"
+  },
+  {
+    "glyph": "B",
+    "code": "u0392",
+    "mode": "math"
+  },
+  {
+    "glyph": "C",
+    "code": "u2102",
+    "mode": "math"
+  },
+  {
+    "glyph": "E",
+    "code": "u0395",
+    "mode": "math"
+  },
+  {
+    "glyph": "H",
+    "code": "u0397",
+    "mode": "math"
+  },
+  {
+    "glyph": "H",
+    "code": "u210D",
+    "mode": "math"
+  },
+  {
+    "glyph": "I",
+    "code": "u0399",
+    "mode": "math"
+  },
+  {
+    "glyph": "K",
+    "code": "u039A",
+    "mode": "math"
+  },
+  {
+    "glyph": "M",
+    "code": "u039C",
+    "mode": "math"
+  },
+  {
+    "glyph": "N",
+    "code": "u039D",
+    "mode": "math"
+  },
+  {
+    "glyph": "N",
+    "code": "u2115",
+    "mode": "math"
+  },
+  {
+    "glyph": "O",
+    "code": "u039F",
+    "mode": "math"
+  },
+  {
+    "glyph": "P",
+    "code": "u03A1",
+    "mode": "math"
+  },
+  {
+    "glyph": "P",
+    "code": "u2119",
+    "mode": "math"
+  },
+  {
+    "glyph": "Q",
+    "code": "u211A",
+    "mode": "math"
+  },
+  {
+    "glyph": "R",
+    "code": "u211D",
+    "mode": "math"
+  },
+  {
+    "glyph": "T",
+    "code": "u03A4",
+    "mode": "math"
+  },
+  {
+    "glyph": "X",
+    "code": "u03A7",
+    "mode": "math"
+  },
+  {
+    "glyph": "Z",
+    "code": "u0396",
+    "mode": "math"
+  },
+  {
+    "glyph": "Z",
+    "code": "u2124",
+    "mode": "math"
+  },
+  {
+    "glyph": "[",
+    "code": "lbrack",
+    "mode": "math"
+  },
+  {
+    "glyph": "\\",
+    "code": "backslash",
+    "mode": "math"
+  },
+  {
+    "glyph": "\\",
+    "code": "textbackslash",
+    "mode": "text"
+  },
+  {
+    "glyph": "]",
+    "code": "rbrack",
+    "mode": "math"
+  },
+  {
+    "glyph": "^",
+    "code": "hat",
+    "mode": "math"
+  },
+  {
+    "glyph": "^",
+    "code": "textasciicircum",
+    "mode": "text"
+  },
+  {
+    "glyph": "_",
+    "code": "_",
+    "mode": "math"
+  },
+  {
+    "glyph": "_",
+    "code": "textunderscore",
+    "mode": "text"
+  },
+  {
+    "glyph": "h",
+    "code": "u210E",
+    "mode": "math"
+  },
+  {
+    "glyph": "{",
+    "code": "lbrace",
+    "mode": "math"
+  },
+  {
+    "glyph": "{",
+    "code": "textbraceleft",
+    "mode": "text"
+  },
+  {
+    "glyph": "{",
+    "code": "{",
+    "mode": "math"
+  },
+  {
+    "glyph": "|",
+    "code": "textbar",
+    "mode": "text"
+  },
+  {
+    "glyph": "}",
+    "code": "rbrace",
+    "mode": "math"
+  },
+  {
+    "glyph": "}",
+    "code": "textbraceright",
+    "mode": "text"
+  },
+  {
+    "glyph": "}",
+    "code": "}",
+    "mode": "math"
+  },
+  {
+    "glyph": "~",
+    "code": "textasciitilde",
+    "mode": "text"
+  },
+  {
+    "glyph": "~",
+    "code": "tilde",
+    "mode": "math"
+  },
+  {
+    "glyph": " ",
+    "code": "nobreakspace",
+    "mode": "math"
+  },
+  {
+    "glyph": " ",
+    "code": "space",
+    "mode": "math"
+  },
+  {
+    "glyph": "£",
+    "code": "mathsterling",
+    "mode": "math"
+  },
+  {
+    "glyph": "£",
+    "code": "pounds",
+    "mode": "math"
+  },
+  {
+    "glyph": "£",
+    "code": "textsterling",
+    "mode": "text"
+  },
+  {
+    "glyph": "¥",
+    "code": "yen",
+    "mode": "math"
+  },
+  {
+    "glyph": "§",
+    "code": "S",
+    "mode": "math"
+  },
+  {
+    "glyph": "¨",
+    "code": "ddot",
+    "mode": "math"
+  },
+  {
+    "glyph": "¬",
+    "code": "lnot",
+    "mode": "math"
+  },
+  {
+    "glyph": "¬",
+    "code": "neg",
+    "mode": "math"
+  },
+  {
+    "glyph": "®",
+    "code": "circledR",
+    "mode": "math"
+  },
+  {
+    "glyph": "°",
+    "code": "degree",
+    "mode": "math"
+  },
+  {
+    "glyph": "°",
+    "code": "textdegree",
+    "mode": "text"
+  },
+  {
+    "glyph": "±",
+    "code": "pm",
+    "mode": "math"
+  },
+  {
+    "glyph": "¶",
+    "code": "P",
+    "mode": "math"
+  },
+  {
+    "glyph": "¸",
+    "code": "c",
+    "mode": "text"
+  },
+  {
+    "glyph": "Æ",
+    "code": "AE",
+    "mode": "text"
+  },
+  {
+    "glyph": "×",
+    "code": "times",
+    "mode": "math"
+  },
+  {
+    "glyph": "Ø",
+    "code": "O",
+    "mode": "text"
+  },
+  {
+    "glyph": "ß",
+    "code": "ss",
+    "mode": "text"
+  },
+  {
+    "glyph": "æ",
+    "code": "ae",
+    "mode": "text"
+  },
+  {
+    "glyph": "ð",
+    "code": "eth",
+    "mode": "math"
+  },
+  {
+    "glyph": "ð",
+    "code": "u00f0",
+    "mode": "text"
+  },
+  {
+    "glyph": "÷",
+    "code": "div",
+    "mode": "math"
+  },
+  {
+    "glyph": "ø",
+    "code": "o",
+    "mode": "text"
+  },
+  {
+    "glyph": "ı",
+    "code": "i",
+    "mode": "text"
+  },
+  {
+    "glyph": "ı",
+    "code": "u0131",
+    "mode": "math"
+  },
+  {
+    "glyph": "Œ",
+    "code": "OE",
+    "mode": "text"
+  },
+  {
+    "glyph": "œ",
+    "code": "oe",
+    "mode": "text"
+  },
+  {
+    "glyph": "ȷ",
+    "code": "j",
+    "mode": "text"
+  },
+  {
+    "glyph": "ȷ",
+    "code": "u0237",
+    "mode": "math"
+  },
+  {
+    "glyph": "ˆ",
+    "code": "^",
+    "mode": "text"
+  },
+  {
+    "glyph": "ˇ",
+    "code": "check",
+    "mode": "math"
+  },
+  {
+    "glyph": "ˇ",
+    "code": "v",
+    "mode": "text"
+  },
+  {
+    "glyph": "ˉ",
+    "code": "=",
+    "mode": "text"
+  },
+  {
+    "glyph": "ˉ",
+    "code": "bar",
+    "mode": "math"
+  },
+  {
+    "glyph": "ˊ",
+    "code": "'",
+    "mode": "text"
+  },
+  {
+    "glyph": "ˊ",
+    "code": "acute",
+    "mode": "math"
+  },
+  {
+    "glyph": "ˋ",
+    "code": "`",
+    "mode": "text"
+  },
+  {
+    "glyph": "ˋ",
+    "code": "grave",
+    "mode": "math"
+  },
+  {
+    "glyph": "˘",
+    "code": "breve",
+    "mode": "math"
+  },
+  {
+    "glyph": "˘",
+    "code": "u",
+    "mode": "text"
+  },
+  {
+    "glyph": "˙",
+    "code": ".",
+    "mode": "text"
+  },
+  {
+    "glyph": "˙",
+    "code": "dot",
+    "mode": "math"
+  },
+  {
+    "glyph": "˚",
+    "code": "mathring",
+    "mode": "math"
+  },
+  {
+    "glyph": "˚",
+    "code": "r",
+    "mode": "text"
+  },
+  {
+    "glyph": "˜",
+    "code": "~",
+    "mode": "text"
+  },
+  {
+    "glyph": "˝",
+    "code": "H",
+    "mode": "text"
+  },
+  {
+    "glyph": "Γ",
+    "code": "Gamma",
+    "mode": "math"
+  },
+  {
+    "glyph": "Δ",
+    "code": "Delta",
+    "mode": "math"
+  },
+  {
+    "glyph": "Θ",
+    "code": "Theta",
+    "mode": "math"
+  },
+  {
+    "glyph": "Λ",
+    "code": "Lambda",
+    "mode": "math"
+  },
+  {
+    "glyph": "Ξ",
+    "code": "Xi",
+    "mode": "math"
+  },
+  {
+    "glyph": "Π",
+    "code": "Pi",
+    "mode": "math"
+  },
+  {
+    "glyph": "Σ",
+    "code": "Sigma",
+    "mode": "math"
+  },
+  {
+    "glyph": "Υ",
+    "code": "Upsilon",
+    "mode": "math"
+  },
+  {
+    "glyph": "Φ",
+    "code": "Phi",
+    "mode": "math"
+  },
+  {
+    "glyph": "Ψ",
+    "code": "Psi",
+    "mode": "math"
+  },
+  {
+    "glyph": "Ω",
+    "code": "Omega",
+    "mode": "math"
+  },
+  {
+    "glyph": "α",
+    "code": "alpha",
+    "mode": "math"
+  },
+  {
+    "glyph": "β",
+    "code": "beta",
+    "mode": "math"
+  },
+  {
+    "glyph": "γ",
+    "code": "gamma",
+    "mode": "math"
+  },
+  {
+    "glyph": "δ",
+    "code": "delta",
+    "mode": "math"
+  },
+  {
+    "glyph": "ε",
+    "code": "varepsilon",
+    "mode": "math"
+  },
+  {
+    "glyph": "ζ",
+    "code": "zeta",
+    "mode": "math"
+  },
+  {
+    "glyph": "η",
+    "code": "eta",
+    "mode": "math"
+  },
+  {
+    "glyph": "θ",
+    "code": "theta",
+    "mode": "math"
+  },
+  {
+    "glyph": "ι",
+    "code": "iota",
+    "mode": "math"
+  },
+  {
+    "glyph": "κ",
+    "code": "kappa",
+    "mode": "math"
+  },
+  {
+    "glyph": "λ",
+    "code": "lambda",
+    "mode": "math"
+  },
+  {
+    "glyph": "μ",
+    "code": "mu",
+    "mode": "math"
+  },
+  {
+    "glyph": "ν",
+    "code": "nu",
+    "mode": "math"
+  },
+  {
+    "glyph": "ξ",
+    "code": "xi",
+    "mode": "math"
+  },
+  {
+    "glyph": "ο",
+    "code": "omicron",
+    "mode": "math"
+  },
+  {
+    "glyph": "π",
+    "code": "pi",
+    "mode": "math"
+  },
+  {
+    "glyph": "ρ",
+    "code": "rho",
+    "mode": "math"
+  },
+  {
+    "glyph": "ς",
+    "code": "varsigma",
+    "mode": "math"
+  },
+  {
+    "glyph": "σ",
+    "code": "sigma",
+    "mode": "math"
+  },
+  {
+    "glyph": "τ",
+    "code": "tau",
+    "mode": "math"
+  },
+  {
+    "glyph": "υ",
+    "code": "upsilon",
+    "mode": "math"
+  },
+  {
+    "glyph": "φ",
+    "code": "varphi",
+    "mode": "math"
+  },
+  {
+    "glyph": "χ",
+    "code": "chi",
+    "mode": "math"
+  },
+  {
+    "glyph": "ψ",
+    "code": "psi",
+    "mode": "math"
+  },
+  {
+    "glyph": "ω",
+    "code": "omega",
+    "mode": "math"
+  },
+  {
+    "glyph": "ϑ",
+    "code": "vartheta",
+    "mode": "math"
+  },
+  {
+    "glyph": "ϕ",
+    "code": "phi",
+    "mode": "math"
+  },
+  {
+    "glyph": "ϖ",
+    "code": "varpi",
+    "mode": "math"
+  },
+  {
+    "glyph": "ϝ",
+    "code": "digamma",
+    "mode": "math"
+  },
+  {
+    "glyph": "ϰ",
+    "code": "varkappa",
+    "mode": "math"
+  },
+  {
+    "glyph": "ϱ",
+    "code": "varrho",
+    "mode": "math"
+  },
+  {
+    "glyph": "ϵ",
+    "code": "epsilon",
+    "mode": "math"
+  },
+  {
+    "glyph": "–",
+    "code": "textendash",
+    "mode": "text"
+  },
+  {
+    "glyph": "—",
+    "code": "textemdash",
+    "mode": "text"
+  },
+  {
+    "glyph": "‘",
+    "code": "textquoteleft",
+    "mode": "text"
+  },
+  {
+    "glyph": "’",
+    "code": "textquoteright",
+    "mode": "text"
+  },
+  {
+    "glyph": "“",
+    "code": "textquotedblleft",
+    "mode": "text"
+  },
+  {
+    "glyph": "”",
+    "code": "textquotedblright",
+    "mode": "text"
+  },
+  {
+    "glyph": "†",
+    "code": "dag",
+    "mode": "math"
+  },
+  {
+    "glyph": "†",
+    "code": "dagger",
+    "mode": "math"
+  },
+  {
+    "glyph": "†",
+    "code": "textdagger",
+    "mode": "text"
+  },
+  {
+    "glyph": "‡",
+    "code": "ddag",
+    "mode": "math"
+  },
+  {
+    "glyph": "‡",
+    "code": "ddagger",
+    "mode": "math"
+  },
+  {
+    "glyph": "‡",
+    "code": "textdaggerdbl",
+    "mode": "text"
+  },
+  {
+    "glyph": "…",
+    "code": "ldots",
+    "mode": "math"
+  },
+  {
+    "glyph": "…",
+    "code": "mathellipsis",
+    "mode": "math"
+  },
+  {
+    "glyph": "…",
+    "code": "textellipsis",
+    "mode": "text"
+  },
+  {
+    "glyph": "′",
+    "code": "prime",
+    "mode": "math"
+  },
+  {
+    "glyph": "‵",
+    "code": "backprime",
+    "mode": "math"
+  },
+  {
+    "glyph": "⃗",
+    "code": "vec",
+    "mode": "math"
+  },
+  {
+    "glyph": "ℏ",
+    "code": "hbar",
+    "mode": "math"
+  },
+  {
+    "glyph": "ℏ",
+    "code": "hslash",
+    "mode": "math"
+  },
+  {
+    "glyph": "ℑ",
+    "code": "Im",
+    "mode": "math"
+  },
+  {
+    "glyph": "ℓ",
+    "code": "ell",
+    "mode": "math"
+  },
+  {
+    "glyph": "℘",
+    "code": "wp",
+    "mode": "math"
+  },
+  {
+    "glyph": "ℜ",
+    "code": "Re",
+    "mode": "math"
+  },
+  {
+    "glyph": "℧",
+    "code": "mho",
+    "mode": "math"
+  },
+  {
+    "glyph": "Ⅎ",
+    "code": "Finv",
+    "mode": "math"
+  },
+  {
+    "glyph": "ℵ",
+    "code": "aleph",
+    "mode": "math"
+  },
+  {
+    "glyph": "ℶ",
+    "code": "beth",
+    "mode": "math"
+  },
+  {
+    "glyph": "ℷ",
+    "code": "gimel",
+    "mode": "math"
+  },
+  {
+    "glyph": "ℸ",
+    "code": "daleth",
+    "mode": "math"
+  },
+  {
+    "glyph": "⅁",
+    "code": "Game",
+    "mode": "math"
+  },
+  {
+    "glyph": "←",
+    "code": "gets",
+    "mode": "math"
+  },
+  {
+    "glyph": "←",
+    "code": "leftarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "↑",
+    "code": "uparrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "→",
+    "code": "rightarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "→",
+    "code": "to",
+    "mode": "math"
+  },
+  {
+    "glyph": "↓",
+    "code": "downarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "↔",
+    "code": "leftrightarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "↕",
+    "code": "updownarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "↖",
+    "code": "nwarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "↗",
+    "code": "nearrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "↘",
+    "code": "searrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "↙",
+    "code": "swarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "↚",
+    "code": "nleftarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "↛",
+    "code": "nrightarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "↞",
+    "code": "twoheadleftarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "↠",
+    "code": "twoheadrightarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "↢",
+    "code": "leftarrowtail",
+    "mode": "math"
+  },
+  {
+    "glyph": "↣",
+    "code": "rightarrowtail",
+    "mode": "math"
+  },
+  {
+    "glyph": "↦",
+    "code": "mapsto",
+    "mode": "math"
+  },
+  {
+    "glyph": "↩",
+    "code": "hookleftarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "↪",
+    "code": "hookrightarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "↫",
+    "code": "looparrowleft",
+    "mode": "math"
+  },
+  {
+    "glyph": "↬",
+    "code": "looparrowright",
+    "mode": "math"
+  },
+  {
+    "glyph": "↭",
+    "code": "leftrightsquigarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "↮",
+    "code": "nleftrightarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "↰",
+    "code": "Lsh",
+    "mode": "math"
+  },
+  {
+    "glyph": "↱",
+    "code": "Rsh",
+    "mode": "math"
+  },
+  {
+    "glyph": "↶",
+    "code": "curvearrowleft",
+    "mode": "math"
+  },
+  {
+    "glyph": "↷",
+    "code": "curvearrowright",
+    "mode": "math"
+  },
+  {
+    "glyph": "↺",
+    "code": "circlearrowleft",
+    "mode": "math"
+  },
+  {
+    "glyph": "↻",
+    "code": "circlearrowright",
+    "mode": "math"
+  },
+  {
+    "glyph": "↼",
+    "code": "leftharpoonup",
+    "mode": "math"
+  },
+  {
+    "glyph": "↽",
+    "code": "leftharpoondown",
+    "mode": "math"
+  },
+  {
+    "glyph": "↾",
+    "code": "restriction",
+    "mode": "math"
+  },
+  {
+    "glyph": "↾",
+    "code": "upharpoonright",
+    "mode": "math"
+  },
+  {
+    "glyph": "↿",
+    "code": "upharpoonleft",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇀",
+    "code": "rightharpoonup",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇁",
+    "code": "rightharpoondown",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇂",
+    "code": "downharpoonright",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇃",
+    "code": "downharpoonleft",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇄",
+    "code": "rightleftarrows",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇆",
+    "code": "leftrightarrows",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇇",
+    "code": "leftleftarrows",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇈",
+    "code": "upuparrows",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇉",
+    "code": "rightrightarrows",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇊",
+    "code": "downdownarrows",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇋",
+    "code": "leftrightharpoons",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇌",
+    "code": "rightleftharpoons",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇍",
+    "code": "nLeftarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇎",
+    "code": "nLeftrightarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇏",
+    "code": "nRightarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇐",
+    "code": "Leftarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇑",
+    "code": "Uparrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇒",
+    "code": "Rightarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇓",
+    "code": "Downarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇔",
+    "code": "Leftrightarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇕",
+    "code": "Updownarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇚",
+    "code": "Lleftarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇛",
+    "code": "Rrightarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇝",
+    "code": "leadsto",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇝",
+    "code": "rightsquigarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇠",
+    "code": "dashleftarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "⇢",
+    "code": "dashrightarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "∀",
+    "code": "forall",
+    "mode": "math"
+  },
+  {
+    "glyph": "∁",
+    "code": "complement",
+    "mode": "math"
+  },
+  {
+    "glyph": "∂",
+    "code": "partial",
+    "mode": "math"
+  },
+  {
+    "glyph": "∃",
+    "code": "exists",
+    "mode": "math"
+  },
+  {
+    "glyph": "∄",
+    "code": "nexists",
+    "mode": "math"
+  },
+  {
+    "glyph": "∅",
+    "code": "emptyset",
+    "mode": "math"
+  },
+  {
+    "glyph": "∅",
+    "code": "varnothing",
+    "mode": "math"
+  },
+  {
+    "glyph": "∇",
+    "code": "nabla",
+    "mode": "math"
+  },
+  {
+    "glyph": "∈",
+    "code": "in",
+    "mode": "math"
+  },
+  {
+    "glyph": "∋",
+    "code": "ni",
+    "mode": "math"
+  },
+  {
+    "glyph": "∋",
+    "code": "owns",
+    "mode": "math"
+  },
+  {
+    "glyph": "∍",
+    "code": "backepsilon",
+    "mode": "math"
+  },
+  {
+    "glyph": "∏",
+    "code": "prod",
+    "mode": "math"
+  },
+  {
+    "glyph": "∐",
+    "code": "coprod",
+    "mode": "math"
+  },
+  {
+    "glyph": "∑",
+    "code": "sum",
+    "mode": "math"
+  },
+  {
+    "glyph": "∓",
+    "code": "mp",
+    "mode": "math"
+  },
+  {
+    "glyph": "∔",
+    "code": "dotplus",
+    "mode": "math"
+  },
+  {
+    "glyph": "∖",
+    "code": "setminus",
+    "mode": "math"
+  },
+  {
+    "glyph": "∖",
+    "code": "smallsetminus",
+    "mode": "math"
+  },
+  {
+    "glyph": "∗",
+    "code": "ast",
+    "mode": "math"
+  },
+  {
+    "glyph": "∘",
+    "code": "circ",
+    "mode": "math"
+  },
+  {
+    "glyph": "∙",
+    "code": "bullet",
+    "mode": "math"
+  },
+  {
+    "glyph": "√",
+    "code": "surd",
+    "mode": "math"
+  },
+  {
+    "glyph": "∝",
+    "code": "propto",
+    "mode": "math"
+  },
+  {
+    "glyph": "∝",
+    "code": "varpropto",
+    "mode": "math"
+  },
+  {
+    "glyph": "∞",
+    "code": "infty",
+    "mode": "math"
+  },
+  {
+    "glyph": "∠",
+    "code": "angle",
+    "mode": "math"
+  },
+  {
+    "glyph": "∡",
+    "code": "measuredangle",
+    "mode": "math"
+  },
+  {
+    "glyph": "∢",
+    "code": "sphericalangle",
+    "mode": "math"
+  },
+  {
+    "glyph": "∣",
+    "code": "lvert",
+    "mode": "math"
+  },
+  {
+    "glyph": "∣",
+    "code": "mid",
+    "mode": "math"
+  },
+  {
+    "glyph": "∣",
+    "code": "rvert",
+    "mode": "math"
+  },
+  {
+    "glyph": "∣",
+    "code": "shortmid",
+    "mode": "math"
+  },
+  {
+    "glyph": "∣",
+    "code": "vert",
+    "mode": "math"
+  },
+  {
+    "glyph": "∤",
+    "code": "nmid",
+    "mode": "math"
+  },
+  {
+    "glyph": "∥",
+    "code": "Vert",
+    "mode": "math"
+  },
+  {
+    "glyph": "∥",
+    "code": "lVert",
+    "mode": "math"
+  },
+  {
+    "glyph": "∥",
+    "code": "parallel",
+    "mode": "math"
+  },
+  {
+    "glyph": "∥",
+    "code": "rVert",
+    "mode": "math"
+  },
+  {
+    "glyph": "∥",
+    "code": "shortparallel",
+    "mode": "math"
+  },
+  {
+    "glyph": "∥",
+    "code": "textbardbl",
+    "mode": "text"
+  },
+  {
+    "glyph": "∥",
+    "code": "|",
+    "mode": "math"
+  },
+  {
+    "glyph": "∦",
+    "code": "nparallel",
+    "mode": "math"
+  },
+  {
+    "glyph": "∧",
+    "code": "land",
+    "mode": "math"
+  },
+  {
+    "glyph": "∧",
+    "code": "wedge",
+    "mode": "math"
+  },
+  {
+    "glyph": "∨",
+    "code": "lor",
+    "mode": "math"
+  },
+  {
+    "glyph": "∨",
+    "code": "vee",
+    "mode": "math"
+  },
+  {
+    "glyph": "∩",
+    "code": "cap",
+    "mode": "math"
+  },
+  {
+    "glyph": "∪",
+    "code": "cup",
+    "mode": "math"
+  },
+  {
+    "glyph": "∫",
+    "code": "int",
+    "mode": "math"
+  },
+  {
+    "glyph": "∫",
+    "code": "intop",
+    "mode": "math"
+  },
+  {
+    "glyph": "∫",
+    "code": "smallint",
+    "mode": "math"
+  },
+  {
+    "glyph": "∬",
+    "code": "iint",
+    "mode": "math"
+  },
+  {
+    "glyph": "∭",
+    "code": "iiint",
+    "mode": "math"
+  },
+  {
+    "glyph": "∮",
+    "code": "oint",
+    "mode": "math"
+  },
+  {
+    "glyph": "∯",
+    "code": "oiint",
+    "mode": "math"
+  },
+  {
+    "glyph": "∰",
+    "code": "oiiint",
+    "mode": "math"
+  },
+  {
+    "glyph": "∴",
+    "code": "therefore",
+    "mode": "math"
+  },
+  {
+    "glyph": "∵",
+    "code": "because",
+    "mode": "math"
+  },
+  {
+    "glyph": "∼",
+    "code": "sim",
+    "mode": "math"
+  },
+  {
+    "glyph": "∼",
+    "code": "thicksim",
+    "mode": "math"
+  },
+  {
+    "glyph": "∽",
+    "code": "backsim",
+    "mode": "math"
+  },
+  {
+    "glyph": "≀",
+    "code": "wr",
+    "mode": "math"
+  },
+  {
+    "glyph": "≁",
+    "code": "nsim",
+    "mode": "math"
+  },
+  {
+    "glyph": "≂",
+    "code": "eqsim",
+    "mode": "math"
+  },
+  {
+    "glyph": "≃",
+    "code": "simeq",
+    "mode": "math"
+  },
+  {
+    "glyph": "≅",
+    "code": "cong",
+    "mode": "math"
+  },
+  {
+    "glyph": "≆",
+    "code": "ncong",
+    "mode": "math"
+  },
+  {
+    "glyph": "≈",
+    "code": "approx",
+    "mode": "math"
+  },
+  {
+    "glyph": "≈",
+    "code": "thickapprox",
+    "mode": "math"
+  },
+  {
+    "glyph": "≊",
+    "code": "approxeq",
+    "mode": "math"
+  },
+  {
+    "glyph": "≍",
+    "code": "asymp",
+    "mode": "math"
+  },
+  {
+    "glyph": "≎",
+    "code": "Bumpeq",
+    "mode": "math"
+  },
+  {
+    "glyph": "≏",
+    "code": "bumpeq",
+    "mode": "math"
+  },
+  {
+    "glyph": "≐",
+    "code": "doteq",
+    "mode": "math"
+  },
+  {
+    "glyph": "≑",
+    "code": "Doteq",
+    "mode": "math"
+  },
+  {
+    "glyph": "≑",
+    "code": "doteqdot",
+    "mode": "math"
+  },
+  {
+    "glyph": "≒",
+    "code": "fallingdotseq",
+    "mode": "math"
+  },
+  {
+    "glyph": "≓",
+    "code": "risingdotseq",
+    "mode": "math"
+  },
+  {
+    "glyph": "≖",
+    "code": "eqcirc",
+    "mode": "math"
+  },
+  {
+    "glyph": "≗",
+    "code": "circeq",
+    "mode": "math"
+  },
+  {
+    "glyph": "≜",
+    "code": "triangleq",
+    "mode": "math"
+  },
+  {
+    "glyph": "≡",
+    "code": "equiv",
+    "mode": "math"
+  },
+  {
+    "glyph": "≤",
+    "code": "le",
+    "mode": "math"
+  },
+  {
+    "glyph": "≤",
+    "code": "leq",
+    "mode": "math"
+  },
+  {
+    "glyph": "≥",
+    "code": "ge",
+    "mode": "math"
+  },
+  {
+    "glyph": "≥",
+    "code": "geq",
+    "mode": "math"
+  },
+  {
+    "glyph": "≦",
+    "code": "leqq",
+    "mode": "math"
+  },
+  {
+    "glyph": "≧",
+    "code": "geqq",
+    "mode": "math"
+  },
+  {
+    "glyph": "≨",
+    "code": "lneqq",
+    "mode": "math"
+  },
+  {
+    "glyph": "≩",
+    "code": "gneqq",
+    "mode": "math"
+  },
+  {
+    "glyph": "≪",
+    "code": "ll",
+    "mode": "math"
+  },
+  {
+    "glyph": "≫",
+    "code": "gg",
+    "mode": "math"
+  },
+  {
+    "glyph": "≬",
+    "code": "between",
+    "mode": "math"
+  },
+  {
+    "glyph": "≮",
+    "code": "nless",
+    "mode": "math"
+  },
+  {
+    "glyph": "≯",
+    "code": "ngtr",
+    "mode": "math"
+  },
+  {
+    "glyph": "≰",
+    "code": "nleq",
+    "mode": "math"
+  },
+  {
+    "glyph": "≱",
+    "code": "ngeq",
+    "mode": "math"
+  },
+  {
+    "glyph": "≲",
+    "code": "lesssim",
+    "mode": "math"
+  },
+  {
+    "glyph": "≳",
+    "code": "gtrsim",
+    "mode": "math"
+  },
+  {
+    "glyph": "≶",
+    "code": "lessgtr",
+    "mode": "math"
+  },
+  {
+    "glyph": "≷",
+    "code": "gtrless",
+    "mode": "math"
+  },
+  {
+    "glyph": "≺",
+    "code": "prec",
+    "mode": "math"
+  },
+  {
+    "glyph": "≻",
+    "code": "succ",
+    "mode": "math"
+  },
+  {
+    "glyph": "≼",
+    "code": "preccurlyeq",
+    "mode": "math"
+  },
+  {
+    "glyph": "≽",
+    "code": "succcurlyeq",
+    "mode": "math"
+  },
+  {
+    "glyph": "≾",
+    "code": "precsim",
+    "mode": "math"
+  },
+  {
+    "glyph": "≿",
+    "code": "succsim",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊀",
+    "code": "nprec",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊁",
+    "code": "nsucc",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊂",
+    "code": "subset",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊃",
+    "code": "supset",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊆",
+    "code": "subseteq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊇",
+    "code": "supseteq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊈",
+    "code": "nsubseteq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊉",
+    "code": "nsupseteq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊊",
+    "code": "subsetneq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊋",
+    "code": "supsetneq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊎",
+    "code": "uplus",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊏",
+    "code": "sqsubset",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊐",
+    "code": "sqsupset",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊑",
+    "code": "sqsubseteq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊒",
+    "code": "sqsupseteq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊓",
+    "code": "sqcap",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊔",
+    "code": "sqcup",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊕",
+    "code": "oplus",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊖",
+    "code": "ominus",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊗",
+    "code": "otimes",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊘",
+    "code": "oslash",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊙",
+    "code": "odot",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊚",
+    "code": "circledcirc",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊛",
+    "code": "circledast",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊝",
+    "code": "circleddash",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊞",
+    "code": "boxplus",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊟",
+    "code": "boxminus",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊠",
+    "code": "boxtimes",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊡",
+    "code": "boxdot",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊢",
+    "code": "vdash",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊣",
+    "code": "dashv",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊤",
+    "code": "top",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊥",
+    "code": "bot",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊥",
+    "code": "perp",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊨",
+    "code": "models",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊨",
+    "code": "vDash",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊩",
+    "code": "Vdash",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊪",
+    "code": "Vvdash",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊬",
+    "code": "nvdash",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊭",
+    "code": "nvDash",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊮",
+    "code": "nVdash",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊯",
+    "code": "nVDash",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊲",
+    "code": "lhd",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊲",
+    "code": "vartriangleleft",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊳",
+    "code": "rhd",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊳",
+    "code": "vartriangleright",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊴",
+    "code": "trianglelefteq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊴",
+    "code": "unlhd",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊵",
+    "code": "trianglerighteq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊵",
+    "code": "unrhd",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊶",
+    "code": "origof",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊷",
+    "code": "imageof",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊸",
+    "code": "multimap",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊺",
+    "code": "intercal",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊻",
+    "code": "veebar",
+    "mode": "math"
+  },
+  {
+    "glyph": "⊼",
+    "code": "barwedge",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋀",
+    "code": "bigwedge",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋁",
+    "code": "bigvee",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋂",
+    "code": "bigcap",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋃",
+    "code": "bigcup",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋄",
+    "code": "diamond",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋅",
+    "code": "cdot",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋅",
+    "code": "cdotp",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋅",
+    "code": "centerdot",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋅",
+    "code": "u00b7",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋆",
+    "code": "star",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋇",
+    "code": "divideontimes",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋈",
+    "code": "Join",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋈",
+    "code": "bowtie",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋉",
+    "code": "ltimes",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋊",
+    "code": "rtimes",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋋",
+    "code": "leftthreetimes",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋌",
+    "code": "rightthreetimes",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋍",
+    "code": "backsimeq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋎",
+    "code": "curlyvee",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋏",
+    "code": "curlywedge",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋐",
+    "code": "Subset",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋑",
+    "code": "Supset",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋒",
+    "code": "Cap",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋒",
+    "code": "doublecap",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋓",
+    "code": "Cup",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋓",
+    "code": "doublecup",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋔",
+    "code": "pitchfork",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋖",
+    "code": "lessdot",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋗",
+    "code": "gtrdot",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋘",
+    "code": "lll",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋘",
+    "code": "llless",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋙",
+    "code": "ggg",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋙",
+    "code": "gggtr",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋚",
+    "code": "lesseqgtr",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋛",
+    "code": "gtreqless",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋞",
+    "code": "curlyeqprec",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋟",
+    "code": "curlyeqsucc",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋠",
+    "code": "npreceq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋡",
+    "code": "nsucceq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋦",
+    "code": "lnsim",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋧",
+    "code": "gnsim",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋨",
+    "code": "precnsim",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋩",
+    "code": "succnsim",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋪",
+    "code": "ntriangleleft",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋫",
+    "code": "ntriangleright",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋬",
+    "code": "ntrianglelefteq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋭",
+    "code": "ntrianglerighteq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋮",
+    "code": "varvdots",
+    "mode": "math"
+  },
+  {
+    "glyph": "⋱",
+    "code": "ddots",
+    "mode": "math"
+  },
+  {
+    "glyph": "⌈",
+    "code": "lceil",
+    "mode": "math"
+  },
+  {
+    "glyph": "⌉",
+    "code": "rceil",
+    "mode": "math"
+  },
+  {
+    "glyph": "⌊",
+    "code": "lfloor",
+    "mode": "math"
+  },
+  {
+    "glyph": "⌋",
+    "code": "rfloor",
+    "mode": "math"
+  },
+  {
+    "glyph": "⌢",
+    "code": "frown",
+    "mode": "math"
+  },
+  {
+    "glyph": "⌢",
+    "code": "smallfrown",
+    "mode": "math"
+  },
+  {
+    "glyph": "⌣",
+    "code": "smallsmile",
+    "mode": "math"
+  },
+  {
+    "glyph": "⌣",
+    "code": "smile",
+    "mode": "math"
+  },
+  {
+    "glyph": "⎰",
+    "code": "lmoustache",
+    "mode": "math"
+  },
+  {
+    "glyph": "⎱",
+    "code": "rmoustache",
+    "mode": "math"
+  },
+  {
+    "glyph": "Ⓢ",
+    "code": "circledS",
+    "mode": "math"
+  },
+  {
+    "glyph": "╱",
+    "code": "diagup",
+    "mode": "math"
+  },
+  {
+    "glyph": "╲",
+    "code": "diagdown",
+    "mode": "math"
+  },
+  {
+    "glyph": "■",
+    "code": "blacksquare",
+    "mode": "math"
+  },
+  {
+    "glyph": "□",
+    "code": "Box",
+    "mode": "math"
+  },
+  {
+    "glyph": "□",
+    "code": "square",
+    "mode": "math"
+  },
+  {
+    "glyph": "▲",
+    "code": "blacktriangle",
+    "mode": "math"
+  },
+  {
+    "glyph": "△",
+    "code": "bigtriangleup",
+    "mode": "math"
+  },
+  {
+    "glyph": "△",
+    "code": "triangle",
+    "mode": "math"
+  },
+  {
+    "glyph": "△",
+    "code": "vartriangle",
+    "mode": "math"
+  },
+  {
+    "glyph": "▶",
+    "code": "blacktriangleright",
+    "mode": "math"
+  },
+  {
+    "glyph": "▹",
+    "code": "triangleright",
+    "mode": "math"
+  },
+  {
+    "glyph": "▼",
+    "code": "blacktriangledown",
+    "mode": "math"
+  },
+  {
+    "glyph": "▽",
+    "code": "bigtriangledown",
+    "mode": "math"
+  },
+  {
+    "glyph": "▽",
+    "code": "triangledown",
+    "mode": "math"
+  },
+  {
+    "glyph": "◀",
+    "code": "blacktriangleleft",
+    "mode": "math"
+  },
+  {
+    "glyph": "◃",
+    "code": "triangleleft",
+    "mode": "math"
+  },
+  {
+    "glyph": "◊",
+    "code": "Diamond",
+    "mode": "math"
+  },
+  {
+    "glyph": "◊",
+    "code": "lozenge",
+    "mode": "math"
+  },
+  {
+    "glyph": "◯",
+    "code": "bigcirc",
+    "mode": "math"
+  },
+  {
+    "glyph": "◯",
+    "code": "textcircled",
+    "mode": "text"
+  },
+  {
+    "glyph": "★",
+    "code": "bigstar",
+    "mode": "math"
+  },
+  {
+    "glyph": "♠",
+    "code": "spadesuit",
+    "mode": "math"
+  },
+  {
+    "glyph": "♡",
+    "code": "heartsuit",
+    "mode": "math"
+  },
+  {
+    "glyph": "♢",
+    "code": "diamondsuit",
+    "mode": "math"
+  },
+  {
+    "glyph": "♣",
+    "code": "clubsuit",
+    "mode": "math"
+  },
+  {
+    "glyph": "♭",
+    "code": "flat",
+    "mode": "math"
+  },
+  {
+    "glyph": "♮",
+    "code": "natural",
+    "mode": "math"
+  },
+  {
+    "glyph": "♯",
+    "code": "sharp",
+    "mode": "math"
+  },
+  {
+    "glyph": "✓",
+    "code": "checkmark",
+    "mode": "math"
+  },
+  {
+    "glyph": "✠",
+    "code": "maltese",
+    "mode": "math"
+  },
+  {
+    "glyph": "⟨",
+    "code": "langle",
+    "mode": "math"
+  },
+  {
+    "glyph": "⟩",
+    "code": "rangle",
+    "mode": "math"
+  },
+  {
+    "glyph": "⟮",
+    "code": "lgroup",
+    "mode": "math"
+  },
+  {
+    "glyph": "⟯",
+    "code": "rgroup",
+    "mode": "math"
+  },
+  {
+    "glyph": "⟵",
+    "code": "longleftarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "⟶",
+    "code": "longrightarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "⟷",
+    "code": "longleftrightarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "⟸",
+    "code": "Longleftarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "⟹",
+    "code": "Longrightarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "⟺",
+    "code": "Longleftrightarrow",
+    "mode": "math"
+  },
+  {
+    "glyph": "⟼",
+    "code": "longmapsto",
+    "mode": "math"
+  },
+  {
+    "glyph": "⧫",
+    "code": "blacklozenge",
+    "mode": "math"
+  },
+  {
+    "glyph": "⨀",
+    "code": "bigodot",
+    "mode": "math"
+  },
+  {
+    "glyph": "⨁",
+    "code": "bigoplus",
+    "mode": "math"
+  },
+  {
+    "glyph": "⨂",
+    "code": "bigotimes",
+    "mode": "math"
+  },
+  {
+    "glyph": "⨄",
+    "code": "biguplus",
+    "mode": "math"
+  },
+  {
+    "glyph": "⨆",
+    "code": "bigsqcup",
+    "mode": "math"
+  },
+  {
+    "glyph": "⨿",
+    "code": "amalg",
+    "mode": "math"
+  },
+  {
+    "glyph": "⩞",
+    "code": "doublebarwedge",
+    "mode": "math"
+  },
+  {
+    "glyph": "⩽",
+    "code": "leqslant",
+    "mode": "math"
+  },
+  {
+    "glyph": "⩾",
+    "code": "geqslant",
+    "mode": "math"
+  },
+  {
+    "glyph": "⪅",
+    "code": "lessapprox",
+    "mode": "math"
+  },
+  {
+    "glyph": "⪆",
+    "code": "gtrapprox",
+    "mode": "math"
+  },
+  {
+    "glyph": "⪇",
+    "code": "lneq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⪈",
+    "code": "gneq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⪉",
+    "code": "lnapprox",
+    "mode": "math"
+  },
+  {
+    "glyph": "⪊",
+    "code": "gnapprox",
+    "mode": "math"
+  },
+  {
+    "glyph": "⪋",
+    "code": "lesseqqgtr",
+    "mode": "math"
+  },
+  {
+    "glyph": "⪌",
+    "code": "gtreqqless",
+    "mode": "math"
+  },
+  {
+    "glyph": "⪕",
+    "code": "eqslantless",
+    "mode": "math"
+  },
+  {
+    "glyph": "⪖",
+    "code": "eqslantgtr",
+    "mode": "math"
+  },
+  {
+    "glyph": "⪯",
+    "code": "preceq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⪰",
+    "code": "succeq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⪵",
+    "code": "precneqq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⪶",
+    "code": "succneqq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⪷",
+    "code": "precapprox",
+    "mode": "math"
+  },
+  {
+    "glyph": "⪸",
+    "code": "succapprox",
+    "mode": "math"
+  },
+  {
+    "glyph": "⪹",
+    "code": "precnapprox",
+    "mode": "math"
+  },
+  {
+    "glyph": "⪺",
+    "code": "succnapprox",
+    "mode": "math"
+  },
+  {
+    "glyph": "⫅",
+    "code": "subseteqq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⫆",
+    "code": "supseteqq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⫋",
+    "code": "subsetneqq",
+    "mode": "math"
+  },
+  {
+    "glyph": "⫌",
+    "code": "supsetneqq",
+    "mode": "math"
+  }
+]

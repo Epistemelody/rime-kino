@@ -1,0 +1,21 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: jp
+  name: kino-jp
+  version: "4"
+  description: |
+    Hiragana-keyed Mozc lex (keep |left right) for kagiroi Viterbi on kino ~.
+  dependencies:
+    - kagiroi_matrix
+
+engine:
+  translators:
+    - table_translator
+
+translator:
+  dictionary: jp
+  enable_user_dict: false
+  enable_sentence: false
+  enable_completion: false

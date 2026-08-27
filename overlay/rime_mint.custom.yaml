@@ -1,0 +1,144 @@
+patch:
+  schema/name: kino
+  menu/page_size: 10
+  codeLengthLimit_processor: 256
+  switches:
+    - name: ascii_mode
+      reset: 0
+      states: [ 中文, 英文 ]
+    - name: emoji_suggestion
+      states: [ "😣️","😁️"]
+      reset: 1
+    - name: full_shape
+      states: [ 半角, 全角 ]
+      reset: 0
+    - name: tone_display
+      states: [ 声杳, 声起 ]
+      reset: 0
+    - name: transcription
+      states: [ 简体 , 繁体 ]
+      reset: 0
+    - name: ascii_punct
+      states: [ "。，" , "．，" ]
+      reset: 0
+    - name: kino_typst
+      reset: 1
+      states: [ "无typst", "typst" ]
+    - name: kino_latex
+      reset: 1
+      states: [ "无latex", "latex" ]
+    - name: kino_katex
+      reset: 1
+      states: [ "无katex", "katex" ]
+    - name: kino_lean
+      reset: 1
+      states: [ "无lean", "lean" ]
+    - name: kino_mma
+      reset: 1
+      states: [ "无mma", "mma" ]
+    - name: kino_latin
+      reset: 1
+      states: [ "无latin", "latin" ]
+    - name: kino_japanese
+      reset: 1
+      states: [ "无日语", "日语" ]
+  "engine/filters/@before 0": lua_filter@*feature_gate
+  schema/dependencies/+:
+    - kana
+    - latin
+    - jp
+    - kagiroi_matrix
+  translator/enable_correction: false
+  speller/alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA\\~;
+  speller/algebra:
+    - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
+    - xform/^ng$/eng/
+    - xform/ńg|ňg|ǹg/eng/
+    - xform/ń|ň|ǹ/en/
+    - erase/^xx$/
+    - derive/^([zcs]h).+$/$1/
+    - abbrev/^([a-z]).+$/$1/
+  "punctuator/full_shape/~": "~"
+  "punctuator/full_shape/;": ";"
+  "punctuator/full_shape/\\": "\\"
+  engine/processors:
+    - lua_processor@*kp_number_processor
+    - lua_processor@*select_character
+    - lua_processor@*codeLengthLimit_processor
+    - ascii_composer
+    - recognizer
+    - lua_processor@*command_keys
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  engine/segmentors:
+    - ascii_segmentor
+    - matcher
+    - affix_segmentor@commands
+    - affix_segmentor@latin
+    - affix_segmentor@kana
+    - affix_segmentor@wubi98_mint
+    - affix_segmentor@radical_reverse_lookup
+    - affix_segmentor@stroke
+    - affix_segmentor@unicode
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  engine/translators/+:
+    - lua_translator@*command_draft
+    - lua_translator@*jp_draft
+    - table_translator@commands
+    - table_translator@latin
+    - table_translator@kana
+  recognizer/patterns/command_draft: "^\\\\[A-Za-z0-9.\\-=><!*~:|\\[\\]^_+(){}'?/#&`\"$%]*$"
+  recognizer/patterns/latin: "^;[A-Za-z?;]+$"
+  recognizer/patterns/kana: "^~[A-Za-z~-]+$"
+  commands:
+    tag: command_draft
+    dictionary: commands
+    prefix: "\\"
+    enable_sentence: false
+    enable_completion: false
+    enable_user_dict: false
+    tips: "[cmd]"
+  latin:
+    tag: latin
+    dictionary: latin
+    prefix: ";"
+    enable_sentence: false
+    enable_completion: true
+    enable_user_dict: false
+    tips: "[á]"
+    initial_quality: 1
+  kana:
+    tag: kana
+    dictionary: kana
+    prefix: "~"
+    enable_sentence: false
+    enable_completion: true
+    enable_user_dict: false
+    tips: "[かな]"
+    initial_quality: 1
+  punctuator/half_shape:
+    "*": "×"
+    "/": ["/", "÷"]
+    "\\": "\\"
+    ";": ";"
+    "`": "`"
+    "~": "~"
+    "(": "（"
+    ")": "）"
+    "[": ["「", "『", "〚", "〘", "〖", "【", "〔", "［"]
+    "]": ["」", "』", "〛", "〙", "〗", "】", "〕", "］"]
+    "{": ["『", "〖", "｛"]
+    "}": ["』", "〗", "｝"]
+    "<": "《"
+    ">": "》"
+    "'": { pair: ["「", "」"] }
+    '"': { pair: ["“", "”"] }
+    "$": ["￥", "$"]
+    "^": "……"
+    "_": "——"

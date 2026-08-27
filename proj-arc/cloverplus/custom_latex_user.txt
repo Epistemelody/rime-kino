@@ -1,0 +1,6 @@
+# Rime table
+#@/db_name	custom_latex_user
+#@/db_type	tabledb
+#@/rime_version	1.11.2
+#@/tick	6
+→	\to	6

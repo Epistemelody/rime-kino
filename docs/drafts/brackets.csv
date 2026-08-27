@@ -1,0 +1,7 @@
+kind,ascii_left,ascii_right,primary_left,primary_right,menu_left,menu_right,habit,mathed_role
+paren,(,),（,）,（,）,cloverplus,Literal + paired slot
+corner,[,],「,」,「 『 〚 〘 〖 【 〔 ［,」 』 〛 〙 〗 】 〕 ］,cloverplus first 直角引号,not half ASCII
+white-corner,{,},『,』,『 〖 ｛,』 〗 ｝,cloverplus first 双直角引号,not half ASCII
+book,<,>,《,》,《,》,cloverplus,not grouping
+quote-double,""",""",“,”,“” pair,“” pair,cloverplus via symbols preset pair,quoted_string
+quote-single,',',「,」,「」 pair,「」 pair,apostrophe pairs 「」 like mint; cloverplus was ‘ ; [ key still menus corner brackets

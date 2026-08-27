@@ -1,0 +1,34 @@
+# macOS Squirrel skin. Weasel / Fcitx5 ignore this file.
+# Palette matches overlay/weasel.custom.yaml (Nord Polar Night).
+patch:
+  style:
+    font_face: "PingFang SC"
+    font_point: 16
+    label_font_point: 14
+    comment_font_point: 14
+    horizontal: false
+    inline_preedit: false
+    color_scheme: kino_dark
+  preset_color_schemes:
+    kino:
+      name: kino
+      author: "kino"
+      text_color: 0x2E3440
+      back_color: 0xECEFF4
+      label_color: 0x4C566A
+      comment_text_color: 0xD08770
+      hilited_text_color: 0x2E3440
+      hilited_back_color: 0x8FBCBB
+      hilited_candidate_text_color: 0x2E3440
+      hilited_candidate_back_color: 0x8FBCBB
+    kino_dark:
+      name: kino-dark
+      author: "kino"
+      text_color: 0xECEFF4
+      back_color: 0x2E3440
+      label_color: 0x88C0D0
+      comment_text_color: 0xD08770
+      hilited_text_color: 0x2E3440
+      hilited_back_color: 0x8FBCBB
+      hilited_candidate_text_color: 0x2E3440
+      hilited_candidate_back_color: 0x8FBCBB

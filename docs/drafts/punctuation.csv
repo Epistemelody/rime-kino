@@ -1,0 +1,32 @@
+key,pair,clover_half,mint_half,iamcheyan_half,insomnia_half,mathed,recommend,notes
+",",,，,，,，,，,literal,，,commit chinese comma
+.,,。,。,。,。,literal,。,commit chinese period
+<,>,《,《〈«<,《〈«‹,《,not a math group,《,book title quotes
+>,<,》,》〉»>,》〉»›,》,not a math group,》,
+/,,、,/ ÷,、 / ／ ÷,/,frac operator in math draft,"/ then ÷",kino: slash is NOT dunhao; dunhao is first candidate of empty backslash draft
+?,,？,？,？,？,literal,？,
+;,,；,；,；,；,literal,keep in alphabet; ;; -> ；,like backslash vs dunhao: ; is latin prefix on mint; double ; commits fullwidth semicolon
+:,,：,：,：,：,literal,：,
+',',‘,「」 pair,‘’ pair,‘’ pair,not paired slot,「」 pair,kino: apostrophe pairs corner brackets like mint; [ key still menus 「 first
+"""","""",“,“” pair,“” pair,“” pair,quoted_string pair,“” pair,cloverplus does not override quote; import_preset symbols pair
+\,,、,、,、 \ ＼,、,command draft introducer,keep in alphabet,empty \ menu: 、 then \ then ＼; must NOT punct-commit 、
+`,,·,`,`,`,n/a,`,mint delimiter; clover · ; do not steal
+~,,~,~ ～,~ ～,~,Escape in typst math,keep in alphabet,kino Japanese romaji prefix; must NOT commit ～
+!,,！,！,！,！,literal,！,
+@,,@,@,@,@,literal,@,
+#,,#,#,#,#,Escape in typst math,#,
+$,,￥,¥ $ € £,￥ $ €,¥,Escape in typst math,￥ then $,clover first choice ￥
+%,,%,% ％ ° ℃,% ％ ° ℃,%,Escape in typst math,%,
+^,,……,……,……,……,Hat / Escape \^,……,conflicts with latex superscript
+&,,&,&,&,&,Escape in typst math,&,
+*,,×,*,* ＊ · ×,*,n/a,×,clover habit
+(,),（,（,（,（,Literal group + paired slot,（,cloverplus
+),(,）,）,）,）,Literal group + paired slot,）,cloverplus
+[,],「 『 〚 〘 〖 【 〔 ［,【 [,「 【 〔 ［,【,Literal group + paired slot,「 then 『 〚 〘 〖 【 〔 ［,cloverplus first candidate 直角引号
+],[,」 』 〛 〙 〗 】 〕 ］,】 ],」 】 〕 ］,】,Literal group + paired slot,」 then 』 〛 〙 〗 】 〕 ］,cloverplus
+{,},『 〖 ｛,『 〖 ｛,『 〖 ｛,「,Literal group + paired slot,『 then 〖 ｛,cloverplus first candidate 双直角引号
+},{,』 〗 ｝,』 〗 ｝,』 〗 ｝,」,Literal group + paired slot,』 then 〗 ｝,cloverplus
+_,,——,──,——,——,Underscore / Escape \_,——,
+-,,-,-,-,-,n/a,-,kagiroi/jaroomaji long vowel
+=,,=,=,=,=,calculator prefix in mint,=,mint = calculator; latex \equal
+|,,｜,・ | ｜,· | ｜,|,n/a,| then ｜,insomnia keep ascii pipe

@@ -1,0 +1,21 @@
+unicode-math-table.tex
+  latex3/unicode-math unicode-math-table.tex
+  https://github.com/latex3/unicode-math
+  Used to split math-symbols.csv latex vs latex_alias (plus mup/up prefix strip
+  and scripts/import_math_symbols.py LATEX_CLASSIC_EXTRA / LATEX_FORCE_ALIAS).
+
+katex-symbols.json
+  KaTeX src/symbols.ts defineSymbol (math preferred; skip \@ internals)
+  https://github.com/KaTeX/KaTeX/blob/main/src/symbols.ts
+  Vendored 2026-08-27. \frac and other functions with no single glyph are omitted.
+
+lean-abbreviations.json
+  vscode-lean4 lean4-unicode-input/src/abbreviations.json
+  https://github.com/leanprover/vscode-lean4
+  vendored 2026-08-27 from a local official snapshot (1857 abbrev → unicode)
+
+mma-named.json
+  Wolfram Listing of Named Characters, math-relevant glyph → StandardName
+  https://reference.wolfram.com/language/guide/ListingOfNamedCharacters.html
+  Excludes Wolf, currency, ornaments, UI keys, and \[Name] placeholders.
+  Import intersects this map with wide-table glyphs only.

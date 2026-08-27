@@ -1,0 +1,61 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: kana
+  name: 假名
+  version: "1"
+  author:
+    - kino overlay
+  description: |
+    罗马音到假名。小写首选平假名、片假名第二候选；大写反过来。源表 docs/drafts/kana.csv。
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ かな, ABC ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - table_translator
+  filters:
+    - uniquifier
+
+speller:
+  alphabet: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+  delimiter: " '"
+  auto_select: false
+
+menu:
+  page_size: 10
+
+translator:
+  dictionary: kana
+  enable_sentence: false
+  enable_user_dict: false
+  enable_completion: true
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default

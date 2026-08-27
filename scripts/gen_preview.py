@@ -1,0 +1,213 @@
+import xml.etree.ElementTree as ET
+import subprocess
+
+svg_content = r"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 540" width="1120" height="540">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#191D24" />
+      <stop offset="60%" stop-color="#212630" />
+      <stop offset="100%" stop-color="#2E3440" />
+    </linearGradient>
+
+    <!-- Box Shadow Filter -->
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+
+    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="50" result="blur" />
+    </filter>
+  </defs>
+
+  <style>
+    .code-text { font-family: "Noto Sans Mono CJK SC", "JetBrains Mono", "DejaVu Sans Mono", Consolas, monospace; }
+    .ui-text { font-family: "Source Han Sans SC", "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif; }
+    .jp-text { font-family: "Source Han Sans SC", "Noto Sans CJK JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+    .badge-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  </style>
+
+  <!-- Background Base -->
+  <rect width="1120" height="540" rx="16" fill="url(#bgGrad)" />
+
+  <!-- Ambient Glow Circles -->
+  <circle cx="260" cy="240" r="180" fill="#88C0D0" opacity="0.07" filter="url(#subtleGlow)" />
+  <circle cx="560" cy="280" r="200" fill="#8FBCBB" opacity="0.07" filter="url(#subtleGlow)" />
+  <circle cx="880" cy="220" r="180" fill="#81A1C1" opacity="0.07" filter="url(#subtleGlow)" />
+
+  <!-- Top Title / Header Area -->
+  <g transform="translate(48, 44)">
+    <text x="0" y="0" class="ui-text" font-size="22" font-weight="700" fill="#ECEFF4" letter-spacing="0.5">kino</text>
+    <text x="60" y="-1" class="ui-text" font-size="14" font-weight="400" fill="#81A1C1">Kinetic Input Normalized Overlay - Multi-Channel Input Architecture</text>
+    <rect x="880" y="-18" width="144" height="24" rx="4" fill="#3B4252" stroke="#4C566A" stroke-width="1" />
+    <text x="952" y="-2" class="badge-text" fill="#8FBCBB" text-anchor="middle">FCITX5 / WEASEL</text>
+  </g>
+
+  <!-- ==================== PANEL 1: Math & Multi-Ecosystem Commands (\) ==================== -->
+  <g transform="translate(48, 90)" filter="url(#shadow)">
+    <!-- Panel Outer Container -->
+    <rect width="316" height="400" rx="8" fill="#2E3440" stroke="#8FBCBB" stroke-width="1.5" />
+    
+    <!-- Header Tag -->
+    <rect x="14" y="14" width="288" height="28" rx="4" fill="#3B4252" />
+    <circle cx="28" cy="28" r="4" fill="#88C0D0" />
+    <text x="40" y="32" class="code-text" font-size="12" font-weight="600" fill="#88C0D0">Math &amp; Commands (\)</text>
+
+    <!-- Preedit Display -->
+    <rect x="14" y="50" width="288" height="32" rx="4" fill="#242933" stroke="#434C5E" stroke-width="1" />
+    <text x="24" y="71" class="code-text" font-size="13" font-weight="600" fill="#8FBCBB">\arrow.l</text>
+    <rect x="94" y="58" width="2" height="16" fill="#8FBCBB" />
+
+    <!-- Candidate 1 (Highlighted) -->
+    <rect x="14" y="90" width="288" height="30" rx="4" fill="#8FBCBB" />
+    <text x="24" y="110" class="code-text" font-size="12" font-weight="700" fill="#2E3440">1. ←</text>
+    <text x="68" y="110" class="code-text" font-size="11" font-weight="500" fill="#2E3440">[typst unicode]</text>
+
+    <!-- Candidate 2 -->
+    <text x="24" y="142" class="code-text" font-size="12" fill="#D8DEE9">2. ⟵</text>
+    <text x="68" y="142" class="code-text" font-size="11" fill="#81A1C1">[typst]</text>
+
+    <!-- Candidate 3 -->
+    <text x="24" y="172" class="code-text" font-size="12" fill="#D8DEE9">3. ⇐</text>
+    <text x="68" y="172" class="code-text" font-size="11" fill="#81A1C1">[typst lean]</text>
+
+    <!-- Candidate 4 -->
+    <text x="24" y="202" class="code-text" font-size="12" fill="#D8DEE9">4. ⟸</text>
+    <text x="68" y="202" class="code-text" font-size="11" fill="#81A1C1">[typst]</text>
+
+    <!-- Candidate 5 -->
+    <text x="24" y="232" class="code-text" font-size="12" fill="#D8DEE9">5. ↩</text>
+    <text x="68" y="232" class="code-text" font-size="11" fill="#81A1C1">[latex katex]</text>
+
+    <!-- Candidate 6 -->
+    <text x="24" y="262" class="code-text" font-size="12" fill="#D8DEE9">6. ↤</text>
+    <text x="68" y="262" class="code-text" font-size="11" fill="#81A1C1">[latex mma]</text>
+
+    <!-- Candidate 7 -->
+    <text x="24" y="292" class="code-text" font-size="12" fill="#D8DEE9">7. ↼</text>
+    <text x="68" y="292" class="code-text" font-size="11" fill="#81A1C1">[latex typst]</text>
+
+    <!-- Candidate 8 -->
+    <text x="24" y="322" class="code-text" font-size="12" fill="#D8DEE9">8. ⇦</text>
+    <text x="68" y="322" class="code-text" font-size="11" fill="#81A1C1">[typst]</text>
+
+    <!-- Candidate 9 -->
+    <text x="24" y="352" class="code-text" font-size="12" fill="#D8DEE9">9. ⇠</text>
+    <text x="68" y="352" class="code-text" font-size="11" fill="#81A1C1">[latex typst]</text>
+
+    <!-- Candidate 10 -->
+    <text x="24" y="380" class="code-text" font-size="11" fill="#4C566A">10. ⤆  [unicode]</text>
+  </g>
+
+  <!-- ==================== PANEL 2: Japanese Kana & Viterbi (~) ==================== -->
+  <g transform="translate(402, 90)" filter="url(#shadow)">
+    <!-- Panel Outer Container -->
+    <rect width="316" height="400" rx="8" fill="#2E3440" stroke="#88C0D0" stroke-width="1.5" />
+    
+    <!-- Header Tag -->
+    <rect x="14" y="14" width="288" height="28" rx="4" fill="#3B4252" />
+    <circle cx="28" cy="28" r="4" fill="#A3BE8C" />
+    <text x="40" y="32" class="code-text" font-size="12" font-weight="600" fill="#A3BE8C">Mozc Viterbi Japanese (~)</text>
+
+    <!-- Preedit Display -->
+    <rect x="14" y="50" width="288" height="32" rx="4" fill="#242933" stroke="#434C5E" stroke-width="1" />
+    <text x="24" y="71" class="code-text" font-size="13" font-weight="600" fill="#88C0D0">~watashinonamae</text>
+    <rect x="175" y="58" width="2" height="16" fill="#88C0D0" />
+
+    <!-- Candidate 1 (Highlighted) -->
+    <rect x="14" y="90" width="288" height="30" rx="4" fill="#88C0D0" />
+    <text x="24" y="110" class="jp-text" font-size="13" font-weight="700" fill="#2E3440">1. 私の名前</text>
+    <text x="135" y="110" class="code-text" font-size="11" font-weight="600" fill="#2E3440">[Mozc Viterbi]</text>
+
+    <!-- Candidate 2 -->
+    <text x="24" y="142" class="jp-text" font-size="13" fill="#ECEFF4">2. わたしのなまえ</text>
+    <text x="155" y="142" class="code-text" font-size="11" fill="#81A1C1">[hiragana]</text>
+
+    <!-- Candidate 3 -->
+    <text x="24" y="172" class="jp-text" font-size="13" fill="#D8DEE9">3. ワタシノナマエ</text>
+    <text x="155" y="172" class="code-text" font-size="11" fill="#81A1C1">[katakana]</text>
+
+    <!-- Candidate 4 -->
+    <text x="24" y="202" class="jp-text" font-size="13" fill="#D8DEE9">4. わたしの名前</text>
+
+    <!-- Candidate 5 -->
+    <text x="24" y="232" class="jp-text" font-size="13" fill="#D8DEE9">5. 私のなまえ</text>
+
+    <!-- Candidate 6 -->
+    <text x="24" y="262" class="jp-text" font-size="13" fill="#D8DEE9">6. 渡しの中江</text>
+
+    <!-- Candidate 7 -->
+    <text x="24" y="292" class="jp-text" font-size="13" fill="#D8DEE9">7. 渡しの場合</text>
+
+    <!-- Candidate 8 -->
+    <text x="24" y="322" class="jp-text" font-size="13" fill="#D8DEE9">8. 私の生え</text>
+
+    <!-- Candidate 9 -->
+    <text x="24" y="352" class="jp-text" font-size="13" fill="#D8DEE9">9. わたしの場合</text>
+
+    <!-- Candidate 10 -->
+    <text x="24" y="380" class="code-text" font-size="11" fill="#4C566A">10. watashinonamae</text>
+  </g>
+
+  <!-- ==================== PANEL 3: Pinyin, Latin & Paired Punctuation ==================== -->
+  <g transform="translate(756, 90)" filter="url(#shadow)">
+    <!-- Panel Outer Container -->
+    <rect width="316" height="400" rx="8" fill="#2E3440" stroke="#81A1C1" stroke-width="1.5" />
+    
+    <!-- Sub-Section 1: Strict Pinyin -->
+    <g transform="translate(14, 14)">
+      <rect width="288" height="114" rx="6" fill="#242933" stroke="#434C5E" stroke-width="1" />
+      <text x="12" y="20" class="code-text" font-size="11" font-weight="600" fill="#81A1C1">Strict Pinyin (Raw Commit)</text>
+      
+      <!-- Preedit -->
+      <rect x="12" y="30" width="264" height="24" rx="3" fill="#2E3440" />
+      <text x="20" y="46" class="code-text" font-size="12" font-weight="600" fill="#ECEFF4">nihaoshijie</text>
+      
+      <!-- Highlighted item -->
+      <rect x="12" y="60" width="264" height="25" rx="3" fill="#81A1C1" />
+      <text x="20" y="77" class="ui-text" font-size="12" font-weight="700" fill="#2E3440">1. 你好世界</text>
+      <text x="164" y="77" class="code-text" font-size="10" fill="#2E3440">[Shift_L - raw]</text>
+
+      <text x="20" y="101" class="ui-text" font-size="11" fill="#D8DEE9">2. 你好   3. 你   4. 拟好</text>
+    </g>
+
+    <!-- Sub-Section 2: Latin Accents (;) -->
+    <g transform="translate(14, 142)">
+      <rect width="288" height="114" rx="6" fill="#242933" stroke="#434C5E" stroke-width="1" />
+      <text x="12" y="20" class="code-text" font-size="11" font-weight="600" fill="#B48EAD">Latin Diacritics Direct (;)</text>
+      
+      <!-- Row 1 -->
+      <rect x="12" y="30" width="126" height="32" rx="3" fill="#2E3440" />
+      <text x="20" y="51" class="code-text" font-size="12" fill="#ECEFF4">;n  <tspan fill="#8FBCBB" font-weight="700">→ ñ</tspan></text>
+
+      <rect x="150" y="30" width="126" height="32" rx="3" fill="#2E3440" />
+      <text x="158" y="51" class="code-text" font-size="12" fill="#ECEFF4">;a  <tspan fill="#8FBCBB" font-weight="700">→ á</tspan></text>
+
+      <!-- Row 2 -->
+      <rect x="12" y="70" width="126" height="32" rx="3" fill="#2E3440" />
+      <text x="20" y="91" class="code-text" font-size="12" fill="#ECEFF4">;?  <tspan fill="#8FBCBB" font-weight="700">→ ¿</tspan></text>
+
+      <rect x="150" y="70" width="126" height="32" rx="3" fill="#2E3440" />
+      <text x="158" y="91" class="code-text" font-size="12" fill="#ECEFF4">;;  <tspan fill="#8FBCBB" font-weight="700">→ ；</tspan></text>
+    </g>
+
+    <!-- Sub-Section 3: Paired Punctuation -->
+    <g transform="translate(14, 270)">
+      <rect width="288" height="114" rx="6" fill="#242933" stroke="#434C5E" stroke-width="1" />
+      <text x="12" y="20" class="code-text" font-size="11" font-weight="600" fill="#EBCB8B">Paired Punctuation &amp; Brackets</text>
+      
+      <rect x="12" y="30" width="264" height="32" rx="3" fill="#2E3440" />
+      <text x="20" y="51" class="code-text" font-size="12" fill="#ECEFF4">&apos; &apos;  <tspan fill="#88C0D0" font-weight="700">→ 「」</tspan>   |   &quot; &quot;  <tspan fill="#88C0D0" font-weight="700">→ “”</tspan></text>
+
+      <rect x="12" y="70" width="264" height="32" rx="3" fill="#2E3440" />
+      <text x="20" y="91" class="code-text" font-size="12" fill="#ECEFF4">[  <tspan fill="#88C0D0" font-weight="700">→ 1.【】 2.〔〕 3.《》</tspan></text>
+    </g>
+  </g>
+</svg>
+"""
+
+with open("assets/kino-preview.svg", "w", encoding="utf-8") as f:
+    f.write(svg_content)
+
+ET.fromstring(svg_content)
+print("SVG Valid XML confirmed")

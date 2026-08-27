@@ -1,0 +1,68 @@
+glyph,codes,lang,notes
+;,;;,self,from rime-spanish qwerty dict
+ß,;b,de,from rime-spanish qwerty dict
+ẞ,;B,de,from rime-spanish qwerty dict
+ö,;d | ;vo,de,from rime-spanish qwerty dict
+Ö,;D | ;vO,de,from rime-spanish qwerty dict
+ü,;s | ;vu,de,from rime-spanish qwerty dict
+Ü,;S | ;vU,de,from rime-spanish qwerty dict
+ä,;r | ;va,de,from rime-spanish qwerty dict
+Ä,;R | ;vA,de,from rime-spanish qwerty dict
+ñ,;n,es,from rime-spanish qwerty dict
+Ñ,;N,es,from rime-spanish qwerty dict
+á,;a,es,from rime-spanish qwerty dict
+Á,;A,es,from rime-spanish qwerty dict
+é,;e,es,from rime-spanish qwerty dict
+É,;E,es,from rime-spanish qwerty dict
+í,;i,es,from rime-spanish qwerty dict
+Í,;I,es,from rime-spanish qwerty dict
+ó,;o,es,from rime-spanish qwerty dict
+Ó,;O,es,from rime-spanish qwerty dict
+ú,;u,es,from rime-spanish qwerty dict
+Ú,;U,es,from rime-spanish qwerty dict
+ý,;y | ;y,es,from rime-spanish qwerty dict
+Ý,;Y | ;Y,es,from rime-spanish qwerty dict
+¿,;?,es,from rime-spanish qwerty dict
+ő,;k,hu,from rime-spanish qwerty dict
+Ő,;K,hu,from rime-spanish qwerty dict
+ű,;w | ;l,hu,from rime-spanish qwerty dict
+Ű,;W | ;L,hu,from rime-spanish qwerty dict
+â,;ja,pt/fr,from rime-spanish qwerty dict
+Â,;jA,pt/fr,from rime-spanish qwerty dict
+ã,;xa,pt,from rime-spanish qwerty dict
+Ã,;xA,pt,from rime-spanish qwerty dict
+à,;fa,fr,from rime-spanish qwerty dict
+À,;fA,fr,from rime-spanish qwerty dict
+ç,;c,fr/pt,from rime-spanish qwerty dict
+Ç,;C,fr/pt,from rime-spanish qwerty dict
+ê,;je,pt/fr,from rime-spanish qwerty dict
+Ê,;jE,pt/fr,from rime-spanish qwerty dict
+ô,;jo,pt/fr,from rime-spanish qwerty dict
+Ô,;jO,pt/fr,from rime-spanish qwerty dict
+õ,;xo,pt,from rime-spanish qwerty dict
+Õ,;xO,pt,from rime-spanish qwerty dict
+è,;fe,fr,from rime-spanish qwerty dict
+È,;fE,fr,from rime-spanish qwerty dict
+ù,;fu,fr,from rime-spanish qwerty dict
+Ù,;fU,fr,from rime-spanish qwerty dict
+î,;ji,fr,from rime-spanish qwerty dict
+Î,;jI,fr,from rime-spanish qwerty dict
+û,;ju,fr,from rime-spanish qwerty dict
+Û,;jU,fr,from rime-spanish qwerty dict
+ë,;ve,fr,from rime-spanish qwerty dict
+Ë,;vE,fr,from rime-spanish qwerty dict
+ï,;vi,fr,from rime-spanish qwerty dict
+Ï,;vI,fr,from rime-spanish qwerty dict
+ÿ,;vy,fr,from rime-spanish qwerty dict
+Ÿ,;vY,fr,from rime-spanish qwerty dict
+œ,;go,fr,from rime-spanish qwerty dict
+Œ,;gO,fr,from rime-spanish qwerty dict
+æ,;ga,fr,from rime-spanish qwerty dict
+Æ,;gA,fr,from rime-spanish qwerty dict
+ì,;fi,it,from rime-spanish qwerty dict
+Ì,;fI,it,from rime-spanish qwerty dict
+ò,;fo,it,from rime-spanish qwerty dict
+Ò,;fO,it,from rime-spanish qwerty dict
+ỳ,;fy,extra,from rime-spanish qwerty dict
+Ỳ,;fY,extra,from rime-spanish qwerty dict
+；,;;,zh,mint: ;; commits Chinese semicolon; analog of / for 、

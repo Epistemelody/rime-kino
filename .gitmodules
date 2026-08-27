@@ -1,0 +1,15 @@
+[submodule "proj-ref/oh-my-rime"]
+	path = proj-ref/oh-my-rime
+	url = https://github.com/Mintimate/oh-my-rime
+[submodule "proj-ref/Insomnia1437-rime"]
+	path = proj-ref/Insomnia1437-rime
+	url = https://github.com/Insomnia1437/rime.git
+[submodule "proj-ref/iamcheyan-rime"]
+	path = proj-ref/iamcheyan-rime
+	url = https://github.com/iamcheyan/rime.git
+[submodule "proj-ref/rime-pinyin-jap"]
+	path = proj-ref/rime-pinyin-jap
+	url = https://github.com/tumuyan/rime-pinyin-jap
+[submodule "proj-ref/rime-spanish"]
+	path = proj-ref/rime-spanish
+	url = https://github.com/gkovacs/rime-spanish.git
