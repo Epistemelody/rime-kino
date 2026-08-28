@@ -9,9 +9,7 @@
 
 > 支持中文拼音、日文假名与汉字分词（Mozc Viterbi）、拉丁重音、多生态数学符号（LaTeX / Typst / Lean / MMA）及成对标点的多通道 Rime 叠层方案。
 
-kino（读音：`/ˈkiːnoʊ/`，*Kinetic Input Normalized Overlay*）是构建于 [oh-my-rime (薄荷拼音)](https://github.com/Mintimate/oh-my-rime) 之上的多通道 Rime 叠层方案。
-
-方案基于离线 2-gram 倒排索引与 Lua 扩展，在保留全拼输入的基础上，提供多生态数学符号与宏检索（LaTeX / KaTeX / Typst / Lean 4 / Mathematica / Unicode）、日文假名与 Mozc 维特比分词、拉丁重音字符直出、成对标点映射以及长度门控的 Emoji 联想能力。各专用通道通过指定前缀引导符（如 `\`、`;`、`~`）触发。
+kino（读音：`/ˈkiːnoʊ/`，*Kinetic Input Normalized Overlay*）是构建于 [oh-my-rime (薄荷拼音)](https://github.com/Mintimate/oh-my-rime) 之上的多通道 Rime 叠层方案。基于离线 2-gram 倒排索引与 Lua 扩展，在全拼输入基础上提供多生态数学符号检索（LaTeX / KaTeX / Typst / Lean 4 / MMA / Unicode）、日文假名与 Mozc 维特比分词、拉丁重音直出、成对标点及门控 Emoji 支持，各通道通过前缀引导符（如 `\`、`;`、`~`）触发。
 
 <p align="center">
   <img src="assets/kino-preview.png" alt="kino preview" width="100%">
@@ -21,19 +19,14 @@ kino（读音：`/ˈkiːnoʊ/`，*Kinetic Input Normalized Overlay*）是构建�
 
 ## 交互速查 (Cheat Sheet)
 
-| 通道 / 模式 | 示例输入 | 输出 | 交互说明 |
-| :--- | :--- | :--- | :--- |
-| 拼音 | `nihao` / `beijing` | `你好` / `北京` | 禁用模糊音与错位代数；编码扩容至 256 字符；Space 上屏，`1`–`9`、`0` 选词 |
-| 中英切换 | 输入中按 `Shift_L` / `Shift_R` | `nihao` | Raw Commit：直接提交当前输入的 ASCII 字符，不污染文本 |
-| 顿号 / 数学 | 单按 `\` / `\alpha` / `\int` / `\->` | `、` / `α` / `∫` / `→` | 单按 `\` 输出顿号；4 级计分检索 LaTeX / Typst / Lean / MMA / Unicode 符号并标注来源 |
-| Typst | `\arrow.l` / `\prec.eq` | `←` / `⪯` | 点号 `.` 参与检索，不触发翻页 |
-| 拉丁重音 | `;n` / `;a` / `;?` / `;;` | `ñ` / `á` / `¿` / `；` | 大小写敏感（`;A` $\to$ `Á`）；双击 `;;` 输出全角分号；单按 `;` 挂起不上屏 |
-| 日文 | `~ka` / `~KA` / `~watashiha` / `~-` | `か` / `卡` / `私は` / `ー` | 小写平假名，大写片假名；罗马音 DFA + Mozc 维特比分词；`-` 转换长音 `ー` |
-| 独立假名 | `Ctrl+\`` 切换至「假名」 | `ka` $\to$ `か` | 无需 `~` 前缀，直接键入罗马音输出假名 |
-| 标点 / 括号 | 连续按 `'` / 连续按 `"` / 按 `[` | `「` 再 `」` / `“` 再 `”` / 选单 | 成对直角引号/双引号状态机；`[` 唤出直角与多重括号选单 |
-| Emoji | `xiao` / `pingguo` | `😄` / `🍎` | 基于 CLDR 46 标注；$\ge 3$ 字符门控（消除 1~2 字高频汉字的表情干扰） |
-| 实用工具 | `=128*1024` / `N20260827` / `Uw` | `131072` / 农历 / 五笔反查 | 支持计算器、公历转农历、五笔/拆字/Unicode 反查 |
-| 方案 / 开关 | `Ctrl+\`` | `kino` / `假名` | 呼出方案选单；支持独立切换 8 组 Feature Flags 并自动持久化 |
+| 通道 | 示例 | 说明 |
+| :--- | :--- | :--- |
+| 拼音 | `nihao` → `你好` | 禁用模糊音与错位代数，Space 上屏 |
+| 数学 (`\`) | `\alpha` → `α` / `\int` → `∫` | 检索 LaTeX / Typst / Lean / MMA 符号 |
+| 拉丁重音 (`;`) | `;n` → `ñ` / `;;` → `；` | 大小写敏感（`;A` → `Á`）；双击 `;;` 输出全角分号 |
+| 日文 (`~`) | `~ka` → `か` / `~watashiha` → `私は` | 罗马音 DFA + Mozc 维特比分词；支持独立假名方案 |
+| 成对标点 | 连按 `''` → `「」` / `""` → `“”` | 状态机成对输出直角/双引号与多重括号选单 |
+| 门控 Emoji | `xiao` → `😄` / `pingguo` → `🍎` | CLDR 46 标注；$\ge 3$ 字符门控消除高频短词干扰 |
 
 ---
 

@@ -9,9 +9,7 @@
 
 > A multi-channel Rime overlay configuration integrating Chinese Pinyin, Japanese (Kana & Mozc Viterbi Kanji), Latin Diacritics, Math & Commands (LaTeX / Typst / Lean / MMA), and Paired Punctuation.
 
-kino (pronounced `/ˈkiːnoʊ/`, *Kinetic Input Normalized Overlay*) is a multi-channel Rime overlay configuration built on top of [oh-my-rime (Mint Pinyin)](https://github.com/Mintimate/oh-my-rime).
-
-Powered by an offline 2-gram inverted index and Lua extensions, kino provides specialized input channels for mathematical symbols and commands (LaTeX / KaTeX / Typst / Lean 4 / Mathematica / Unicode), Japanese Kana and Mozc Viterbi sentence segmentation, Latin diacritics, paired punctuation mapping, and length-gated emoji suggestions while maintaining standard Pinyin input. Channels are triggered via designated prefixes (e.g. `\`, `;`, `~`).
+kino (pronounced `/ˈkiːnoʊ/`, *Kinetic Input Normalized Overlay*) is a multi-channel Rime overlay configuration built on top of [oh-my-rime (Mint Pinyin)](https://github.com/Mintimate/oh-my-rime). Powered by an offline 2-gram inverted index and Lua extensions, it provides specialized input channels for mathematical symbols (LaTeX / KaTeX / Typst / Lean 4 / MMA / Unicode), Japanese Kana and Mozc Viterbi segmentation, Latin diacritics, paired punctuation, and length-gated emoji suggestions alongside standard Pinyin, triggered via designated prefixes (e.g. `\`, `;`, `~`).
 
 <p align="center">
   <img src="assets/kino-preview.png" alt="kino preview" width="100%">
@@ -21,19 +19,14 @@ Powered by an offline 2-gram inverted index and Lua extensions, kino provides sp
 
 ## Cheat Sheet
 
-| Channel / Mode | Input | Output | Notes |
-| :--- | :--- | :--- | :--- |
-| Pinyin | `nihao` / `beijing` | `你好` / `北京` | Fuzzy pinyin disabled; buffer expanded to 256 chars; Space to commit; `1`–`9`, `0` to select |
-| ASCII Toggle | Type, then press `Shift_L` / `Shift_R` | `nihao` | Raw Commit: Commits raw ASCII directly without polluting text |
-| Dunhao / Math | Single `\` / `\alpha` / `\int` / `\->` | `、` / `α` / `∫` / `→` | Single `\` commits Dunhao; 4-tier score search for LaTeX / Typst / Lean / MMA / Unicode |
-| Typst | `\arrow.l` / `\prec.eq` | `←` / `⪯` | Dot parsed as part of token, not pagination |
-| Latin Diacritics | `;n` / `;a` / `;?` / `;;` | `ñ` / `á` / `¿` / `；` | Case-sensitive (`;A` $\to$ `Á`); double `;;` outputs fullwidth `；`; single `;` pending |
-| Japanese | `~ka` / `~KA` / `~watashiha` / `~-` | `か` / `カ` / `私は` / `ー` | Lowercase hira, uppercase kata; Mozc Viterbi segmentation; `-` commits `ー` |
-| Standalone Kana | `Ctrl+\`` to switch to "Kana" | `ka` $\to$ `か` | Direct romaji-to-kana without `~` prefix |
-| Quotes / Brackets | Double-tap `'` / `"` / Press `[` | `「」` / `“”` / Menu | Paired quotes; `[` opens bracket menu |
-| Emoji | `xiao` / `pingguo` | `😄` / `🍎` | CLDR 46 annotations; $\ge 3$ character gating to exclude 1–2 character words |
-| Utility Tools | `=128*1024` / `N20260827` / `Uw` | `131072` / Lunar / Wubi | Calculator, lunar calendar converter, reverse lookup tools |
-| Switcher / Flags | `Ctrl+\`` | `kino` / `Kana` | Toggle active scheme and 8 Feature Flags with automatic persistence |
+| Channel | Example | Notes |
+| :--- | :--- | :--- |
+| Pinyin | `nihao` → `你好` | No fuzzy pinyin; Space to commit |
+| Math (`\`) | `\alpha` → `α` / `\int` → `∫` | LaTeX / Typst / Lean / MMA symbol search |
+| Latin Diacritics (`;`) | `;n` → `ñ` / `;;` → `；` | Case-sensitive; double `;;` commits fullwidth `；` |
+| Japanese (`~`) | `~ka` → `か` / `~watashiha` → `私は` | Romaji DFA + Mozc Viterbi; supports standalone Kana |
+| Paired Punctuation | Double `''` → `「」` / `""` → `“”` | Paired quotes automaton and bracket menu |
+| Gated Emoji | `xiao` → `😄` / `pingguo` → `🍎` | CLDR 46 annotations; $\ge 3$ char length gating |
 
 ---
 
