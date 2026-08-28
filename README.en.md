@@ -15,8 +15,6 @@ kino (pronounced `/ˈkiːnoʊ/`, *Kinetic Input Normalized Overlay*) is a multi-
   <img src="assets/kino-preview.png" alt="kino preview" width="100%">
 </p>
 
----
-
 ## Cheat Sheet
 
 | Channel | Example | Notes |
@@ -27,8 +25,6 @@ kino (pronounced `/ˈkiːnoʊ/`, *Kinetic Input Normalized Overlay*) is a multi-
 | Japanese (`~`) | `~ka` → `か` / `~watashiha` → `私は` | Romaji DFA + Mozc Viterbi; supports standalone Kana |
 | Paired Punctuation | Double `''` → `「」` / `""` → `“”` | Paired quotes automaton and bracket menu |
 | Gated Emoji | `xiao` → `😄` / `pingguo` → `🍎` | CLDR 46 annotations; $\ge 3$ char length gating |
-
----
 
 ## Quickstart
 
@@ -113,13 +109,9 @@ After deployment, choose "Deploy" from the Squirrel menu bar icon (user director
 
 > Advanced Options: The deployment script supports environment variables including `RIME_DIR` (custom target path), `FORCE_JP_DICT=1` (force copy Mozc dictionaries), and `SKIP_JP_DICT=1` (skip dictionary copy), documented in [Documentation Architecture](docs/README.en.md).
 
----
-
 ## Feature Flags
 
 kino includes 8 orthogonal feature flags enabled by default (`kino_latex`, `kino_katex`, `kino_typst`, `kino_lean`, `kino_mma`, `kino_latin`, `kino_japanese`, and `emoji_suggestion`). They can be toggled via the scheme menu (`Ctrl+\``) or status bar with automatic state persistence. Detailed descriptions and key bindings are specified in [kino Engine Manual](docs/kino.en.md).
-
----
 
 ## FAQ & Troubleshooting
 
@@ -159,8 +151,6 @@ kino includes 8 orthogonal feature flags enabled by default (`kino_latex`, `kino
 - Explanation: Source data is stored in `docs/drafts/*.csv`. Edit the CSV file, run `python3 scripts/gen_overlay.py` to generate overlays, and run `./scripts/deploy.sh` to deploy.
 </details>
 
----
-
 ## Structure
 
 ```
@@ -173,8 +163,6 @@ rime-kino/
 └── tests/           # Automated regression test suite (Pytest)
 ```
 
----
-
 ## Development & Testing
 
 ```bash
@@ -186,8 +174,6 @@ pytest tests/ -q
 # 72 passed in ~5s
 ```
 
----
-
 ## Documentation
 
 - [Web documentation](https://epistemelody.github.io/rime-kino/)
@@ -197,15 +183,11 @@ pytest tests/ -q
 - [Japanese Viterbi Engine & Matrix Backend Specification](docs/jp-viterbi.md) (`docs/jp-viterbi.md`)
 - [Math-symbol table and command pipeline](docs/math-symbols.md) (`docs/math-symbols.md`)
 
----
-
 ## Roadmap
 
 - [ ] Extended multilingual lexicons and European accented vocabulary
 - [ ] Adaptive Viterbi local frequency caching for Japanese sentence segmentation
 - [ ] Lightweight cross-platform configuration and toggle dashboard (Web / TUI)
-
----
 
 ## Relevant Projects
 
@@ -219,8 +201,6 @@ pytest tests/ -q
 - [shenlebantongying/rime_latex](https://github.com/shenlebantongying/rime_latex): LaTeX math-symbol schema reference.
 - `proj-arc/cloverplus`: Local customized archive based on Clover Pinyin and rime_latex (historical reference, not runtime code).
 - [hchunhui/librime-lua](https://github.com/hchunhui/librime-lua): Rime Lua runtime.
-
----
 
 ## License & Citation
 

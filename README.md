@@ -15,8 +15,6 @@ kino（读音：`/ˈkiːnoʊ/`，*Kinetic Input Normalized Overlay*）是构建�
   <img src="assets/kino-preview.png" alt="kino preview" width="100%">
 </p>
 
----
-
 ## 交互速查 (Cheat Sheet)
 
 | 通道 | 示例 | 说明 |
@@ -27,8 +25,6 @@ kino（读音：`/ˈkiːnoʊ/`，*Kinetic Input Normalized Overlay*）是构建�
 | 日文 (`~`) | `~ka` → `か` / `~watashiha` → `私は` | 罗马音 DFA + Mozc 维特比分词；支持独立假名方案 |
 | 成对标点 | 连按 `''` → `「」` / `""` → `“”` | 状态机成对输出直角/双引号与多重括号选单 |
 | 门控 Emoji | `xiao` → `😄` / `pingguo` → `🍎` | CLDR 46 标注；$\ge 3$ 字符门控消除高频短词干扰 |
-
----
 
 ## 快速上手 (Quickstart)
 
@@ -113,13 +109,9 @@ python3 scripts/init_submodules.py --all    # 拉取全部子模块（含研究�
 
 > 进阶提示：部署脚本支持通过 `RIME_DIR`（自定义目标目录）、`FORCE_JP_DICT=1`（强制覆盖日文词库）与 `SKIP_JP_DICT=1`（跳过日文大表）等环境变量调整部署行为，详见 [文档体系与 SSOT 治理规范](docs/README.md)。
 
----
-
 ## 运行期功能开关 (Feature Flags)
 
 方案预设开启 8 组正交功能开关（`kino_latex`、`kino_katex`、`kino_typst`、`kino_lean`、`kino_mma`、`kino_latin`、`kino_japanese` 及 `emoji_suggestion`），可在方案选单（`Ctrl+\``）或状态栏中即时切换，状态自动持久化。各开关的详细定义与快捷键绑定见 [kino 按键交互契约与引擎规范手册](docs/kino.md)。
-
----
 
 ## 常见问题与排错 (FAQ & Troubleshooting)
 
@@ -159,8 +151,6 @@ python3 scripts/init_submodules.py --all    # 拉取全部子模块（含研究�
 - 解答：源数据位于 `docs/drafts/*.csv`。修改 CSV 文件后，运行 `python3 scripts/gen_overlay.py` 生成叠层，再运行 `./scripts/deploy.sh` 部署。
 </details>
 
----
-
 ## 仓库结构 (Structure)
 
 ```
@@ -173,8 +163,6 @@ rime-kino/
 └── tests/           # 自动化回归测试套件 (Pytest)
 ```
 
----
-
 ## 开发与测试 (Development & Testing)
 
 ```bash
@@ -186,8 +174,6 @@ pytest tests/ -q
 # 72 passed in ~5s
 ```
 
----
-
 ## 完整文档导航 (Documentation)
 
 - [网页版完整文档](https://epistemelody.github.io/rime-kino/)
@@ -197,15 +183,11 @@ pytest tests/ -q
 - [日文 Viterbi 引擎与连接矩阵底层契约](docs/jp-viterbi.md) (`docs/jp-viterbi.md`)
 - [数学符号宽表与命令管线规范](docs/math-symbols.md) (`docs/math-symbols.md`)
 
----
-
 ## 路线图 (Roadmap)
 
 - [ ] 常用多语种短语与欧洲语言变音词汇扩展
 - [ ] 日文长句输入自适应 Viterbi 本地用户频次缓存
 - [ ] 轻量跨平台配置与开关面板 (Web / TUI)
-
----
 
 ## 关联项目与致谢 (Relevant Projects)
 
@@ -219,8 +201,6 @@ pytest tests/ -q
 - [shenlebantongying/rime_latex](https://github.com/shenlebantongying/rime_latex)：LaTeX 数学符号方案参考。
 - `proj-arc/cloverplus`：基于四叶草拼音与 rime_latex 的本地定制归档（历史参考，非运行时代码）。
 - [hchunhui/librime-lua](https://github.com/hchunhui/librime-lua)：Rime Lua 运行时引擎。
-
----
 
 ## 许可协议 (License) & 引用 (Citation)
 
