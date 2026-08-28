@@ -5,11 +5,13 @@
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg?style=flat-square)](https://www.gnu.org/licenses/gpl-3.0)
 [![Platform: Linux, Windows & macOS](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows%20%7C%20macOS-informational.svg?style=flat-square)](https://rime.im/download/)
 [![Engine: Rime & librime-lua](https://img.shields.io/badge/Engine-Rime%20%2B%20librime--lua-orange.svg?style=flat-square)](https://rime.im/)
-[![Tests: 68 Passed](https://img.shields.io/badge/Tests-68%20Passed-brightgreen.svg?style=flat-square)](tests/)
+[![Tests: 72 Passed](https://img.shields.io/badge/Tests-72%20Passed-brightgreen.svg?style=flat-square)](tests/)
 
-> A high-performance, multi-channel Rime overlay framework seamlessly integrating **Chinese Pinyin, Japanese (Kana & Viterbi Kanji), Latin Diacritics, Multi-Ecosystem Math & Commands (LaTeX / Typst / Lean / MMA), and Paired Punctuation**.
+> A multi-channel Rime overlay configuration integrating Chinese Pinyin, Japanese (Kana & Mozc Viterbi Kanji), Latin Diacritics, Math & Commands (LaTeX / Typst / Lean / MMA), and Paired Punctuation.
 
-**kino** (pronounced `/ˈkiːnoʊ/`, *Kinetic Input Normalized Overlay*) is a modern, high-performance multi-channel Rime overlay framework built on top of [oh-my-rime (Mint Pinyin)](https://github.com/Mintimate/oh-my-rime). While preserving native sub-millisecond pinyin responsiveness, kino delivers out-of-the-box support for **Chinese-English mixing, Japanese Kana & Viterbi Kanji segmentation, direct Latin diacritics, multi-dialect math & command search (LaTeX / KaTeX / Typst / Lean 4 / Mathematica / Unicode), paired punctuation automata, and gated emoji suggestions** via an offline 2-gram inverted index and lock-free Lua runtime.
+kino (pronounced `/ˈkiːnoʊ/`, *Kinetic Input Normalized Overlay*) is a multi-channel Rime overlay configuration built on top of [oh-my-rime (Mint Pinyin)](https://github.com/Mintimate/oh-my-rime).
+
+Powered by an offline 2-gram inverted index and Lua extensions, kino provides specialized input channels for mathematical symbols and commands (LaTeX / KaTeX / Typst / Lean 4 / Mathematica / Unicode), Japanese Kana and Mozc Viterbi sentence segmentation, Latin diacritics, paired punctuation mapping, and length-gated emoji suggestions while maintaining standard Pinyin input. Channels are triggered via designated prefixes (e.g. `\`, `;`, `~`).
 
 <p align="center">
   <img src="assets/kino-preview.png" alt="kino preview" width="100%">
@@ -17,41 +19,152 @@
 
 ---
 
-## Features
+## Cheat Sheet
 
-- **Strict Phonetic Hot-Path**: Disables all fuzzy pinyin and transposition algebra (`negn` strictly rejects `能`); input buffer expanded to 256 characters.
-- **Multi-Dialect Math & Commands (`\`)**: Unified coverage for LaTeX / KaTeX / Typst / Lean 4 / Mathematica / Unicode with 4-tier score ranking (Exact / Prefix / Dotted / 2-gram Infix); single `\` commits Dunhao `、`.
-- **Direct Latin Diacritics (`;`)**: `;n` $\to$ `ñ`, `;a` $\to$ `á`, `;?` $\to$ `¿`; double `;` outputs fullwidth `；`; single `;` remains pending without polluting text.
-- **Viterbi Japanese Engine (`~`)**: Deterministic Romaji DFA state machine (Pending-N, sokuon, chouonpu, case script priority) + Mozc transition matrix for global optimal Viterbi segmentation; includes standalone "Kana" scheme.
-- **Paired Punctuation & Smart Brackets**: `'` sequentially emits `「` and `」`; `"` sequentially emits `“` and `”`; `[` opens corner/academic bracket menus.
-- **Gated Emoji Suggestions**: Integrates CLDR 46 with a $\ge 3$ character length gating policy, eliminating emoji clutter on high-frequency 1–2 character Chinese words.
-- **Orthogonal Feature Flags**: 8 independent runtime feature toggles with persistent state storage.
-- **Unified Nord Dark Aesthetic**: Linux (Fcitx5), Windows (Weasel), and macOS (Squirrel) share the Nord Polar Night dark theme with a clean 10-candidate vertical layout and zero inline preedit pollution.
+| Channel / Mode | Input | Output | Notes |
+| :--- | :--- | :--- | :--- |
+| Pinyin | `nihao` / `beijing` | `你好` / `北京` | Fuzzy pinyin disabled; buffer expanded to 256 chars; Space to commit; `1`–`9`, `0` to select |
+| ASCII Toggle | Type, then press `Shift_L` / `Shift_R` | `nihao` | Raw Commit: Commits raw ASCII directly without polluting text |
+| Dunhao / Math | Single `\` / `\alpha` / `\int` / `\->` | `、` / `α` / `∫` / `→` | Single `\` commits Dunhao; 4-tier score search for LaTeX / Typst / Lean / MMA / Unicode |
+| Typst | `\arrow.l` / `\prec.eq` | `←` / `⪯` | Dot parsed as part of token, not pagination |
+| Latin Diacritics | `;n` / `;a` / `;?` / `;;` | `ñ` / `á` / `¿` / `；` | Case-sensitive (`;A` $\to$ `Á`); double `;;` outputs fullwidth `；`; single `;` pending |
+| Japanese | `~ka` / `~KA` / `~watashiha` / `~-` | `か` / `カ` / `私は` / `ー` | Lowercase hira, uppercase kata; Mozc Viterbi segmentation; `-` commits `ー` |
+| Standalone Kana | `Ctrl+\`` to switch to "Kana" | `ka` $\to$ `か` | Direct romaji-to-kana without `~` prefix |
+| Quotes / Brackets | Double-tap `'` / `"` / Press `[` | `「」` / `“”` / Menu | Paired quotes; `[` opens bracket menu |
+| Emoji | `xiao` / `pingguo` | `😄` / `🍎` | CLDR 46 annotations; $\ge 3$ character gating to exclude 1–2 character words |
+| Utility Tools | `=128*1024` / `N20260827` / `Uw` | `131072` / Lunar / Wubi | Calculator, lunar calendar converter, reverse lookup tools |
+| Switcher / Flags | `Ctrl+\`` | `kino` / `Kana` | Toggle active scheme and 8 Feature Flags with automatic persistence |
 
 ---
 
-## Prerequisites
+## Quickstart
 
-Before deploying the kino overlay, ensure your operating system has a compatible Rime frontend and Lua runtime engine installed:
+<details>
+<summary>Prerequisites</summary>
+
+Before deploying the kino overlay, ensure your system has the base runtime dependencies installed:
+
+- Python 3.9+ and Git
+- Rime input frontend with librime-lua runtime extension support:
 
 ### 1. Linux (Fcitx5 Framework)
-- **Input Framework**: Requires `fcitx5` and `fcitx5-rime`.
-- **Lua Runtime Support**: kino requires `librime-lua` to execute the 2-gram inverted index search and Viterbi algorithm. Ensure this package is installed.
-- **Environment Variables**: Add the following configuration to `~/.config/environment.d/fcitx5.conf` (or `~/.pam_environment` / `~/.xprofile`) and log out/in:
+- Packages (select for your distribution):
+  ```bash
+  # Fedora / RHEL
+  sudo dnf install -y fcitx5 fcitx5-rime librime-lua fcitx5-configtool python3
+
+  # Arch Linux / Manjaro
+  sudo pacman -S --needed fcitx5 fcitx5-rime librime-lua fcitx5-configtool python
+
+  # Debian / Ubuntu (>= 24.04)
+  sudo apt update && sudo apt install -y fcitx5 fcitx5-rime librime-plugin-lua fcitx5-config-qt python3
+
+  # openSUSE (Tumbleweed / Leap)
+  sudo zypper install -y fcitx5 fcitx5-rime librime-lua fcitx5-config-tool python3
+  ```
+- Environment Variables: Add the following configuration to `~/.config/environment.d/fcitx5.conf` (Wayland/systemd) or `~/.xprofile` (X11) and re-login:
   ```ini
   GTK_IM_MODULE=fcitx
   QT_IM_MODULE=fcitx
   XMODIFIERS=@im=fcitx
   ```
-- **Add Input Method**: Launch `fcitx5-configtool` and add **Rime (中州韵)** to your active input methods.
+- Add Input Method: Launch `fcitx5-configtool` and add Rime to your active input methods.
 
-### 2. Windows (Weasel / 小狼毫)
-- Download and install the latest **Weasel installer** (version 0.16.0+ recommended, comes pre-bundled with librime-lua) from the [Rime Official Download Page](https://rime.im/download/) or [Weasel GitHub Releases](https://github.com/rime/weasel/releases).
+### 2. Windows (Weasel)
+- Download and install the Weasel installer (version 0.16.0+ recommended, comes pre-bundled with librime-lua) from the [Rime Official Download Page](https://rime.im/download/) or [Weasel GitHub Releases](https://github.com/rime/weasel/releases).
 - Upon completion, the Weasel service icon will be visible in the system tray.
 
-### 3. macOS (Squirrel / 鼠须管)
-- Install via Homebrew: `brew install --cask squirrel`, or download the latest package from the [Rime Official Download Page](https://rime.im/download/) / [Squirrel Releases](https://github.com/rime/squirrel/releases) (a recent build with bundled librime-lua is recommended).
+### 3. macOS (Squirrel)
+- Install via Homebrew: `brew install --cask squirrel`, or download the package from the [Rime Official Download Page](https://rime.im/download/) / [Squirrel Releases](https://github.com/rime/squirrel/releases) (comes pre-bundled with librime-lua).
 - After installation, the Squirrel icon appears in the menu bar.
+
+</details>
+
+### 1. Clone Repository & Submodules
+
+Deployment requires only two runtime submodules: `oh-my-rime` (pinyin baseline) and `Insomnia1437-rime` (Japanese Mozc).
+
+```bash
+git clone --recurse-submodules --shallow-submodules https://github.com/Epistemelody/rime-kino.git
+cd rime-kino
+```
+
+> Note: `--shallow-submodules` fetches only the pinned commit. Other research references in `.gitmodules` use `update = none` and are not fetched by `--recurse-submodules`.
+
+For existing clones or missing submodules:
+
+```bash
+python3 scripts/init_submodules.py          # runtime only, depth 1
+python3 scripts/init_submodules.py --all    # fetch all submodules including research refs
+```
+
+### 2. Deploy to System
+
+#### Linux (Fcitx5)
+```bash
+./scripts/deploy.sh
+```
+The script compiles tables, synchronizes Mint Pinyin and kino overlay, mounts Mozc dictionary data, installs the Nord theme, and reloads Fcitx5-Rime.
+
+#### Windows (Weasel)
+```powershell
+.\scripts\deploy.ps1
+```
+After deployment, right-click the Weasel tray icon and click "Re-deploy".
+
+#### macOS (Squirrel)
+```bash
+./scripts/deploy.sh
+```
+After deployment, choose "Deploy" from the Squirrel menu bar icon (user directory: `~/Library/Rime`).
+
+> Advanced Options: The deployment script supports environment variables including `RIME_DIR` (custom target path), `FORCE_JP_DICT=1` (force copy Mozc dictionaries), and `SKIP_JP_DICT=1` (skip dictionary copy), documented in [Documentation Architecture](docs/README.en.md).
+
+---
+
+## Feature Flags
+
+kino includes 8 orthogonal feature flags enabled by default (`kino_latex`, `kino_katex`, `kino_typst`, `kino_lean`, `kino_mma`, `kino_latin`, `kino_japanese`, and `emoji_suggestion`). They can be toggled via the scheme menu (`Ctrl+\``) or status bar with automatic state persistence. Detailed descriptions and key bindings are specified in [kino Engine Manual](docs/kino.en.md).
+
+---
+
+## FAQ & Troubleshooting
+
+<details>
+<summary>Q1: Why are there no candidates for <code>\alpha</code> or <code>~ka</code>, or why does a Lua error appear?</summary>
+
+- Cause: The host Rime environment is missing the `librime-lua` runtime extension.
+- Solution:
+  - Linux: Verify that `librime-lua` (or `librime-plugin-lua` on Debian/Ubuntu) is installed.
+  - Windows: Ensure Weasel is version $\ge 0.16.0$.
+  - macOS: Update Squirrel to the latest version and click "Deploy".
+</details>
+
+<details>
+<summary>Q2: What is the exact behavior of Shift key toggling?</summary>
+
+- Explanation:
+  - When input buffer has characters: Pressing left/right `Shift` triggers Raw Commit (commits the raw ASCII text directly, e.g. `nihao` $\to$ `nihao`).
+  - When input buffer is empty: Pressing `Shift` toggles the system Chinese/English input mode.
+</details>
+
+<details>
+<summary>Q3: Why doesn't the <code>/</code> key output Dunhao <code>、</code>?</summary>
+
+- Explanation: kino maps the ideographic comma to the `\` key (single `\` commits `、`). The `/` key is used for slash `/` and division sign `÷`.
+</details>
+
+<details>
+<summary>Q4: Why is there a slight delay when typing <code>~</code> for the first time?</summary>
+
+- Explanation: kino uses on-demand loading. The Mozc dictionary (~150MB) and transition matrix are loaded into memory only when `~` is first typed.
+</details>
+
+<details>
+<summary>Q5: How can I customize math symbols or modify tables?</summary>
+
+- Explanation: Source data is stored in `docs/drafts/*.csv`. Edit the CSV file, run `python3 scripts/gen_overlay.py` to generate overlays, and run `./scripts/deploy.sh` to deploy.
+</details>
 
 ---
 
@@ -59,112 +172,25 @@ Before deploying the kino overlay, ensure your operating system has a compatible
 
 ```
 rime-kino/
-├── assets/                       # Project visual previews & media assets (kino-preview.png)
-├── overlay/                      # Overlay configuration & Lua extensions (custom.yaml, lua/)
-├── platform/fcitx5/              # Linux Fcitx5 configs & Nord themes
-├── docs/                         # Project technical documentation (kino.en.md, drafts/README.en.md)
-├── scripts/                      # Table compiler (gen_overlay.py) & deploy engine (deploy.py)
-├── proj-ref/                     # Runtime submodules + optional research refs
-└── tests/                        # Automated regression test suite
+├── docs/            # Technical specifications, contracts & source CSV tables (docs/drafts/)
+├── overlay/         # Rime overlay configuration, custom patches & Lua runtime (overlay/lua/)
+├── platform/        # Platform configurations & Nord themes (Fcitx5 / Weasel / Squirrel)
+├── proj-ref/        # Runtime submodules (oh-my-rime, Insomnia1437-rime) & research refs
+├── scripts/         # Offline table compiler (gen_overlay.py) & deploy engine (deploy.py)
+└── tests/           # Automated regression test suite (Pytest)
 ```
 
 ---
 
-## Quickstart
-
-### 1. Clone Repository & Submodules
-
-Deploy needs two **runtime** submodules: `oh-my-rime` (pinyin baseline) and `Insomnia1437-rime` (Japanese Mozc). The other `proj-ref/*` trees are research references and are skipped by default.
+## Development & Testing
 
 ```bash
-git clone --recurse-submodules --shallow-submodules https://github.com/Epistemelody/rime-kino.git
-cd rime-kino
-```
+# 1. Compile all tables and generate 2-gram inverted index
+python3 scripts/gen_overlay.py
 
-`--shallow-submodules` fetches only the pinned commit (Mint Pinyin's full history is ~400MB). Research refs in `.gitmodules` use `update = none`, so `--recurse-submodules` does not fetch `rime-ice` / `iamcheyan-rime` / `rime-pinyin-jap` / `rime-spanish`.
-
-Existing clone, or clone without submodules:
-
-```bash
-python3 scripts/init_submodules.py          # runtime only, depth 1
-python3 scripts/init_submodules.py --all    # also research refs
-```
-
-### 2. Deploy to System
-
-#### Linux (Major Distributions)
-
-Install the required packages for your distribution (**librime-lua** is strictly required):
-
-```bash
-# Fedora / RHEL
-sudo dnf install -y fcitx5 fcitx5-rime librime-lua fcitx5-configtool python3
-
-# Arch Linux / Manjaro
-sudo pacman -S --needed fcitx5 fcitx5-rime librime-lua fcitx5-configtool python
-
-# Debian / Ubuntu (>= 24.04)
-sudo apt update && sudo apt install -y fcitx5 fcitx5-rime librime-plugin-lua fcitx5-config-qt python3
-
-# openSUSE (Tumbleweed / Leap)
-sudo zypper install -y fcitx5 fcitx5-rime librime-lua fcitx5-config-tool python3
-```
-
-Execute the automated compile and deployment script:
-
-```bash
-./scripts/deploy.sh
-```
-
-#### Windows (Weasel / 小狼毫)
-
-```powershell
-# Run in PowerShell, then right-click Weasel tray icon and click "Re-deploy"
-.\scripts\deploy.ps1
-```
-
-#### macOS (Squirrel / 鼠须管)
-
-```bash
-./scripts/deploy.sh
-```
-
-Then choose **Deploy** from the Squirrel menu-bar icon. The user directory is `~/Library/Rime`.
-
----
-
-## Cheat Sheet
-
-| Channel | Keystroke Example | Output | Interaction Notes |
-| :--- | :--- | :--- | :--- |
-| **Pinyin Hot-Path** | `nihao` | `你好` | Composition in window header; Space to commit |
-| **ASCII Toggle** | Type, then press `Shift_L` | `nihao` | **Raw Commit**: Commits raw ASCII directly without pollution |
-| **Dunhao & Commands** | Single `\` / `\alpha` / `\->` | `、` / `α` / `→` | Annotation: `[latex katex typst lean mma]`; `/` remains slash |
-| **Typst Period** | `\arrow.l` | `←` | Dot parsed as part of token, not pagination |
-| **Latin Diacritics** | `;n` / `;a` / `;;` | `ñ` / `á` / `；` | Single `;` remains pending without committing |
-| **Japanese Kana/Kanji** | `~ka` / `~watashiha` | `か` / `私は` | Romaji DFA + Mozc Viterbi bigram segmentation |
-| **Paired Quotes/Brackets** | Double-tap `'` / Press `[` | `「」` / Menu | Paired corner quotes; `[` opens bracket menu |
-| **Scheme Switcher** | `Ctrl+\`` | `kino` / `Kana` | Toggle primary overlay or standalone Kana scheme |
-
----
-
-## Roadmap
-
-- [ ] **Multilingual Lexicons & Phrases**:
-  - Integrate high-frequency modern **English phrases and domain terminology** with intelligent prefix completion.
-  - Support direct output for common vocabulary, accented phrases, and technical terms in **French, German, Spanish**, and other European languages.
-- [ ] **Adaptive Viterbi & Learning Cache**:
-  - Introduce local frequency priority caching for Japanese long-sentence segmentation to minimize candidate re-selection overhead.
-- [ ] **Interactive Configuration Dashboard**:
-  - Provide a lightweight Web/TUI dashboard for one-click toggling and hot-reloading of the 8 Feature Flags and UI themes.
-
----
-
-## Testing
-
-```bash
-.venv/bin/pytest tests/ -q
-# 65 passed in ~3s
+# 2. Run automated regression test suite
+pytest tests/ -q
+# 72 passed in ~5s
 ```
 
 ---
@@ -180,14 +206,22 @@ Then choose **Deploy** from the Squirrel menu-bar icon. The user directory is `~
 
 ---
 
+## Roadmap
+
+- [ ] Extended multilingual lexicons and European accented vocabulary
+- [ ] Adaptive Viterbi local frequency caching for Japanese sentence segmentation
+- [ ] Lightweight cross-platform configuration and toggle dashboard (Web / TUI)
+
+---
+
 ## Relevant Projects
 
 - [oh-my-rime (Mint Pinyin)](https://github.com/Mintimate/oh-my-rime): Baseline Chinese pinyin dictionary and schema (`proj-ref/oh-my-rime`).
 - [Insomnia1437/rime (Kagiroi)](https://github.com/Insomnia1437/rime): Mozc Japanese dictionaries and Viterbi matrices (`proj-ref/Insomnia1437-rime`).
-- [iamcheyan/rime](https://github.com/iamcheyan/rime): Double-pinyin and schema layout reference (`proj-ref/iamcheyan-rime`, research-only, skipped by default clone).
-- [tumuyan/rime-pinyin-jap](https://github.com/tumuyan/rime-pinyin-jap): Pinyin-Japanese schema reference (`proj-ref/rime-pinyin-jap`, research-only, skipped by default clone).
-- [gkovacs/rime-spanish](https://github.com/gkovacs/rime-spanish): Latin diacritic `;` layout reference (`proj-ref/rime-spanish`, research-only, skipped by default clone).
-- [iDvel/rime-ice](https://github.com/iDvel/rime-ice): Rime Ice reference (`proj-ref/rime-ice`, research-only, skipped by default clone).
+- [iamcheyan/rime](https://github.com/iamcheyan/rime): Double-pinyin and schema layout reference (`proj-ref/iamcheyan-rime`).
+- [tumuyan/rime-pinyin-jap](https://github.com/tumuyan/rime-pinyin-jap): Pinyin-Japanese schema reference (`proj-ref/rime-pinyin-jap`).
+- [gkovacs/rime-spanish](https://github.com/gkovacs/rime-spanish): Latin diacritic `;` layout reference (`proj-ref/rime-spanish`).
+- [iDvel/rime-ice](https://github.com/iDvel/rime-ice): Rime Ice reference (`proj-ref/rime-ice`).
 - [fkxxyz/rime-cloverpinyin](https://github.com/fkxxyz/rime-cloverpinyin): Pinyin habits and paired-punctuation reference.
 - [shenlebantongying/rime_latex](https://github.com/shenlebantongying/rime_latex): LaTeX math-symbol schema reference.
 - `proj-arc/cloverplus`: Local customized archive based on Clover Pinyin and rime_latex (historical reference, not runtime code).
@@ -197,7 +231,7 @@ Then choose **Deploy** from the Squirrel menu-bar icon. The user directory is `~
 
 ## License & Citation
 
-This project is licensed under the **[GPL-3.0](https://www.gnu.org/licenses/gpl-3.0)** License.
+This project is licensed under the [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0) License.
 
 ```bibtex
 @software{epistemelody2026kino,
